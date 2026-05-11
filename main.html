@@ -154,7 +154,9 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .main{display:flex;flex:1;overflow:hidden}
 
 /* CENTER: tile grid */
-.tile-area{flex:1;overflow-y:auto;padding:20px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+.tile-area{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0}
+.portfolio-section{flex:0 0 auto;min-height:0;max-height:50%;overflow-y:auto;padding:16px 20px 12px;border-bottom:1px solid var(--bd);scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+.suggestions-section{flex:1;min-height:0;overflow-y:auto;padding:16px 20px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
 .tiles-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .tiles-title{font-size:11px;font-weight:700;color:var(--ht);letter-spacing:.08em;text-transform:uppercase}
 .tiles-actions{display:flex;gap:8px;align-items:center}
@@ -178,6 +180,15 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .tile-sig.hold{background:var(--abg);color:var(--am);border:1px solid var(--abr)}
 .tile-sig.sell{background:var(--rbg);color:var(--rd);border:1px solid var(--rbr)}
 .tile-sig.loading{background:var(--bg);color:var(--ht);border:1px solid var(--bd)}
+.stile{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;border-top:3px solid var(--bl)}
+.stile:hover{border-color:var(--bd2);box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.stile-ticker{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;margin-bottom:1px}
+.stile-name{font-size:11px;color:var(--ht);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stile-why{font-size:12px;color:var(--mt);line-height:1.45;margin-bottom:8px}
+.stile-meta{display:flex;align-items:center;gap:8px}
+.stile-sector{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--bbg);border:1px solid var(--bbr);color:var(--bl)}
+.stile-signal{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--gbg);border:1px solid var(--gbr);color:var(--gn)}
+.empty-port{color:var(--ht);font-size:13px;padding:12px 0;display:flex;align-items:center;gap:10px}
 .tile-qty{font-size:11px;color:var(--ht);margin-top:6px}
 .tile-alert{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--rd)}
 
@@ -274,6 +285,10 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
       <button class="fk" onclick="startManual()">
         <span class="fk-ic">📋</span>
         <div><div class="fk-t">Ho già i miei titoli</div><div class="fk-s">Inserisco le azioni che possiedo e Ettorino le monitora</div></div>
+      </button>
+      <button class="fk" onclick="startEmpty()">
+        <span class="fk-ic">📂</span>
+        <div><div class="fk-t">Parti con portafoglio vuoto</div><div class="fk-s">Aggiungo i titoli quando voglio, vedo subito i consigli AI</div></div>
       </button>
     </div>
     <!-- AI CHAT -->
@@ -383,27 +398,42 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 <div class="main">
   <!-- TILE AREA -->
   <div class="tile-area">
-    <div class="tiles-hdr">
-      <span class="tiles-title" id="tilesTitle">Il tuo portafoglio</span>
-      <div class="tiles-actions">
-        <button class="tbtn" onclick="refreshSignals()" style="font-size:11px;padding:4px 10px">↻ Aggiorna segnali AI</button>
+    <!-- TOP: IL MIO PORTAFOGLIO -->
+    <div class="portfolio-section">
+      <div class="tiles-hdr" style="margin-bottom:12px">
+        <span class="tiles-title" id="tilesTitle">Il mio portafoglio</span>
+        <div class="tiles-actions" style="display:flex;gap:6px;align-items:center">
+          <button class="tbtn" onclick="refreshSignals()" style="font-size:11px;padding:4px 10px">↻ Segnali AI</button>
+          <button class="tbtn" onclick="toggleAdd()" style="font-size:11px;padding:4px 10px">+ aggiungi</button>
+        </div>
+      </div>
+      <div class="tile-grid" id="tileGrid"></div>
+      <!-- add form inline -->
+      <div id="addFormInline" style="display:none;margin-top:12px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px">
+        <div style="font-size:11px;font-weight:600;color:var(--ht);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Aggiungi posizione</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
+          <input class="inp inp-sm" id="f-tk" placeholder="Ticker" style="width:90px;flex:none">
+          <input class="inp inp-sm" id="f-name" placeholder="Nome società" style="flex:1;min-width:140px">
+          <input class="inp inp-sm" id="f-qty" placeholder="Quantità" type="number" step="any" style="width:90px;flex:none">
+          <input class="inp inp-sm" id="f-avg" placeholder="Prezzo medio" type="number" step="0.01" style="width:110px;flex:none">
+          <input class="inp inp-sm" id="f-sec" placeholder="Settore" style="width:120px;flex:none">
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="bsv" onclick="addPos()">Aggiungi</button>
+          <button class="bcn" onclick="toggleAdd()">Annulla</button>
+        </div>
       </div>
     </div>
-    <div class="tile-grid" id="tileGrid"></div>
-    <!-- add form inline -->
-    <div id="addFormInline" style="display:none;margin-top:16px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px">
-      <div style="font-size:12px;font-weight:600;color:var(--ht);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Aggiungi posizione</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
-        <input class="inp inp-sm" id="f-tk" placeholder="Ticker" style="width:90px;flex:none">
-        <input class="inp inp-sm" id="f-name" placeholder="Nome società" style="flex:1;min-width:140px">
-        <input class="inp inp-sm" id="f-qty" placeholder="Quantità" type="number" step="any" style="width:90px;flex:none">
-        <input class="inp inp-sm" id="f-avg" placeholder="Prezzo medio" type="number" step="0.01" style="width:110px;flex:none">
-        <input class="inp inp-sm" id="f-sec" placeholder="Settore" style="width:120px;flex:none">
+    <!-- BOTTOM: CONSIGLI AI -->
+    <div class="suggestions-section">
+      <div class="tiles-hdr" style="margin-bottom:12px">
+        <span class="tiles-title">Consigli di Ettorino</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:11px;color:var(--ht)" id="sugLastUpdate">—</span>
+          <button class="tbtn" onclick="fetchSuggestions()" style="font-size:11px;padding:4px 10px">↻ aggiorna</button>
+        </div>
       </div>
-      <div style="display:flex;gap:6px">
-        <button class="bsv" onclick="addPos()">Aggiungi</button>
-        <button class="bcn" onclick="toggleAdd()">Annulla</button>
-      </div>
+      <div class="tile-grid" id="sugGrid"><div style="color:var(--ht);font-size:13px">Caricamento consigli…</div></div>
     </div>
   </div>
 
@@ -665,6 +695,13 @@ function finishManual(){
   saveUserData();
 }
 function finishManualEmpty(){S.profile={note:'complete'};document.getElementById('onboard').classList.add('hidden');initDashboard();saveUserData();}
+function startEmpty(){
+  S={portfolio:[],liquidity:0,profile:{note:'complete',obiettivo:'crescita'}};
+  document.getElementById('onboard').classList.add('hidden');
+  initDashboard();
+  addAiMsg('Portafoglio vuoto pronto. Usa <strong>+ aggiungi</strong> per inserire i tuoi titoli. Nel frattempo ho già cercato i consigli di acquisto per te!');
+  saveUserData();
+}
 function skipOnboard(){
   S={portfolio:[
     {ticker:'NVDA',name:'NVIDIA Corp.',sector:'Tech & AI',qty:2,avgPrice:650,currentPrice:875,change:2.14,alloc:25},
@@ -686,6 +723,8 @@ function initDashboard(){
   // Avvia news e segnali in parallelo
   fetchNews();
   setTimeout(refreshSignals, 1500);
+  setTimeout(fetchSuggestions, 3000);
+  startSuggestionsTimer();
 }
 
 // ── PORTFOLIO BAR ─────────────────────────────────────────────────
@@ -710,7 +749,11 @@ function renderPortfolioBar(){
 // ── TILES ─────────────────────────────────────────────────────────
 function renderTiles(){
   const grid=document.getElementById('tileGrid');
-  if(!S.portfolio?.length){grid.innerHTML='<div style="color:var(--ht);font-size:13px;padding:20px 0">Nessuna posizione. Usa "+ aggiungi titolo" per iniziare.</div>';return;}
+  if(!S.portfolio?.length){
+    grid.innerHTML='<div class="empty-port">📂 <span>Portafoglio vuoto — usa <strong>+ aggiungi</strong> per inserire i tuoi titoli.</span></div>';
+    document.getElementById('tilesTitle').textContent='Il mio portafoglio';
+    return;
+  }
   document.getElementById('tilesTitle').textContent=`${currentUser} · ${S.portfolio.length} posizioni`;
   grid.innerHTML=S.portfolio.map((p,i)=>{
     const{pl,plPct}=calcPL(p);
@@ -749,6 +792,69 @@ async function refreshSignals(){
   document.getElementById('livePill').textContent='● live';
 }
 
+// ── AI SUGGESTIONS ───────────────────────────────────────────────
+let suggestionsTimer=null;
+
+async function fetchSuggestions(){
+  const grid=document.getElementById('sugGrid');
+  grid.innerHTML='<div style="color:var(--ht);font-size:13px;font-style:italic">Ettorino sta cercando opportunità…</div>';
+  // Build context: user profile + already owned tickers to avoid
+  const owned=S.portfolio?.map(p=>p.ticker).join(', ')||'nessuno';
+  const profileNote=S.profile?.obiettivo||S.profile?.note||'moderato';
+  const profileSectors=S.profile?.settori?.join(', ')||'diversificato';
+  const prompt=`Sei Ettorino, consulente finanziario AI. L'utente ha profilo: ${profileNote}, settori preferiti: ${profileSectors}.
+Titoli già in portafoglio (da non ripetere): ${owned}.
+Suggerisci 6 azioni da comprare ORA, basandoti sulle condizioni di mercato attuali. Cerca le ultime news e dati per giustificare ogni suggerimento.
+Rispondi SOLO con JSON (nessun testo prima o dopo):
+[{"ticker":"X","name":"Nome Società","sector":"Settore","why":"motivo in max 15 parole in italiano","urgency":"alta|media|bassa"}]`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',max_tokens:1000,
+        system:'Sei Ettorino, consulente finanziario AI. Rispondi sempre in italiano. Usa web search per verificare le condizioni attuali di mercato prima di consigliare.',
+        messages:[{role:'user',content:prompt}],
+        tools:[{type:'web_search_20250305',name:'web_search'}]
+      })
+    });
+    const data=await res.json();
+    const textBlock=data.content?.filter(b=>b.type==='text').map(b=>b.text).join('');
+    const jsonMatch=textBlock?.match(/\[[\s\S]*?\]/);
+    if(jsonMatch){
+      const sugs=JSON.parse(jsonMatch[0]);
+      renderSuggestions(sugs);
+      document.getElementById('sugLastUpdate').textContent='Aggiornato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    }else{throw new Error('no JSON');}
+  }catch(e){
+    grid.innerHTML='<div style="color:var(--ht);font-size:13px">Errore. <button class="nrefbtn" onclick="fetchSuggestions()">Riprova</button></div>';
+  }
+}
+
+function renderSuggestions(sugs){
+  const grid=document.getElementById('sugGrid');
+  if(!sugs?.length){grid.innerHTML='<div style="color:var(--ht);font-size:13px">Nessun consiglio disponibile.</div>';return;}
+  grid.innerHTML=sugs.map(s=>{
+    const urgColor=s.urgency==='alta'?'var(--gn)':s.urgency==='media'?'var(--am)':'var(--ht)';
+    return`<div class="stile" onclick="qp('Dimmi di più su ${s.ticker} (${s.name}): perché consigli di comprare? Analisi completa.')">
+      <div class="stile-ticker">${s.ticker}</div>
+      <div class="stile-name">${s.name}</div>
+      <div class="stile-why">${s.why}</div>
+      <div class="stile-meta">
+        <span class="stile-sector">${s.sector}</span>
+        <span class="stile-signal">▲ COMPRA</span>
+        <span style="font-size:10px;color:${urgColor};font-weight:600;margin-left:auto">urgenza ${s.urgency}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function startSuggestionsTimer(){
+  if(suggestionsTimer)clearInterval(suggestionsTimer);
+  // Refresh ogni 30 minuti
+  suggestionsTimer=setInterval(fetchSuggestions,30*60*1000);
+}
+
 // ── NEWS (Claude web search) ───────────────────────────────────────
 async function fetchNews(){
   if(!S.portfolio?.length)return;
@@ -760,28 +866,29 @@ async function fetchNews(){
       method:'POST',
       headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',max_tokens:1500,
-        system:`Sei Ettorino, assistente finanziario AI. Cerca news REALI e RECENTI sulle seguenti società/asset: ${tickers}. Restituisci SOLO un JSON array (nessun testo prima o dopo):\n[{"ticker":"X","source":"Nome fonte","headline":"titolo news","sentiment":"bullish|bearish|neutral","alert":true_o_false,"time":"quanto tempo fa"}]\nSolo notizie rilevanti per gli investitori. Max 8 notizie. Sii preciso e aggiornato.`,
-        messages:[{role:'user',content:`Trova le ultime news di oggi/ieri per questi titoli che ho in portafoglio: ${tickers}. Cerca eventi rilevanti: earnings, guidance, FDA approvals, acquisizioni, scandali, cambi CEO, dati macro che li impattano.`}],
+        model:'claude-sonnet-4-20250514',max_tokens:2000,
+        system:`Sei Ettorino, assistente finanziario AI italiano. Cerca le notizie più recenti sulle società/asset indicati e restituisci SOLO un JSON array valido, senza nessun testo prima o dopo.\nFormato richiesto:\n[{"ticker":"X","source":"Nome fonte","headline":"TITOLO IN ITALIANO","sentiment":"bullish|bearish|neutral","alert":true_o_false,"time":"es. 2 ore fa"}]\nRegole:\n- Traduci SEMPRE i titoli in italiano, anche se la fonte è in inglese\n- Solo notizie rilevanti per gli investitori (earnings, guidance, M&A, regolatori, macro)\n- Max 8 notizie, ordinate per rilevanza\n- alert:true solo se la notizia richiede attenzione immediata\n- Sii preciso sui tempi (oggi, ieri, x ore fa)`,
+        messages:[{role:'user',content:`Trova le ultime news per questi titoli nel mio portafoglio: ${tickers}.\nCerca: risultati trimestrali, guidance, approvazioni FDA, acquisizioni, problemi regolatori, cambi management, dati macro rilevanti.\nTradUCI i titoli in italiano.`}],
         tools:[{type:'web_search_20250305',name:'web_search'}]
       })
     });
     const data=await res.json();
-    // Estrai il testo finale (dopo il web search)
     const textBlock=data.content?.filter(b=>b.type==='text').map(b=>b.text).join('');
     if(textBlock){
-      // Cerca JSON nel testo
-      const jsonMatch=textBlock.match(/\[[\s\S]*\]/);
+      const jsonMatch=textBlock.match(/\[[\s\S]*?\]/);
       if(jsonMatch){
-        newsItems=JSON.parse(jsonMatch[0]);
-        renderNews();
-        document.getElementById('newsLastUpdate').textContent='Aggiornato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-        return;
+        try{
+          newsItems=JSON.parse(jsonMatch[0]);
+          renderNews();
+          document.getElementById('newsLastUpdate').textContent='Aggiornato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+          return;
+        }catch(parseErr){console.error('news JSON parse error',parseErr,jsonMatch[0]);}
       }
     }
-    throw new Error('No JSON found');
+    throw new Error('Nessun JSON trovato nella risposta');
   }catch(e){
-    document.getElementById('newsList').innerHTML=`<div class="nloading">Errore nel caricamento news. <button class="nrefbtn" onclick="fetchNews()" style="margin-left:8px">Riprova</button></div>`;
+    console.error('fetchNews error',e);
+    document.getElementById('newsList').innerHTML=`<div class="nloading">Errore nel caricamento news (${e.message}). <button class="nrefbtn" onclick="fetchNews()" style="margin-left:8px">Riprova</button></div>`;
   }
 }
 
@@ -943,6 +1050,25 @@ function initAutoSave(){
   const th=document.getElementById('tthumb'),tr=document.getElementById('ttrack');
   if(autoSaveEnabled){th.classList.add('on');tr.classList.add('on');scheduleAutoSave();}
   else{th.classList.remove('on');tr.classList.remove('on');}
+  // Primo avvio: chiedi cartella dopo 2s
+  const neverChosen=!_get('ettorino_folder_'+currentUser);
+  if(autoSaveEnabled&&neverChosen&&window.showSaveFilePicker){
+    setTimeout(promptFolderFirstTime,2000);
+  }
+}
+function promptFolderFirstTime(){
+  const msgs=document.getElementById('chatMsgs');
+  const d=document.createElement('div');d.className='cm ai';
+  d.innerHTML=`<strong>📁 Autosave</strong><br><br>Per salvare il tuo portafoglio ogni ora, scegli la cartella dove vuoi il file di backup. Ti consiglio di selezionare <strong>la stessa cartella dove hai messo l'HTML</strong>.<br><br><button onclick="pickFolderFirstTime()" style="background:var(--gn);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">📁 Scegli cartella →</button><button onclick="skipFolderChoice()" style="background:none;border:1px solid var(--bd);border-radius:7px;padding:7px 12px;font-size:13px;color:var(--mt);cursor:pointer;font-family:Inter,sans-serif;margin-left:8px">Salta</button>`;
+  msgs.appendChild(d);msgs.scrollTop=9999;
+}
+async function pickFolderFirstTime(){
+  await pickFolder();
+  if(fileHandle)_set('ettorino_folder_'+currentUser,'1');
+}
+function skipFolderChoice(){
+  _set('ettorino_folder_'+currentUser,'1');
+  addAiMsg('Ok, nessun problema. Usa il bottone <strong>📁 cartella</strong> in alto quando vuoi attivare l\'autosave, o <strong>↓ JSON</strong> per backup manuali.');
 }
 
 // ── EXPORT / IMPORT ───────────────────────────────────────────────
@@ -980,6 +1106,7 @@ function resetUser(){
   _del(storeKey(currentUser));S={portfolio:[],liquidity:0,profile:{note:'fresh'}};signals={};newsItems=[];
   if(refreshTimer){clearInterval(refreshTimer);refreshTimer=null;}
   if(newsTimer){clearInterval(newsTimer);newsTimer=null;}
+  if(suggestionsTimer){clearInterval(suggestionsTimer);suggestionsTimer=null;}
   showOnboard();
 }
 
