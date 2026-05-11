@@ -598,15 +598,19 @@ function obAdd(role,html){
   const d=document.createElement('div');d.className='obmsg '+role;d.innerHTML=html;
   c.appendChild(d);c.scrollTop=9999;return d;
 }
-function showPortfolioProposal(portfolio,explanation){
+function showPortfolioProposal(portfolio, capital){
+  const cap = capital || S.liquidity || 0;
   const c=document.getElementById('obMsgs');
   const d=document.createElement('div');d.className='obmsg port';
-  const rows=portfolio.map(p=>`<div class="port-row"><div class="port-cell">${p.ticker}</div><div class="port-cell">${p.name}</div><div class="port-cell">${p.alloc}%</div><div class="port-cell">€${Math.round((S.liquidity||0)*p.alloc/100).toLocaleString('it-IT')}</div></div>`).join('');
-  d.innerHTML=`<div class="port-hdr">📊 Portafoglio proposto da Ettorino</div>
+  const rows=portfolio.map(p=>{
+    const importo = p.qty ? Math.round(p.qty * p.avgPrice) : Math.round(cap * p.alloc / 100);
+    return`<div class="port-row"><div class="port-cell">${p.ticker}</div><div class="port-cell">${p.name}</div><div class="port-cell">${p.alloc}%</div><div class="port-cell">€${importo.toLocaleString('it-IT')}</div></div>`;
+  }).join('');
+  const totInvested = portfolio.reduce((s,p)=> s + (p.qty ? Math.round(p.qty*p.avgPrice) : Math.round(cap*p.alloc/100)), 0);
+  d.innerHTML=`<div class="port-hdr">📊 Portafoglio proposto — €${totInvested.toLocaleString('it-IT')} investiti</div>
     <div class="port-row header"><div class="port-cell">Ticker</div><div class="port-cell">Titolo</div><div class="port-cell">Alloc.</div><div class="port-cell">Importo</div></div>
     ${rows}`;
   c.appendChild(d);
-  if(explanation){obAdd('ai',explanation);}
   document.getElementById('obActions').style.display='flex';
   document.getElementById('obFoot').style.display='none';
   c.scrollTop=9999;
@@ -623,16 +627,17 @@ Devi raccogliere 3 informazioni, UNA alla volta nell'ordine:
 2) Obiettivo principale: crescita, rendita periodica, o protezione del capitale
 3) Settori preferiti (tra: Tech & AI, Energia rinnovabile, Healthcare & Biotech, Finanza, Manifatturiero, Crypto)
 
-Quando hai tutte e 3 le informazioni, proponi un portafoglio diversificato e realistico.
-Il portafoglio deve:
-- Usare TITOLI REALI quotati (non inventare ticker)
-- Rispettare il capitale indicato
-- Avere 5-8 posizioni ben diversificate
-- Riflettere l'obiettivo e i settori scelti
-- Includere allocazioni percentuali che sommano a 100%
+Quando hai tutte e 3 le informazioni, proponi un portafoglio STRETTAMENTE basato sui settori scelti dall'utente.
+REGOLE OBBLIGATORIE:
+- Usa SOLO titoli dei settori che l'utente ha scelto esplicitamente
+- Usa TITOLI REALI quotati con ticker corretto
+- Il totale investito deve essere ESATTAMENTE uguale al capitale indicato (non di più)
+- 5-8 posizioni, allocazioni che sommano a 100%
+- Per ogni titolo calcola qty = (capitale × alloc%) / avgPrice, arrotondato a 2 decimali
+- Presenta il portafoglio in modo leggibile
 
-Alla fine, dopo aver proposto il portafoglio in testo, metti ESATTAMENTE questa riga su una riga separata (solo JSON valido, niente altro dopo):
-PORTFOLIO_JSON:{"liquidity":CAPITALE_RIMANENTE,"holdings":[{"ticker":"X","name":"Nome Completo","sector":"Settore","alloc":N,"avgPrice":PREZZO}]}
+Alla fine aggiungi ESATTAMENTE questa riga (JSON su una riga sola, niente dopo):
+PORTFOLIO_JSON:{"capital":CAPITALE_TOTALE,"holdings":[{"ticker":"X","name":"Nome","sector":"Settore","alloc":N,"avgPrice":PREZZO,"qty":QUANTITA}]}
 
 Non fare domande già fatte. Sii cordiale e diretto.`;
   try{
@@ -644,10 +649,11 @@ Non fare domande già fatte. Sii cordiale e diretto.`;
       try{
         const data=JSON.parse(portfolioLineMatch[1]);
         proposedPortfolio=data;
-        if(data.liquidity) S.liquidity=data.liquidity;
+        // Usa il capital dal JSON per settare la liquidità a zero (tutto investito)
+        if(data.capital) S.liquidity=0;
         const clean=res.replace(/PORTFOLIO_JSON:\{.+\}/,'').trim();
         if(clean) obAdd('ai',clean.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));
-        showPortfolioProposal(data.holdings,null);
+        showPortfolioProposal(data.holdings, data.capital||S.liquidity||0);
       }catch(e){
         // JSON malformato — mostra testo e metti pulsante manuale
         const clean=res.replace(/PORTFOLIO_JSON:.*/,'').trim();
@@ -677,7 +683,6 @@ Non fare domande già fatte. Sii cordiale e diretto.`;
 }
 function acceptPortfolio(){
   if(!proposedPortfolio || !proposedPortfolio.holdings?.length){
-    // Nessun portafoglio parsato — vai alla dashboard vuota
     S.profile={...S.profile,note:'onboarding_complete'};
     document.getElementById('onboard').classList.add('hidden');
     initDashboard();
@@ -685,18 +690,24 @@ function acceptPortfolio(){
     saveUserData();
     return;
   }
-  const capital = S.liquidity || 10000;
-  S.portfolio=proposedPortfolio.holdings.map(h=>({
-    ticker:h.ticker, name:h.name, sector:h.sector,
-    qty:parseFloat(((capital*(h.alloc/100))/(h.avgPrice||100)).toFixed(4)),
-    avgPrice:h.avgPrice||100, currentPrice:h.avgPrice||100,
-    change:+(Math.random()*3-0.5).toFixed(2), alloc:h.alloc
+  const capital = proposedPortfolio.capital || S.liquidity || 10000;
+  S.portfolio = proposedPortfolio.holdings.map(h=>({
+    ticker: h.ticker,
+    name: h.name,
+    sector: h.sector,
+    // usa qty dal JSON se presente, altrimenti calcolala
+    qty: h.qty || parseFloat(((capital*(h.alloc/100))/(h.avgPrice||100)).toFixed(4)),
+    avgPrice: h.avgPrice || 100,
+    currentPrice: h.avgPrice || 100,
+    change: +(Math.random()*3-0.5).toFixed(2),
+    alloc: h.alloc
   }));
-  S.profile={...S.profile,note:'onboarding_complete'};
+  const invested = Math.round(S.portfolio.reduce((s,p)=>s+p.qty*p.avgPrice, 0));
+  S.liquidity = Math.max(0, capital - invested);
+  S.profile = {...S.profile, note:'onboarding_complete'};
   document.getElementById('onboard').classList.add('hidden');
   initDashboard();
-  const invested=Math.round(S.portfolio.reduce((s,p)=>s+p.qty*p.avgPrice,0));
-  addAiMsg(`Portafoglio creato con <strong>${S.portfolio.length} posizioni</strong> per <strong>€${invested.toLocaleString('it-IT')}</strong> investiti.<br>Liquidità residua: <strong>€${(capital-invested).toLocaleString('it-IT')}</strong>.<br><br>Clicca su un titolo per il grafico, <strong>Segnali AI</strong> per le mie raccomandazioni, <strong>News → Mie</strong> per gli aggiornamenti sui tuoi titoli.`);
+  addAiMsg(`Portafoglio creato con <strong>${S.portfolio.length} posizioni</strong>.<br>Investito: <strong>€${invested.toLocaleString('it-IT')}</strong> · Liquidità residua: <strong>€${S.liquidity.toLocaleString('it-IT')}</strong>.<br><br>Clicca su un titolo per il grafico, <strong>Segnali AI</strong> per le raccomandazioni, <strong>News → Mie</strong> per aggiornamenti sui tuoi titoli.`);
   saveUserData();
 }
 function modifyPortfolio(){
