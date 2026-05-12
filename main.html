@@ -16,14 +16,10 @@
   --bl:#1a6fa8;--bbg:#eef5fb;--bbr:#91c4e8;
 }
 html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:14px;line-height:1.5;display:flex;flex-direction:column;overflow:hidden}
-
-/* OVERLAYS */
 .ov{position:fixed;inset:0;background:rgba(249,250,248,.97);display:flex;align-items:center;justify-content:center;z-index:100;backdrop-filter:blur(4px)}
 .ov.hidden{display:none}
 .oc{background:var(--card);border:1px solid var(--bd);border-radius:16px;box-shadow:0 4px 32px rgba(0,0,0,.08)}
-
-/* LOGIN */
-.lc{width:400px;max-width:94vw;padding:36px}
+.lc{width:410px;max-width:94vw;padding:36px}
 .ll{font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px}
 .ll span{color:var(--gn)}
 .ls{font-size:14px;color:var(--mt);margin-bottom:26px;line-height:1.6}
@@ -59,8 +55,6 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .iz-t{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px dashed var(--bd2);border-radius:9px;padding:11px 14px;cursor:pointer}
 .iz-tt{font-size:13px;font-weight:500}
 .iz-ts{font-size:11px;color:var(--ht);margin-top:1px}
-
-/* ONBOARDING */
 .obc{width:520px;max-width:94vw;overflow:hidden}
 .obh{padding:24px 26px 0}
 .obl{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;margin-bottom:3px}
@@ -96,7 +90,6 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .obsend:disabled{opacity:.35;cursor:not-allowed}
 .obskip{display:block;text-align:center;font-size:12px;color:var(--ht);cursor:pointer;padding:0 26px 14px}
 .obskip:hover{color:var(--mt)}
-/* manual */
 .mform{padding:0 26px 20px;display:flex;flex-direction:column;gap:8px}
 .mf-row{display:flex;gap:6px}
 .mf-list{display:flex;flex-direction:column;gap:4px;max-height:180px;overflow-y:auto}
@@ -105,9 +98,6 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .mf-nm{color:var(--mt);font-size:12px}
 .mf-rm{background:none;border:none;color:var(--ht);cursor:pointer;font-size:16px;padding:0 2px;line-height:1}
 .mf-rm:hover{color:var(--rd)}
-.mf-note{font-size:12px;color:var(--ht);line-height:1.5}
-
-/* MODAL */
 .mc{width:330px;max-width:92vw;padding:22px}
 .mc h3{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px}
 .field{display:flex;flex-direction:column;gap:3px;margin-bottom:10px}
@@ -116,8 +106,6 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .bsv{background:var(--gbg);border:1px solid var(--gbr);color:var(--gn);border-radius:8px;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;font-family:'Inter',sans-serif}
 .bdl{background:var(--rbg);border:1px solid var(--rbr);color:var(--rd);border-radius:8px;font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;font-family:'Inter',sans-serif}
 .bcn{background:var(--bg);border:1px solid var(--bd);color:var(--mt);border-radius:8px;font-size:13px;padding:7px 12px;cursor:pointer;font-family:'Inter',sans-serif}
-
-/* TOPBAR */
 .topbar{height:50px;background:var(--card);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 20px;flex-shrink:0}
 .tbl{display:flex;align-items:center;gap:10px}
 .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px}
@@ -139,75 +127,88 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .ttr input{position:absolute;opacity:0;width:100%;height:100%;cursor:pointer;margin:0}
 .tth{position:absolute;top:2px;left:2px;width:12px;height:12px;background:#fff;border-radius:50%;transition:transform .2s;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .tth.on{transform:translateX(12px)}
-
-/* PORTFOLIO BAR */
+.ctrl-bar{background:var(--card);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:28px;height:44px;flex-shrink:0;overflow-x:auto}
+.ctrl-item{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.ctrl-label{font-size:11px;font-weight:600;color:var(--ht);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.ctrl-track{position:relative;width:120px;height:4px;border-radius:2px;flex-shrink:0;cursor:pointer}
+.ctrl-track input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
+.ctrl-fill{position:absolute;left:0;top:0;height:100%;border-radius:2px;pointer-events:none;transition:width .15s}
+.ctrl-thumb{position:absolute;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.2);transition:left .15s}
+.ctrl-val{font-size:12px;font-weight:700;min-width:32px;white-space:nowrap}
+.ctrl-sep{width:1px;height:24px;background:var(--bd);flex-shrink:0}
+.risk-label{font-size:11px;font-weight:700;padding:2px 9px;border-radius:10px;white-space:nowrap}
 .port-bar{background:var(--card);border-bottom:1px solid var(--bd);padding:0 20px;display:flex;align-items:center;gap:24px;height:52px;flex-shrink:0;overflow-x:auto}
 .pb-item{display:flex;flex-direction:column;flex-shrink:0}
 .pb-label{font-size:10px;font-weight:600;color:var(--ht);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
 .pb-val{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:var(--tx)}
 .pb-val.pos{color:var(--gn)}.pb-val.neg{color:var(--rd)}
 .pb-sep{width:1px;height:28px;background:var(--bd);flex-shrink:0}
-.pb-liq{display:flex;align-items:center;gap:6px}
-.liq-inp{background:none;border:none;color:var(--gn);font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;outline:none;width:100px}
-
-/* MAIN LAYOUT */
+.liq-inp{background:none;border:none;color:var(--gn);font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;outline:none;width:110px}
 .main{display:flex;flex:1;overflow:hidden}
-
-/* CENTER: tile grid */
-.tile-area{flex:1;display:flex;flex-direction:column;overflow:hidden;min-height:0}
-.portfolio-section{flex:0 0 auto;min-height:0;max-height:50%;overflow-y:auto;padding:16px 20px 12px;border-bottom:1px solid var(--bd);scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
-.suggestions-section{flex:1;min-height:0;overflow-y:auto;padding:16px 20px;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
-.tiles-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.tiles-title{font-size:11px;font-weight:700;color:var(--ht);letter-spacing:.08em;text-transform:uppercase}
-.tiles-actions{display:flex;gap:8px;align-items:center}
-.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-
-/* TILE */
-.tile{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
-.tile:hover{border-color:var(--bd2);box-shadow:0 2px 12px rgba(0,0,0,.07)}
-.tile.pos{border-top:3px solid var(--gn)}
-.tile.neg{border-top:3px solid var(--rd)}
-.tile-ticker{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;margin-bottom:1px}
-.tile-name{font-size:11px;color:var(--ht);margin-bottom:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tile-price{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:700;margin-bottom:4px}
+.tile-area{flex:1;display:flex;flex-direction:column;overflow-y:auto;min-height:0;min-width:0}
+.port-section{flex:0 0 auto;overflow-y:auto;padding:16px 20px 12px;border-bottom:1px solid var(--bd);min-height:100px;scrollbar-width:thin}
+.sug-section{flex:0 0 auto;overflow-y:visible;padding:16px 20px;border-bottom:1px solid var(--bd)}
+.crypto-section{flex:0 0 auto;overflow-y:visible;padding:16px 20px}
+.sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sec-title{font-size:11px;font-weight:700;color:var(--ht);letter-spacing:.08em;text-transform:uppercase}
+.sec-meta{font-size:11px;color:var(--ht)}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px}
+.tile{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.tile:hover{border-color:var(--bd2);box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.tile.pos{border-top:3px solid var(--gn)}.tile.neg{border-top:3px solid var(--rd)}
+.tile-ticker{font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;margin-bottom:1px}
+.tile-name{font-size:11px;color:var(--ht);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tile-price{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px}
 .tile-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.tile-chg{font-size:13px;font-weight:600}
-.tile-chg.pos{color:var(--gn)}.tile-chg.neg{color:var(--rd)}
-.tile-pl{font-size:12px;color:var(--ht)}
-.tile-pl.pos{color:var(--gn)}.tile-pl.neg{color:var(--rd)}
-.tile-sig{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.04em;display:inline-block}
+.tile-chg{font-size:12px;font-weight:600}.tile-chg.pos{color:var(--gn)}.tile-chg.neg{color:var(--rd)}
+.tile-pl{font-size:11px}.tile-pl.pos{color:var(--gn)}.tile-pl.neg{color:var(--rd)}
+.tile-sig{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;display:inline-block;letter-spacing:.04em}
 .tile-sig.buy{background:var(--gbg);color:var(--gn);border:1px solid var(--gbr)}
 .tile-sig.hold{background:var(--abg);color:var(--am);border:1px solid var(--abr)}
 .tile-sig.sell{background:var(--rbg);color:var(--rd);border:1px solid var(--rbr)}
 .tile-sig.loading{background:var(--bg);color:var(--ht);border:1px solid var(--bd)}
-.stile{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s;position:relative;overflow:hidden;border-top:3px solid var(--bl)}
-.stile:hover{border-color:var(--bd2);box-shadow:0 2px 12px rgba(0,0,0,.07)}
+.tile-qty{font-size:11px;color:var(--ht)}
+.tile-alert{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--rd)}
+.empty-port{color:var(--ht);font-size:13px;padding:12px 0;display:flex;align-items:center;gap:10px}
+.stile{background:var(--card);border:1px solid var(--bd);border-top:3px solid var(--bl);border-radius:12px;padding:14px;cursor:pointer;transition:all .15s}
+.stile:hover{border-color:var(--bd2);box-shadow:0 2px 10px rgba(0,0,0,.07)}
 .stile-ticker{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;margin-bottom:1px}
-.stile-name{font-size:11px;color:var(--ht);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stile-name{font-size:11px;color:var(--ht);margin-bottom:7px}
 .stile-why{font-size:12px;color:var(--mt);line-height:1.45;margin-bottom:8px}
-.stile-meta{display:flex;align-items:center;gap:8px}
+.stile-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .stile-sector{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:var(--bbg);border:1px solid var(--bbr);color:var(--bl)}
 .stile-signal{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;background:var(--gbg);border:1px solid var(--gbr);color:var(--gn)}
-.empty-port{color:var(--ht);font-size:13px;padding:12px 0;display:flex;align-items:center;gap:10px}
-.tile-qty{font-size:11px;color:var(--ht);margin-top:6px}
-.tile-alert{position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:50%;background:var(--rd)}
-
-/* SIDE PANEL */
-.side{width:340px;flex-shrink:0;border-left:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;background:var(--card)}
+.ctile{background:var(--card);border:1px solid var(--bd);border-top:3px solid #7c3aed;border-radius:12px;padding:14px;cursor:pointer;transition:all .15s}
+.ctile:hover{border-color:var(--bd2);box-shadow:0 2px 10px rgba(0,0,0,.07)}
+.ctile-sym{font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;margin-bottom:1px;color:#7c3aed}
+.ctile-name{font-size:11px;color:var(--ht);margin-bottom:7px}
+.ctile-why{font-size:12px;color:var(--mt);line-height:1.45;margin-bottom:8px}
+.ctile-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ctile-cat{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px;background:#f3f0ff;border:1px solid #c4b5fd;color:#7c3aed}
+.ctile-risk{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
+.ctile-risk.alta{background:var(--rbg);border:1px solid var(--rbr);color:var(--rd)}
+.ctile-risk.media{background:var(--abg);border:1px solid var(--abr);color:var(--am)}
+.ctile-risk.bassa{background:var(--gbg);border:1px solid var(--gbr);color:var(--gn)}
+.ctile-mc{font-size:10px;color:var(--ht);margin-left:auto}
+.interest-bar{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:6px 0 12px}
+.itag{font-size:11px;font-weight:600;padding:3px 11px;border-radius:20px;border:1px solid var(--bd2);background:var(--bg);color:var(--ht);cursor:pointer;transition:all .15s;user-select:none}
+.itag.on{background:var(--bbg);border-color:var(--bbr);color:var(--bl)}
+.itag.explore.on{background:var(--gbg);border-color:var(--gbr);color:var(--gn)}
+.itag-add{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px dashed var(--bd2);background:none;color:var(--ht);cursor:pointer;font-family:'Inter',sans-serif}
+.itag-input{font-size:12px;padding:3px 8px;border-radius:20px;border:1px solid var(--gn);outline:none;font-family:'Inter',sans-serif;color:var(--tx);background:var(--bg);width:100px}
+.side{width:380px;flex-shrink:0;border-left:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;background:var(--card)}
 .ph{padding:11px 14px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .ph-t{font-size:11px;font-weight:700;color:var(--ht);letter-spacing:.08em;text-transform:uppercase}
 .ph-a{font-size:12px;font-weight:600;color:var(--gn);background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif}
 .ph-a:hover{opacity:.75}
-
-/* News */
 .news-sec{flex:1;display:flex;flex-direction:column;overflow:hidden;border-bottom:1px solid var(--bd)}
 .nbar{padding:7px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;font-size:11px;color:var(--ht)}
 .nrefbtn{font-size:11px;font-weight:600;padding:2px 9px;border-radius:5px;border:1px solid var(--bd);background:none;color:var(--mt);cursor:pointer;font-family:'Inter',sans-serif}
 .nrefbtn:hover{color:var(--gn);border-color:var(--gbr)}
-.nlist{flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--bd) transparent}
+.nlist{flex:1;overflow-y:auto;scrollbar-width:thin}
 .ni{padding:11px 14px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .1s}
 .ni:hover{background:#f6f8f5}
-.ni.alert{border-left:3px solid var(--rd)}
+.ni.alert-item{border-left:3px solid var(--rd)}
 .nsrc{font-size:10px;font-weight:700;color:var(--ht);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;display:flex;align-items:center;gap:5px}
 .nalert-badge{font-size:10px;font-weight:700;color:var(--rd);background:var(--rbg);border:1px solid var(--rbr);border-radius:3px;padding:1px 5px}
 .nhead{font-size:13px;font-weight:500;line-height:1.4;margin-bottom:5px}
@@ -216,9 +217,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .ntag.g{background:var(--gbg);border-color:var(--gbr);color:var(--gn)}
 .ntag.r{background:var(--rbg);border-color:var(--rbr);color:var(--rd)}
 .nloading{padding:16px 14px;font-size:13px;color:var(--ht);font-style:italic}
-
-/* Chat */
-.chat-sec{height:340px;display:flex;flex-direction:column;flex-shrink:0}
+.chat-sec{height:320px;display:flex;flex-direction:column;flex-shrink:0}
 .qbtns{padding:7px 14px;display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0;border-bottom:1px solid var(--bd)}
 .qbtn{font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;border:1px solid var(--bd);background:none;color:var(--mt);cursor:pointer;font-family:'Inter',sans-serif}
 .qbtn:hover{color:var(--gn);border-color:var(--gbr)}
@@ -234,6 +233,24 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .cinp::placeholder{color:var(--ht)}
 .csend{background:var(--gn);color:#fff;border:none;border-radius:7px;padding:0 13px;cursor:pointer;font-size:15px;font-weight:700;flex-shrink:0}
 .csend:disabled{opacity:.35;cursor:not-allowed}
+.popup-bg{position:fixed;inset:0;background:rgba(28,32,28,.45);display:flex;align-items:center;justify-content:center;z-index:200;backdrop-filter:blur(3px)}
+.popup-bg.hidden{display:none}
+.popup{background:var(--card);border:1px solid var(--bd);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.14);width:540px;max-width:94vw;max-height:80vh;display:flex;flex-direction:column;overflow:hidden}
+.popup-hdr{padding:18px 22px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0}
+.popup-title{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;margin-bottom:2px}
+.popup-sub{font-size:12px;color:var(--ht)}
+.popup-close{background:none;border:none;font-size:20px;color:var(--ht);cursor:pointer;padding:0;line-height:1;flex-shrink:0}
+.popup-close:hover{color:var(--tx)}
+.popup-body{flex:1;overflow-y:auto;padding:20px 22px;scrollbar-width:thin}
+.popup-why{font-size:14px;color:var(--mt);line-height:1.65;margin-bottom:16px;padding:12px 14px;background:var(--bg);border-radius:8px;border-left:3px solid var(--gn)}
+.popup-why.crypto{border-left-color:#7c3aed}
+.popup-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.popup-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px solid var(--bd);color:var(--mt)}
+.popup-loading{font-size:13px;color:var(--ht);font-style:italic;padding:12px 0}
+.popup-analysis{font-size:13px;line-height:1.7;color:var(--tx)}
+.popup-footer{padding:14px 22px;border-top:1px solid var(--bd);display:flex;gap:8px;flex-shrink:0}
+.popup-btn-main{flex:1;background:var(--gn);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;padding:9px;cursor:pointer;font-family:'Inter',sans-serif}
+.popup-btn-sec{background:var(--bg);border:1px solid var(--bd);color:var(--mt);border-radius:8px;font-size:13px;padding:9px 14px;cursor:pointer;font-family:'Inter',sans-serif}
 </style>
 </head>
 <body>
@@ -245,25 +262,31 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
     <div class="ls">Dashboard di investimento personale.<br>Seleziona il tuo profilo per continuare.</div>
     <div class="slb">Chi sei?</div>
     <div class="ugrid" id="userBtns"></div>
-    <button class="add-ub" onclick="toggleNewUser()">+ Aggiungi utente</button>
+    <button class="add-ub" id="addUbBtn">+ Aggiungi utente</button>
     <div class="nu-row" id="nuRow">
-      <input class="inp" id="nufName" placeholder="Il tuo nome" onkeydown="if(event.key==='Enter')createUser()">
-      <button class="bc" onclick="createUser()">Crea</button>
+      <input class="inp" id="nufName" placeholder="Il tuo nome">
+      <button class="bc" id="createUserBtn">Crea</button>
     </div>
     <div class="slb" style="margin-top:4px">La tua chiave API Anthropic</div>
     <div class="ar">
       <input class="inp mono" id="apiKeyInput" type="password" placeholder="sk-ant-api03-…" autocomplete="off">
-      <button class="sb2" onclick="toggleApiVis()">mostra</button>
+      <button class="sb2" id="toggleApiBtn">mostra</button>
     </div>
     <div class="an">Salvata solo nel tuo browser. Ottienila su <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a></div>
+    <div class="slb" style="margin-top:12px">Chiave API Finnhub <span style="font-weight:400;color:var(--ht);text-transform:none;letter-spacing:0">(prezzi reali · gratuita)</span></div>
+    <div class="ar">
+      <input class="inp mono" id="finnhubKeyInput" type="password" placeholder="ct1abc2def3…" autocomplete="off">
+      <button class="sb2" id="toggleFinnhubBtn">mostra</button>
+    </div>
+    <div class="an">Ottienila gratis su <a href="https://finnhub.io/dashboard" target="_blank">finnhub.io/dashboard</a> — 60 chiamate/minuto</div>
     <div class="smsg" id="apiStatus"></div>
-    <button class="lbtn" id="loginBtn" onclick="doLogin()" disabled>Entra →</button>
+    <button class="lbtn" id="loginBtn" disabled>Entra →</button>
     <div class="iz">
       <div class="iz-l">Cambio PC? Ripristina backup</div>
       <label class="iz-t">
         <span style="font-size:18px;color:var(--mt)">↑</span>
         <div><div class="iz-tt">Importa file JSON</div><div class="iz-ts">Carica il backup dall'altro PC</div></div>
-        <input type="file" accept=".json" style="display:none" onchange="importOnLogin(event)">
+        <input type="file" accept=".json" style="display:none" id="importLoginFile">
       </label>
     </div>
   </div>
@@ -276,49 +299,46 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
       <div class="obl">Ettorino<span>4</span>Finance</div>
       <div class="obs">Come vuoi iniziare?</div>
     </div>
-    <!-- FORK -->
     <div class="fork" id="forkView">
-      <button class="fk pr" onclick="startAI()">
+      <button class="fk pr" id="startAIBtn">
         <span class="fk-ic">🤖</span>
         <div><div class="fk-t">Costruisci il mio portafoglio</div><div class="fk-s">Dimmi budget, obiettivo e settori — Ettorino propone i titoli</div></div>
       </button>
-      <button class="fk" onclick="startManual()">
+      <button class="fk" id="startManualBtn">
         <span class="fk-ic">📋</span>
         <div><div class="fk-t">Ho già i miei titoli</div><div class="fk-s">Inserisco le azioni che possiedo e Ettorino le monitora</div></div>
       </button>
-      <button class="fk" onclick="startEmpty()">
+      <button class="fk" id="startEmptyBtn">
         <span class="fk-ic">📂</span>
         <div><div class="fk-t">Parti con portafoglio vuoto</div><div class="fk-s">Aggiungo i titoli quando voglio, vedo subito i consigli AI</div></div>
       </button>
     </div>
-    <!-- AI CHAT -->
     <div id="aiObView" style="display:none">
       <div class="obmsgs" id="obMsgs"></div>
       <div id="obActionsWrap" style="display:none" class="ob-acts">
-        <button class="ob-ok" onclick="acceptPortfolio()">✓ Ottimo, partiamo così</button>
-        <button class="ob-mod" onclick="modifyPortfolio()">Voglio modificarlo →</button>
+        <button class="ob-ok" id="acceptPortBtn">✓ Ottimo, partiamo così</button>
+        <button class="ob-mod" id="modifyPortBtn">Voglio modificarlo →</button>
       </div>
       <div class="obfoot" id="obFoot">
-        <input class="obinp" id="obInp" placeholder="Scrivi qui…" onkeydown="if(event.key==='Enter')obSend()">
-        <button class="obsend" id="obBtn" onclick="obSend()">→</button>
+        <input class="obinp" id="obInp" placeholder="Scrivi qui…">
+        <button class="obsend" id="obBtn">→</button>
       </div>
     </div>
-    <!-- MANUAL -->
     <div id="manualView" style="display:none">
       <div class="mform">
-        <div class="mf-note">Inserisci i tuoi titoli uno alla volta. Ticker, nome e quantità posseduta.</div>
+        <div style="font-size:12px;color:var(--ht);line-height:1.5">Inserisci i tuoi titoli uno alla volta.</div>
         <div class="mf-row">
-          <input class="inp inp-sm" id="mf-tk" placeholder="Ticker (es. AAPL)" style="width:100px;flex:none">
+          <input class="inp inp-sm" id="mf-tk" placeholder="Ticker" style="width:90px;flex:none">
           <input class="inp inp-sm" id="mf-nm" placeholder="Nome società">
-          <input class="inp inp-sm" id="mf-qty" placeholder="Qty" type="number" step="any" style="width:70px;flex:none">
-          <input class="inp inp-sm" id="mf-avg" placeholder="€ medio" type="number" step="0.01" style="width:85px;flex:none">
-          <button class="bc" onclick="addManualPos()" style="padding:7px 12px;font-size:12px">+</button>
+          <input class="inp inp-sm" id="mf-qty" placeholder="Qtà" type="number" step="any" style="width:70px;flex:none">
+          <input class="inp inp-sm" id="mf-avg" placeholder="€ medio" type="number" step="0.01" style="width:80px;flex:none">
+          <button class="bc" id="addMfBtn" style="padding:7px 12px;font-size:12px">+</button>
         </div>
         <div class="mf-list" id="mfList"></div>
-        <button class="lbtn" onclick="finishManual()" style="margin-top:4px;font-size:14px;padding:11px">Avvia la dashboard →</button>
+        <button class="lbtn" id="finishManualBtn" style="margin-top:4px;font-size:14px;padding:11px">Avvia la dashboard →</button>
       </div>
     </div>
-    <span class="obskip" onclick="skipOnboard()">Salta e usa un portafoglio di esempio →</span>
+    <span class="obskip" id="skipObBtn">Salta e usa un portafoglio di esempio →</span>
   </div>
 </div>
 
@@ -332,9 +352,31 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
     <div class="field"><label>Prezzo medio acquisto</label><input class="inp" id="edt-avg" type="number" step="0.01"></div>
     <div class="field"><label>Settore</label><input class="inp" id="edt-sec"></div>
     <div class="macts">
-      <button class="bsv" onclick="saveEdit()">Salva</button>
-      <button class="bdl" onclick="delPos()">Elimina</button>
-      <button class="bcn" onclick="closeModal()">Annulla</button>
+      <button class="bsv" id="saveEditBtn">Salva</button>
+      <button class="bdl" id="delPosBtn">Elimina</button>
+      <button class="bcn" id="cancelEditBtn">Annulla</button>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL POPUP -->
+<div class="popup-bg hidden" id="detailPopup">
+  <div class="popup">
+    <div class="popup-hdr">
+      <div>
+        <div class="popup-title" id="popupTitle">—</div>
+        <div class="popup-sub" id="popupSub">—</div>
+      </div>
+      <button class="popup-close" id="popupCloseBtn">×</button>
+    </div>
+    <div class="popup-body">
+      <div class="popup-why" id="popupWhy"></div>
+      <div class="popup-tags" id="popupTags"></div>
+      <div class="popup-analysis" id="popupAnalysis"><div class="popup-loading">Ettorino sta analizzando…</div></div>
+    </div>
+    <div class="popup-footer">
+      <button class="popup-btn-main" id="popupChatBtn">→ Chiedi a Ettorino nella chat</button>
+      <button class="popup-btn-sec" id="popupSecBtn">Chiudi</button>
     </div>
   </div>
 </div>
@@ -344,14 +386,14 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
   <div class="tbl">
     <div class="logo">Ettorino<span>4</span>Finance</div>
     <span class="bdg bdg-g" id="livePill">● live</span>
-    <button class="bdg bdg-u" id="userBadge" onclick="logout()">—</button>
+    <button class="bdg bdg-u" id="userBadge">—</button>
   </div>
   <div class="tbr">
     <span class="tm" id="bkInfo"></span>
     <span class="tm" id="clk"></span>
     <div class="tw">
       <span class="twl">refresh</span>
-      <select id="refreshSel" onchange="setRefreshInterval(this.value)" style="font-family:'Inter',sans-serif;font-size:12px;color:var(--mt);background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:3px 7px;cursor:pointer;outline:none">
+      <select id="refreshSel" style="font-family:'Inter',sans-serif;font-size:12px;color:var(--mt);background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:3px 7px;cursor:pointer;outline:none">
         <option value="10">10s</option>
         <option value="30" selected>30s</option>
         <option value="60">1m</option>
@@ -362,53 +404,77 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
     <div class="tw">
       <span class="twl">auto-save</span>
       <span class="ttr on" id="ttrack">
-        <input type="checkbox" id="autoSaveToggle" checked onchange="onAutoSaveToggle()">
+        <input type="checkbox" id="autoSaveToggle" checked>
         <span class="tth on" id="tthumb"></span>
       </span>
     </div>
-    <button class="tbtn" id="folderBtn" onclick="pickFolder()">📁 cartella</button>
-    <button class="tbtn blue" onclick="exportJSON()">↓ JSON</button>
-    <button class="tbtn" onclick="exportMD()">↓ MD</button>
-    <label class="tbtn" style="cursor:pointer">↑ import<input type="file" accept=".json" style="display:none" onchange="importJSON(event)"></label>
-    <button class="tbtn red" onclick="resetUser()">reset</button>
+    <button class="tbtn" id="folderBtn">📁 cartella</button>
+    <button class="tbtn blue" id="exportJsonBtn">↓ JSON</button>
+    <button class="tbtn" id="exportMdBtn">↓ MD</button>
+    <label class="tbtn" style="cursor:pointer">↑ import<input type="file" accept=".json" style="display:none" id="importFile"></label>
+    <button class="tbtn red" id="resetBtn">reset</button>
   </div>
 </div>
 
+<!-- CONTROL BAR -->
+<div class="ctrl-bar">
+  <div class="ctrl-item">
+    <span class="ctrl-label">Rischio</span>
+    <div class="ctrl-track" style="background:var(--bd)">
+      <input type="range" id="riskSlider" min="0" max="2" step="1" value="1">
+      <div class="ctrl-fill" id="riskFill" style="background:var(--am);width:50%"></div>
+      <div class="ctrl-thumb" id="riskThumb" style="left:50%;background:var(--am)"></div>
+    </div>
+    <span class="risk-label" id="riskLabel" style="background:var(--abg);border:1px solid var(--abr);color:var(--am)">Moderato</span>
+  </div>
+  <div class="ctrl-sep"></div>
+  <div class="ctrl-item">
+    <span class="ctrl-label" style="color:#c53030">🇺🇸 USA</span>
+    <div class="ctrl-track" style="background:linear-gradient(to right,#c53030,#1a6fa8)">
+      <input type="range" id="geoSlider" min="0" max="100" step="10" value="50">
+      <div class="ctrl-thumb" id="geoThumb" style="left:50%;background:#fff;border:2px solid var(--bd2)"></div>
+    </div>
+    <span class="ctrl-label" style="color:var(--bl)">EU 🇪🇺</span>
+    <span class="ctrl-val" id="geoVal" style="color:var(--mt)">50/50</span>
+  </div>
+  <div class="ctrl-sep"></div>
+  <span style="font-size:11px;color:var(--ht);font-style:italic" id="ctrlHint">Usa ↻ per aggiornare manualmente · auto-refresh disabilitato</span>
+  <button class="tbtn" id="applyCtrlBtn" style="font-size:11px;padding:4px 10px;margin-left:auto">↻ Applica ora</button>
+</div>
+
 <!-- PORTFOLIO BAR -->
-<div class="port-bar" id="portBar">
+<div class="port-bar">
   <div class="pb-item"><div class="pb-label">Valore</div><div class="pb-val" id="pbVal">—</div></div>
   <div class="pb-sep"></div>
   <div class="pb-item"><div class="pb-label">Investito</div><div class="pb-val" id="pbInv">—</div></div>
   <div class="pb-sep"></div>
-  <div class="pb-item"><div class="pb-label">P&L totale</div><div class="pb-val" id="pbPL">—</div></div>
+  <div class="pb-item"><div class="pb-label">P&amp;L totale</div><div class="pb-val" id="pbPL">—</div></div>
   <div class="pb-sep"></div>
   <div class="pb-item"><div class="pb-label">Oggi</div><div class="pb-val" id="pbOggi">—</div></div>
   <div class="pb-sep"></div>
   <div class="pb-item">
     <div class="pb-label">Liquidità</div>
-    <div class="pb-liq"><input class="liq-inp" id="liqInp" type="text" onchange="saveLiq()"></div>
+    <input class="liq-inp" id="liqInp" type="text">
   </div>
   <div class="pb-sep"></div>
   <div class="pb-item" style="margin-left:auto">
-    <button style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:5px 12px;border-radius:7px;border:1px solid var(--bd);background:var(--card);color:var(--mt);cursor:pointer" onclick="toggleAdd()">+ aggiungi titolo</button>
+    <button class="tbtn" id="addPosBtn">+ aggiungi titolo</button>
   </div>
 </div>
 
 <!-- MAIN -->
 <div class="main">
-  <!-- TILE AREA -->
   <div class="tile-area">
-    <!-- TOP: IL MIO PORTAFOGLIO -->
-    <div class="portfolio-section">
-      <div class="tiles-hdr" style="margin-bottom:12px">
-        <span class="tiles-title" id="tilesTitle">Il mio portafoglio</span>
-        <div class="tiles-actions" style="display:flex;gap:6px;align-items:center">
-          <button class="tbtn" onclick="refreshSignals()" style="font-size:11px;padding:4px 10px">↻ Segnali AI</button>
-          <button class="tbtn" onclick="toggleAdd()" style="font-size:11px;padding:4px 10px">+ aggiungi</button>
+    <!-- PORTFOLIO -->
+    <div class="port-section">
+      <div class="sec-hdr">
+        <span class="sec-title" id="portTitle">Il mio portafoglio</span>
+        <div style="display:flex;gap:6px">
+          <button class="tbtn" id="refreshSigsBtn" style="font-size:11px;padding:4px 10px">↻ Segnali AI</button>
+          <button class="tbtn" id="addPosBtnSec" style="font-size:11px;padding:4px 10px">+ aggiungi</button>
         </div>
       </div>
       <div class="tile-grid" id="tileGrid"></div>
-      <!-- add form inline -->
       <div id="addFormInline" style="display:none;margin-top:12px;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px">
         <div style="font-size:11px;font-weight:600;color:var(--ht);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Aggiungi posizione</div>
         <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">
@@ -419,699 +485,1718 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
           <input class="inp inp-sm" id="f-sec" placeholder="Settore" style="width:120px;flex:none">
         </div>
         <div style="display:flex;gap:6px">
-          <button class="bsv" onclick="addPos()">Aggiungi</button>
-          <button class="bcn" onclick="toggleAdd()">Annulla</button>
+          <button class="bsv" id="addPosSubmitBtn">Aggiungi</button>
+          <button class="bcn" id="addPosCancelBtn">Annulla</button>
         </div>
       </div>
     </div>
-    <!-- BOTTOM: CONSIGLI AI -->
-    <div class="suggestions-section">
-      <div class="tiles-hdr" style="margin-bottom:12px">
-        <span class="tiles-title">Consigli di Ettorino</span>
+    <!-- CONSIGLI -->
+    <div class="sug-section">
+      <div class="sec-hdr">
+        <span class="sec-title">Consigli di Ettorino</span>
         <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:11px;color:var(--ht)" id="sugLastUpdate">—</span>
-          <button class="tbtn" onclick="fetchSuggestions()" style="font-size:11px;padding:4px 10px">↻ aggiorna</button>
+          <span class="sec-meta" id="sugLastUpdate">—</span>
+          <button class="tbtn" id="refreshSugBtn" style="font-size:11px;padding:4px 10px">↻ aggiorna</button>
         </div>
       </div>
-      <div class="tile-grid" id="sugGrid"><div style="color:var(--ht);font-size:13px">Caricamento consigli…</div></div>
+      <div class="interest-bar" id="interestBar"></div>
+      <div class="tile-grid" id="sugGrid"><div style="color:var(--ht);font-size:13px">Clicca <strong>↻ aggiorna</strong> per ricevere i consigli AI.</div></div>
+    </div>
+    <!-- CRYPTO -->
+    <div class="crypto-section">
+      <div class="sec-hdr">
+        <span class="sec-title" style="color:#7c3aed">💎 Crypto promettenti</span>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="sec-meta" id="cryptoLastUpdate">—</span>
+          <button class="tbtn" id="refreshCryptoBtn" style="font-size:11px;padding:4px 10px">↻ aggiorna</button>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--ht);margin-bottom:10px;line-height:1.5">Progetti con forte potenziale, escluse le top 20 per market cap. Alto rischio. Non è un consiglio finanziario.</div>
+      <div class="tile-grid" id="cryptoGrid"><div style="color:var(--ht);font-size:13px">Clicca <strong>↻ aggiorna</strong> per le crypto promettenti.</div></div>
     </div>
   </div>
-
-  <!-- SIDE PANEL -->
+  <!-- SIDE -->
   <div class="side">
-    <!-- NEWS -->
     <div class="news-sec">
       <div class="ph">
         <span class="ph-t">News · <span id="newsTickerList" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;color:var(--ht)">caricamento…</span></span>
-        <button class="ph-a" onclick="fetchNews()">↻ aggiorna</button>
+        <button class="ph-a" id="refreshNewsBtn">↻ aggiorna</button>
       </div>
       <div class="nbar">
         <span id="newsLastUpdate">—</span>
-        <button class="nrefbtn" onclick="analyzeAllNews()">→ analizza tutto</button>
+        <button class="nrefbtn" id="analyzeAllNewsBtn">→ analizza tutto</button>
       </div>
-      <div class="nlist" id="newsList"><div class="nloading">Caricamento news…</div></div>
+      <div class="nlist" id="newsList"><div class="nloading">Clicca <strong>↻ aggiorna</strong> per le news sui tuoi titoli.</div></div>
     </div>
-    <!-- CHAT -->
     <div class="chat-sec">
       <div class="ph">
         <span class="ph-t">Ettorino AI</span>
-        <button class="ph-a" onclick="clearChat()">pulisci</button>
+        <button class="ph-a" id="clearChatBtn">pulisci</button>
       </div>
       <div class="qbtns">
-        <button class="qbtn" onclick="qp('Analizza il mio portafoglio completo')">Review</button>
-        <button class="qbtn" onclick="qp('Cosa comprare e cosa vendere adesso?')">Buy/Sell</button>
-        <button class="qbtn" onclick="qp('Rischi macro per i miei titoli?')">Rischi</button>
-        <button class="qbtn" onclick="qp('Come gestire la mia liquidità?')">Liquidità</button>
+        <button class="qbtn" data-q="Analizza il mio portafoglio completo">Review</button>
+        <button class="qbtn" data-q="Cosa comprare e cosa vendere adesso?">Buy/Sell</button>
+        <button class="qbtn" data-q="Rischi macro per i miei titoli?">Rischi</button>
+        <button class="qbtn" data-q="Come gestire la mia liquidità?">Liquidità</button>
       </div>
       <div class="cmsgs" id="chatMsgs"></div>
       <div class="cfoot">
-        <textarea class="cinp" id="chatInp" placeholder="Chiedi a Ettorino…" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}"></textarea>
-        <button class="csend" id="sendBtn" onclick="sendMsg()">→</button>
+        <textarea class="cinp" id="chatInp" placeholder="Chiedi a Ettorino…"></textarea>
+        <button class="csend" id="sendBtn">→</button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-// ── CONSTANTS ─────────────────────────────────────────────────────
-const SYS=`Sei Ettorino, consulente finanziario AI personale. Rispondi sempre in italiano.
-Regole: verdict chiari COMPRA/TIENI/EVITA, analisi concise con bullet point, crypto max 15%, ricorda che sei AI non consulente regolamentato.
-Focalizzati sempre sui titoli specifici del portafoglio dell'utente.`;
+'use strict';
+// ═══════════════════════════════════════════════════════════════
+//  ETTORINO4FINANCE — Clean JS (no inline onclick string hell)
+// ═══════════════════════════════════════════════════════════════
 
-// ── STORAGE ───────────────────────────────────────────────────────
-const _m={};
-function _set(k,v){try{localStorage.setItem(k,v);return}catch(e){}try{sessionStorage.setItem(k,v);return}catch(e){}_m[k]=v}
-function _get(k){try{const v=localStorage.getItem(k);if(v!==null)return v}catch(e){}try{const v=sessionStorage.getItem(k);if(v!==null)return v}catch(e){}return _m[k]||null}
-function _del(k){try{localStorage.removeItem(k)}catch(e){}try{sessionStorage.removeItem(k)}catch(e){};delete _m[k]}
-function storeKey(u){return`ettorino_user_${u}`}
-function apiKey_key(u){return`ettorino_apikey_${u}`}
-function getUsers(){try{return JSON.parse(_get('ettorino_users')||'[]')}catch(e){return[]}}
-function saveUsers(a){_set('ettorino_users',JSON.stringify(a))}
+// ── STOCK + CRYPTO UNIVERSES ─────────────────────────────────────
+const STOCK_UNIVERSE = {
+  'Tech & AI':[
+    {t:'NVDA',n:'NVIDIA',m:'USA'},{t:'MSFT',n:'Microsoft',m:'USA'},{t:'ADBE',n:'Adobe',m:'USA'},
+    {t:'CRM',n:'Salesforce',m:'USA'},{t:'SNOW',n:'Snowflake',m:'USA'},{t:'PLTR',n:'Palantir',m:'USA'},
+    {t:'ARM',n:'Arm Holdings',m:'USA'},{t:'SMCI',n:'Super Micro',m:'USA'},
+    {t:'ASML',n:'ASML Holding',m:'EU'},{t:'SAP',n:'SAP SE',m:'EU'},{t:'CAP.PA',n:'Capgemini',m:'EU'},
+    {t:'STMPA',n:'STMicroelectronics',m:'EU'},{t:'NOKIA',n:'Nokia',m:'EU'}],
+  'Healthcare':[
+    {t:'LLY',n:'Eli Lilly',m:'USA'},{t:'ISRG',n:'Intuitive Surgical',m:'USA'},{t:'DXCM',n:'Dexcom',m:'USA'},
+    {t:'GEHC',n:'GE HealthCare',m:'USA'},{t:'ALGN',n:'Align Technology',m:'USA'},
+    {t:'NVO',n:'Novo Nordisk',m:'EU'},{t:'ROG.SW',n:'Roche',m:'EU'},{t:'NOVN.SW',n:'Novartis',m:'EU'},
+    {t:'SAN.PA',n:'Sanofi',m:'EU'},{t:'UCB.BR',n:'UCB',m:'EU'}],
+  'Finanza':[
+    {t:'JPM',n:'JPMorgan',m:'USA'},{t:'V',n:'Visa',m:'USA'},{t:'MA',n:'Mastercard',m:'USA'},
+    {t:'PYPL',n:'PayPal',m:'USA'},{t:'SQ',n:'Block',m:'USA'},{t:'COIN',n:'Coinbase',m:'USA'},
+    {t:'ISP.MI',n:'Intesa Sanpaolo',m:'EU'},{t:'UCG.MI',n:'UniCredit',m:'EU'},
+    {t:'BNP.PA',n:'BNP Paribas',m:'EU'},{t:'AXA.PA',n:'AXA',m:'EU'},{t:'BBVA',n:'BBVA',m:'EU'}],
+  'Energia':[
+    {t:'ENPH',n:'Enphase Energy',m:'USA'},{t:'FSLR',n:'First Solar',m:'USA'},{t:'NEE',n:'NextEra',m:'USA'},
+    {t:'PLUG',n:'Plug Power',m:'USA'},{t:'BE',n:'Bloom Energy',m:'USA'},
+    {t:'ENEL.MI',n:'Enel',m:'EU'},{t:'IBE.MC',n:'Iberdrola',m:'EU'},{t:'ORSTED.CO',n:'Orsted',m:'EU'},
+    {t:'VWS.CO',n:'Vestas Wind',m:'EU'},{t:'SIE.DE',n:'Siemens Energy',m:'EU'}],
+  'Consumer':[
+    {t:'AMZN',n:'Amazon',m:'USA'},{t:'META',n:'Meta',m:'USA'},{t:'NFLX',n:'Netflix',m:'USA'},
+    {t:'ABNB',n:'Airbnb',m:'USA'},{t:'UBER',n:'Uber',m:'USA'},
+    {t:'LVMH.PA',n:'LVMH',m:'EU'},{t:'KER.PA',n:'Kering',m:'EU'},{t:'CFR.SW',n:'Richemont',m:'EU'},
+    {t:'RACE',n:'Ferrari',m:'EU'},{t:'MONC.MI',n:'Moncler',m:'EU'}],
+  'Manifatturiero':[
+    {t:'CAT',n:'Caterpillar',m:'USA'},{t:'DE',n:'Deere & Co',m:'USA'},{t:'ROK',n:'Rockwell',m:'USA'},
+    {t:'AIR.PA',n:'Airbus',m:'EU'},{t:'SIE.DE',n:'Siemens',m:'EU'},{t:'ABB.ST',n:'ABB',m:'EU'},
+    {t:'BAYN.DE',n:'Bayer',m:'EU'},{t:'BASFY',n:'BASF',m:'EU'}],
+  'Immobiliare':[
+    {t:'AMT',n:'American Tower',m:'USA'},{t:'PLD',n:'Prologis',m:'USA'},
+    {t:'EQIX',n:'Equinix',m:'USA'},{t:'O',n:'Realty Income',m:'USA'}],
+  'Commodities':[
+    {t:'FCX',n:'Freeport-McMoRan',m:'USA'},{t:'ALB',n:'Albemarle',m:'USA'},
+    {t:'MP',n:'MP Materials',m:'USA'},{t:'RIO',n:'Rio Tinto',m:'EU'},{t:'GLEN.L',n:'Glencore',m:'EU'}],
+  'Industriale':[
+    {t:'HON',n:'Honeywell',m:'USA'},{t:'RTX',n:'RTX Corp',m:'USA'},{t:'LMT',n:'Lockheed',m:'USA'},
+    {t:'ETN',n:'Eaton',m:'USA'},{t:'SCH.PA',n:'Schneider Electric',m:'EU'},{t:'LIN',n:'Linde',m:'EU'}],
+};
 
-// ── STATE ─────────────────────────────────────────────────────────
-let currentUser=null,apiKey=null,S={},editIdx=-1,addOpen=false;
-let chatHistory=[],obHist=[],proposedPortfolio=null,manualPositions=[];
-let signals={},newsItems=[];
-let refreshTimer=null,newsTimer=null;
-let autoSaveEnabled=true,fileHandle=null,autoSaveTimer=null;
+const CRYPTO_UNIVERSE = [
+  {s:'INJ',n:'Injective',cat:'DeFi'},{s:'TIA',n:'Celestia',cat:'Layer2'},{s:'ARB',n:'Arbitrum',cat:'Layer2'},
+  {s:'OP',n:'Optimism',cat:'Layer2'},{s:'STRK',n:'Starknet',cat:'Layer2'},{s:'JUP',n:'Jupiter',cat:'DeFi'},
+  {s:'PENDLE',n:'Pendle',cat:'DeFi'},{s:'AAVE',n:'Aave',cat:'DeFi'},{s:'ENA',n:'Ethena',cat:'DeFi'},
+  {s:'PYTH',n:'Pyth Network',cat:'Infrastruttura'},{s:'W',n:'Wormhole',cat:'Infrastruttura'},
+  {s:'EIGEN',n:'EigenLayer',cat:'Infrastruttura'},{s:'IO',n:'io.net',cat:'AI'},{s:'RNDR',n:'Render',cat:'AI'},
+  {s:'FET',n:'Fetch.ai',cat:'AI'},{s:'TAO',n:'Bittensor',cat:'AI'},{s:'WLD',n:'Worldcoin',cat:'AI'},
+  {s:'AKT',n:'Akash Network',cat:'AI'},{s:'IMX',n:'Immutable X',cat:'GameFi'},
+  {s:'BEAM',n:'Beam',cat:'GameFi'},{s:'RON',n:'Ronin',cat:'GameFi'},
+  {s:'ONDO',n:'Ondo Finance',cat:'RWA'},{s:'CFG',n:'Centrifuge',cat:'RWA'},
+  {s:'SCRT',n:'Secret Network',cat:'Privacy'},{s:'ROSE',n:'Oasis Network',cat:'Privacy'},
+  {s:'OSMO',n:'Osmosis',cat:'DeFi'},{s:'KAVA',n:'Kava',cat:'DeFi'},{s:'CRV',n:'Curve',cat:'DeFi'},
+  {s:'LDO',n:'Lido DAO',cat:'DeFi'},{s:'RPL',n:'Rocket Pool',cat:'Infrastruttura'},
+  {s:'SUI',n:'Sui',cat:'Layer2'},{s:'SEI',n:'Sei',cat:'Layer2'},
+  {s:'NEAR',n:'NEAR Protocol',cat:'Infrastruttura'},{s:'APT',n:'Aptos',cat:'Infrastruttura'},
+];
 
-// ── LOGIN ─────────────────────────────────────────────────────────
-function renderUserBtns(){
-  const users=getUsers(),c=document.getElementById('userBtns');
-  c.innerHTML=users.map(u=>{
-    const raw=_get(storeKey(u));let meta='nessun dato';
-    try{const d=JSON.parse(raw);if(d?.portfolio)meta=d.portfolio.length+' posizioni'}catch(e){}
-    return`<div class="ubtn" data-user="${u}" onclick="selectUser('${u}')"><div class="ubtn-n">${u}</div><div class="ubtn-m">${meta}</div></div>`;
+const RISK_CONFIG = [
+  {label:'Conservativo',color:'var(--bl)',bg:'var(--bbg)',br:'var(--bbr)',pct:'0%',
+   note:'Large cap solide, dividendi, volatilità bassa. Evita small cap e crypto.'},
+  {label:'Moderato',color:'var(--am)',bg:'var(--abg)',br:'var(--abr)',pct:'50%',
+   note:'Bilanciato growth/value. Crypto max 15%. Diversificazione ampia.'},
+  {label:'Aggressivo',color:'var(--rd)',bg:'var(--rbg)',br:'var(--rbr)',pct:'100%',
+   note:'Growth puro, momentum plays, small/mid cap, crypto permessa. Alta volatilità.'},
+];
+
+const ALL_SECTORS = Object.keys(STOCK_UNIVERSE);
+
+// ── STATE ────────────────────────────────────────────────────────
+let currentUser = null, apiKey = null, finnhubKey = null;
+let S = {}, editIdx = -1, addOpen = false;
+let chatHistory = [], obHist = [], proposedPortfolio = null, manualPositions = [];
+let signals = {}, newsItems = [], _sugsData = [], _cryptoData = [];
+let riskLevel = 1, geoSplit = 50, exploreAll = false;
+let refreshTimer = null, newsTimer = null, sugTimer = null, cryptoTimer = null;
+let autoSaveEnabled = true, fileHandle = null, autoSaveTimer = null;
+let currentPopupQuery = '';
+
+// ── STORAGE ──────────────────────────────────────────────────────
+const _m = {};
+function _set(k,v){try{localStorage.setItem(k,v);return}catch(e){}try{sessionStorage.setItem(k,v);return}catch(e){}_m[k]=v;}
+function _get(k){try{const v=localStorage.getItem(k);if(v!==null)return v;}catch(e){}try{const v=sessionStorage.getItem(k);if(v!==null)return v;}catch(e){}return _m[k]||null;}
+function _del(k){try{localStorage.removeItem(k);}catch(e){}try{sessionStorage.removeItem(k);}catch(e){}delete _m[k];}
+function storeKey(u){return 'ettorino_user_'+u;}
+function apiKeyKey(u){return 'ettorino_apikey_'+u;}
+function finnhubKeyKey(u){return 'ettorino_finnhub_'+u;}
+function getUsers(){try{return JSON.parse(_get('ettorino_users')||'[]');}catch(e){return[];}}
+function saveUsers(a){_set('ettorino_users',JSON.stringify(a));}
+
+// ── API CALL ─────────────────────────────────────────────────────
+const SYS = 'Sei Ettorino, consulente finanziario AI personale. Rispondi sempre in italiano. ' +
+  'Dai verdict chiari COMPRA/TIENI/EVITA, analisi concise con bullet point, ' +
+  'crypto max 15%, ricorda che sei AI non consulente regolamentato. ' +
+  'Focalizzati sempre sui titoli specifici del portafoglio dell\'utente.';
+
+async function callAPI(messages, system, maxTokens) {
+  maxTokens = maxTokens || 600;
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: maxTokens,
+      system: system || SYS,
+      messages: messages
+    })
+  });
+  if (!res.ok) {
+    const e = await res.json().catch(function(){return {};});
+    const msg = e.error && e.error.message ? e.error.message : 'API error ' + res.status;
+    throw new Error(res.status === 429 ? '429: ' + msg : msg);
+  }
+  const d = await res.json();
+  const block = d.content && d.content.find(function(b){return b.type==='text';});
+  return block ? block.text : '';
+}
+
+async function callAPIWithSearch(userMsg, system, maxTokens) {
+  maxTokens = maxTokens || 600;
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: maxTokens,
+      system: system || SYS,
+      messages: [{role:'user', content: userMsg}],
+      tools: [{type:'web_search_20250305', name:'web_search'}]
+    })
+  });
+  if (!res.ok) {
+    const e = await res.json().catch(function(){return {};});
+    const msg = e.error && e.error.message ? e.error.message : 'API error ' + res.status;
+    throw new Error(res.status === 429 ? '429: ' + msg : msg);
+  }
+  const d = await res.json();
+  return (d.content || []).filter(function(b){return b.type==='text';}).map(function(b){return b.text;}).join('');
+}
+
+// ── LOGIN ────────────────────────────────────────────────────────
+function renderUserBtns() {
+  const users = getUsers();
+  const c = document.getElementById('userBtns');
+  if (!users.length) {
+    c.innerHTML = '<div style="font-size:13px;color:var(--ht);grid-column:span 2">Nessun utente \u2014 creane uno.</div>';
+    return;
+  }
+  c.innerHTML = users.map(function(u) {
+    const raw = _get(storeKey(u));
+    let meta = 'nessun dato';
+    try { const d = JSON.parse(raw); if (d && d.portfolio) meta = d.portfolio.length + ' posizioni'; } catch(e) {}
+    return '<div class="ubtn" data-user="' + u + '">' +
+      '<div class="ubtn-n">' + u + '</div>' +
+      '<div class="ubtn-m">' + meta + '</div></div>';
   }).join('');
-  if(!users.length)c.innerHTML='<div style="font-size:13px;color:var(--ht);grid-column:span 2">Nessun utente — creane uno.</div>';
+  c.querySelectorAll('.ubtn').forEach(function(btn) {
+    btn.addEventListener('click', function() { selectUser(btn.dataset.user); });
+  });
 }
-function selectUser(u){
-  currentUser=u;
-  document.querySelectorAll('.ubtn').forEach(b=>b.classList.toggle('sel',b.dataset.user===u));
-  document.getElementById('apiKeyInput').value=_get(apiKey_key(u))||'';
+
+function selectUser(u) {
+  currentUser = u;
+  document.querySelectorAll('.ubtn').forEach(function(b) {
+    b.classList.toggle('sel', b.dataset.user === u);
+  });
+  document.getElementById('apiKeyInput').value = _get(apiKeyKey(u)) || '';
+  document.getElementById('finnhubKeyInput').value = _get(finnhubKeyKey(u)) || '';
   checkLoginReady();
 }
-function toggleNewUser(){const r=document.getElementById('nuRow');r.classList.toggle('open');if(r.classList.contains('open'))document.getElementById('nufName').focus();}
-function createUser(){
-  const name=document.getElementById('nufName').value.trim();if(!name)return;
-  const users=getUsers();if(!users.includes(name)){users.push(name);saveUsers(users);}
-  document.getElementById('nufName').value='';
-  document.getElementById('nuRow').classList.remove('open');
-  renderUserBtns();selectUser(name);
+
+function checkLoginReady() {
+  const k = document.getElementById('apiKeyInput').value.trim();
+  document.getElementById('loginBtn').disabled = !(currentUser && k.startsWith('sk-ant-'));
 }
-function toggleApiVis(){
-  const inp=document.getElementById('apiKeyInput');
-  inp.type=inp.type==='password'?'text':'password';
-  event.target.textContent=inp.type==='password'?'mostra':'nascondi';
-}
-document.getElementById('apiKeyInput').addEventListener('input',function(){
-  const v=this.value.trim(),st=document.getElementById('apiStatus');
-  if(v.startsWith('sk-ant-')){st.className='smsg ok';st.textContent='✓ Formato chiave valido'}
-  else if(v.length>5){st.className='smsg err';st.textContent='✗ Deve iniziare con sk-ant-'}
-  else{st.className='smsg';st.textContent=''}
-  checkLoginReady();
+
+// ── DOM READY ────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+
+  // User management
+  document.getElementById('addUbBtn').addEventListener('click', function() {
+    const r = document.getElementById('nuRow');
+    r.classList.toggle('open');
+    if (r.classList.contains('open')) document.getElementById('nufName').focus();
+  });
+  document.getElementById('createUserBtn').addEventListener('click', createUser);
+  document.getElementById('nufName').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') createUser();
+  });
+
+  // API key toggles
+  document.getElementById('toggleApiBtn').addEventListener('click', function() {
+    const inp = document.getElementById('apiKeyInput');
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+    this.textContent = inp.type === 'password' ? 'mostra' : 'nascondi';
+  });
+  document.getElementById('toggleFinnhubBtn').addEventListener('click', function() {
+    const inp = document.getElementById('finnhubKeyInput');
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+    this.textContent = inp.type === 'password' ? 'mostra' : 'nascondi';
+  });
+
+  // API key input validation
+  document.getElementById('apiKeyInput').addEventListener('input', function() {
+    const v = this.value.trim();
+    const st = document.getElementById('apiStatus');
+    if (v.startsWith('sk-ant-')) { st.className='smsg ok'; st.textContent='✓ Formato chiave valido'; }
+    else if (v.length > 5) { st.className='smsg err'; st.textContent='✗ Deve iniziare con sk-ant-'; }
+    else { st.className='smsg'; st.textContent=''; }
+    checkLoginReady();
+  });
+  document.getElementById('apiKeyInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  // Login button
+  document.getElementById('loginBtn').addEventListener('click', doLogin);
+
+  // Import on login
+  document.getElementById('importLoginFile').addEventListener('change', importOnLogin);
+
+  // Onboarding
+  document.getElementById('startAIBtn').addEventListener('click', startAI);
+  document.getElementById('startManualBtn').addEventListener('click', startManual);
+  document.getElementById('startEmptyBtn').addEventListener('click', startEmpty);
+  document.getElementById('acceptPortBtn').addEventListener('click', acceptPortfolio);
+  document.getElementById('modifyPortBtn').addEventListener('click', modifyPortfolio);
+  document.getElementById('obBtn').addEventListener('click', obSend);
+  document.getElementById('obInp').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') obSend();
+  });
+  document.getElementById('skipObBtn').addEventListener('click', skipOnboard);
+  document.getElementById('addMfBtn').addEventListener('click', addManualPos);
+  document.getElementById('finishManualBtn').addEventListener('click', finishManual);
+  document.getElementById('mf-tk').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { document.getElementById('mf-nm').focus(); }
+  });
+
+  // Modal edit
+  document.getElementById('saveEditBtn').addEventListener('click', saveEdit);
+  document.getElementById('delPosBtn').addEventListener('click', delPos);
+  document.getElementById('cancelEditBtn').addEventListener('click', closeModal);
+
+  // Popup
+  document.getElementById('popupCloseBtn').addEventListener('click', closePopupDirect);
+  document.getElementById('popupSecBtn').addEventListener('click', closePopupDirect);
+  document.getElementById('detailPopup').addEventListener('click', function(e) {
+    if (e.target === this) closePopupDirect();
+  });
+  document.getElementById('popupChatBtn').addEventListener('click', popupToChat);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePopupDirect();
+  });
+
+  // Topbar
+  document.getElementById('userBadge').addEventListener('click', logout);
+  document.getElementById('refreshSel').addEventListener('change', function() {
+    setRefreshInterval(this.value);
+  });
+  document.getElementById('autoSaveToggle').addEventListener('change', onAutoSaveToggle);
+  document.getElementById('folderBtn').addEventListener('click', pickFolder);
+  document.getElementById('exportJsonBtn').addEventListener('click', exportJSON);
+  document.getElementById('exportMdBtn').addEventListener('click', exportMD);
+  document.getElementById('importFile').addEventListener('change', importJSON);
+  document.getElementById('resetBtn').addEventListener('click', resetUser);
+
+  // Control bar
+  document.getElementById('riskSlider').addEventListener('input', function() { onRiskChange(this.value); });
+  document.getElementById('geoSlider').addEventListener('input', function() { onGeoChange(this.value); });
+  document.getElementById('applyCtrlBtn').addEventListener('click', applyControlsNow);
+
+  // Portfolio bar
+  document.getElementById('liqInp').addEventListener('change', saveLiq);
+  document.getElementById('addPosBtn').addEventListener('click', toggleAdd);
+
+  // Port section
+  document.getElementById('refreshSigsBtn').addEventListener('click', refreshSignals);
+  document.getElementById('addPosBtnSec').addEventListener('click', toggleAdd);
+  document.getElementById('addPosSubmitBtn').addEventListener('click', addPos);
+  document.getElementById('addPosCancelBtn').addEventListener('click', toggleAdd);
+
+  // Suggestions
+  document.getElementById('refreshSugBtn').addEventListener('click', fetchSuggestions);
+  document.getElementById('refreshCryptoBtn').addEventListener('click', fetchCryptoGems);
+
+  // News + chat
+  document.getElementById('refreshNewsBtn').addEventListener('click', fetchNews);
+  document.getElementById('analyzeAllNewsBtn').addEventListener('click', analyzeAllNews);
+  document.getElementById('clearChatBtn').addEventListener('click', clearChat);
+  document.getElementById('sendBtn').addEventListener('click', sendMsg);
+  document.getElementById('chatInp').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); }
+  });
+  document.querySelectorAll('.qbtn').forEach(function(btn) {
+    btn.addEventListener('click', function() { qp(this.dataset.q); });
+  });
+
+  // Interest bar add input (created dynamically, use delegation)
+  document.getElementById('interestBar').addEventListener('keydown', function(e) {
+    const inp = document.getElementById('interestInput');
+    if (!inp) return;
+    if (e.key === 'Enter') addInterest();
+    if (e.key === 'Escape') hideAddInterest();
+  });
+
+  // Clock
+  setInterval(function() {
+    document.getElementById('clk').textContent =
+      new Date().toLocaleTimeString('it-IT', {hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  }, 1000);
+
+  // Auto-save interval
+  setInterval(saveUserData, 60*60*1000);
+
+  renderUserBtns();
 });
-function checkLoginReady(){document.getElementById('loginBtn').disabled=!(currentUser&&document.getElementById('apiKeyInput').value.trim().startsWith('sk-ant-'));}
-async function doLogin(){
-  const key=document.getElementById('apiKeyInput').value.trim();
-  if(!currentUser||!key.startsWith('sk-ant-'))return;
-  apiKey=key;_set(apiKey_key(currentUser),key);
+
+// ── USER MANAGEMENT ──────────────────────────────────────────────
+function createUser() {
+  const name = document.getElementById('nufName').value.trim();
+  if (!name) return;
+  const users = getUsers();
+  if (!users.includes(name)) { users.push(name); saveUsers(users); }
+  document.getElementById('nufName').value = '';
+  document.getElementById('nuRow').classList.remove('open');
+  renderUserBtns();
+  selectUser(name);
+}
+
+async function doLogin() {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  if (!currentUser || !key.startsWith('sk-ant-')) return;
+  apiKey = key;
+  _set(apiKeyKey(currentUser), key);
+  const fk = document.getElementById('finnhubKeyInput').value.trim();
+  if (fk) { finnhubKey = fk; _set(finnhubKeyKey(currentUser), fk); }
+  else { finnhubKey = _get(finnhubKeyKey(currentUser)) || null; }
   document.getElementById('loginScreen').classList.add('hidden');
-  document.getElementById('userBadge').textContent='● '+currentUser;
+  document.getElementById('userBadge').textContent = '\u25cf ' + currentUser;
   loadUserData();
 }
-function logout(){if(!confirm('Cambiare utente?'))return;currentUser=null;apiKey=null;S={};document.getElementById('loginScreen').classList.remove('hidden');renderUserBtns();}
-function loadUserData(){
-  const raw=_get(storeKey(currentUser));
-  if(raw){try{S=JSON.parse(raw)}catch(e){S={}}}
-  if(!S.portfolio?.length||S.profile?.note==='fresh'){
-    S={portfolio:[],liquidity:0,profile:{note:'fresh'}};showOnboard();
-  }else{initDashboard();}
-}
-function saveUserData(){
-  _set(storeKey(currentUser),JSON.stringify({...S,ts:Date.now()}));
-  const now=Date.now(),lr=parseInt(_get('ettorino_last_reminder')||'0'),le=parseInt(_get('ettorino_last_export')||'0'),wk=7*24*60*60*1000;
-  if(now-lr>wk&&now-le>wk){_set('ettorino_last_reminder',String(now));setTimeout(()=>addAiMsg('Reminder: sono passati 7 giorni dall\'ultimo export. Usa <strong>↓ JSON</strong> per salvare una copia.'),2000);}
-  document.getElementById('bkInfo').textContent='Salvato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-}
-setInterval(saveUserData,60*60*1000);
-setInterval(()=>document.getElementById('clk').textContent=new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'}),1000);
 
-// ── ONBOARDING ────────────────────────────────────────────────────
-function showOnboard(){
-  obHist=[];proposedPortfolio=null;manualPositions=[];
+function logout() {
+  if (!confirm('Cambiare utente?')) return;
+  currentUser = null; apiKey = null; finnhubKey = null; S = {};
+  document.getElementById('loginScreen').classList.remove('hidden');
+  renderUserBtns();
+}
+
+function loadUserData() {
+  const raw = _get(storeKey(currentUser));
+  if (raw) { try { S = JSON.parse(raw); } catch(e) { S = {}; } }
+  if (!S.portfolio || !S.portfolio.length || (S.profile && S.profile.note === 'fresh')) {
+    S = {portfolio:[], liquidity:0, profile:{note:'fresh'}};
+    showOnboard();
+  } else {
+    initDashboard();
+  }
+}
+
+function saveUserData() {
+  if (!currentUser) return;
+  _set(storeKey(currentUser), JSON.stringify(Object.assign({}, S, {ts: Date.now()})));
+  const now = Date.now();
+  const lr = parseInt(_get('ettorino_last_reminder') || '0');
+  const le = parseInt(_get('ettorino_last_export') || '0');
+  const wk = 7*24*60*60*1000;
+  if (now-lr > wk && now-le > wk) {
+    _set('ettorino_last_reminder', String(now));
+    setTimeout(function() {
+      addAiMsg('Reminder: sono passati 7 giorni dall\'ultimo export. Usa <strong>\u2193 JSON</strong> per salvare una copia.');
+    }, 2000);
+  }
+  document.getElementById('bkInfo').textContent = 'Salvato ' +
+    new Date().toLocaleTimeString('it-IT', {hour:'2-digit', minute:'2-digit'});
+}
+
+// ── ONBOARDING ───────────────────────────────────────────────────
+let obProfile = {};
+
+function showOnboard() {
+  obHist = []; proposedPortfolio = null; manualPositions = [];
   document.getElementById('onboard').classList.remove('hidden');
-  document.getElementById('forkView').style.display='flex';
-  document.getElementById('forkView').style.flexDirection='column';
-  document.getElementById('aiObView').style.display='none';
-  document.getElementById('manualView').style.display='none';
+  document.getElementById('forkView').style.display = 'flex';
+  document.getElementById('forkView').style.flexDirection = 'column';
+  document.getElementById('aiObView').style.display = 'none';
+  document.getElementById('manualView').style.display = 'none';
 }
-function startAI(){
-  document.getElementById('forkView').style.display='none';
-  document.getElementById('aiObView').style.display='block';
-  document.getElementById('obActionsWrap').style.display='none';
-  document.getElementById('obFoot').style.display='flex';
-  document.getElementById('obMsgs').innerHTML='';
-  const first=`Ciao <strong>${currentUser}</strong>! Costruiamo il tuo portafoglio.<br><br><strong>1.</strong> Quanto capitale hai disponibile da investire?`;
-  obAdd('ai',first);
-  obHist.push({role:'assistant',content:`Ciao ${currentUser}! Costruiamo il tuo portafoglio. Prima domanda: quanto capitale hai disponibile da investire?`});
-  setTimeout(()=>document.getElementById('obInp').focus(),100);
+
+function startAI() {
+  document.getElementById('forkView').style.display = 'none';
+  document.getElementById('aiObView').style.display = 'block';
+  document.getElementById('obActionsWrap').style.display = 'none';
+  document.getElementById('obFoot').style.display = 'flex';
+  document.getElementById('obMsgs').innerHTML = '';
+  const first = 'Ciao <strong>' + currentUser + '</strong>! Costruiamo il tuo portafoglio.<br><br>' +
+    '<strong>1.</strong> Quanto capitale hai disponibile da investire?';
+  obAdd('ai', first);
+  obHist.push({role:'assistant', content: 'Ciao ' + currentUser + '! Prima domanda: quanto capitale hai disponibile?'});
+  setTimeout(function() { document.getElementById('obInp').focus(); }, 100);
 }
-function startManual(){
-  document.getElementById('forkView').style.display='none';
-  document.getElementById('manualView').style.display='block';
-  manualPositions=[];renderManualList();
-  setTimeout(()=>document.getElementById('mf-tk').focus(),100);
+
+function startManual() {
+  document.getElementById('forkView').style.display = 'none';
+  document.getElementById('manualView').style.display = 'block';
+  manualPositions = [];
+  renderManualList();
+  setTimeout(function() { document.getElementById('mf-tk').focus(); }, 100);
 }
-function obAdd(role,html){
-  const c=document.getElementById('obMsgs');
-  const d=document.createElement('div');d.className='omsg '+role;d.innerHTML=html;
-  c.appendChild(d);c.scrollTop=9999;return d;
-}
-function showPortfolioProposal(holdings,capital){
-  const cap=capital||S.liquidity||0;
-  const c=document.getElementById('obMsgs');
-  const d=document.createElement('div');d.className='omsg port';
-  const total=holdings.reduce((s,h)=>s+(h.qty?Math.round(h.qty*h.avgPrice):Math.round(cap*h.alloc/100)),0);
-  const rows=holdings.map(h=>{
-    const imp=h.qty?Math.round(h.qty*h.avgPrice):Math.round(cap*h.alloc/100);
-    return`<div class="pt-row"><div class="pc">${h.ticker}</div><div class="pc">${h.name}</div><div class="pc">${h.alloc}%</div><div class="pc">€${imp.toLocaleString('it-IT')}</div></div>`;
-  }).join('');
-  d.innerHTML=`<div class="pt-hdr">📊 Portafoglio proposto — €${total.toLocaleString('it-IT')} investiti</div>
-    <div class="pt-row ph"><div class="pc">Ticker</div><div class="pc">Titolo</div><div class="pc">Alloc</div><div class="pc">Importo</div></div>${rows}`;
-  c.appendChild(d);
-  document.getElementById('obActionsWrap').style.display='flex';
-  document.getElementById('obFoot').style.display='none';
-  c.scrollTop=9999;
-}
-async function obSend(){
-  const inp=document.getElementById('obInp');
-  const txt=inp.value.trim();if(!txt)return;
-  inp.value='';document.getElementById('obBtn').disabled=true;
-  obAdd('user',txt);obHist.push({role:'user',content:txt});
-  const th=obAdd('think','Ettorino sta elaborando…');
-  const sys=`Sei Ettorino, consulente AI in onboarding con ${currentUser}.
-Raccogli UNA alla volta: 1) capitale, 2) obiettivo (crescita/rendita/protezione), 3) settori preferiti.
-Quando hai tutte le info, proponi un portafoglio SOLO con titoli dei settori scelti. Titoli reali e quotati.
-Calcola qty = (capitale × alloc%) / avgPrice arrotondato a 2 decimali.
-Alla fine aggiungi su una riga sola:
-PORTFOLIO_JSON:{"capital":CAPITALE,"holdings":[{"ticker":"X","name":"Nome","sector":"S","alloc":N,"avgPrice":P,"qty":Q}]}`;
-  try{
-    const res=await callAPI(obHist,sys,900);th.remove();obHist.push({role:'assistant',content:res});
-    const m=res.match(/PORTFOLIO_JSON:(\{.+\})/);
-    if(m){
-      try{
-        const data=JSON.parse(m[1]);
-        proposedPortfolio=data;
-        if(data.capital)S.liquidity=0;
-        const clean=res.replace(/PORTFOLIO_JSON:\{.+\}/,'').trim();
-        if(clean)obAdd('ai',clean.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));
-        showPortfolioProposal(data.holdings,data.capital);
-      }catch(e){obAdd('ai',res.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));}
-    }else{
-      obAdd('ai',res.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));
-    }
-  }catch(e){th.remove();obAdd('ai','Errore. Riprova o clicca Salta.');}
-  document.getElementById('obBtn').disabled=false;
-}
-function acceptPortfolio(){
-  if(!proposedPortfolio?.holdings?.length){finishManualEmpty();return;}
-  const cap=proposedPortfolio.capital||S.liquidity||10000;
-  S.portfolio=proposedPortfolio.holdings.map(h=>({
-    ticker:h.ticker,name:h.name,sector:h.sector||'—',
-    qty:h.qty||parseFloat(((cap*(h.alloc/100))/(h.avgPrice||100)).toFixed(4)),
-    avgPrice:h.avgPrice||100,currentPrice:h.avgPrice||100,
-    change:+(Math.random()*3-0.5).toFixed(2),alloc:h.alloc
-  }));
-  const invested=Math.round(S.portfolio.reduce((s,p)=>s+p.qty*p.avgPrice,0));
-  S.liquidity=Math.max(0,cap-invested);
-  S.profile={note:'complete'};
+
+function startEmpty() {
+  S = {portfolio:[], liquidity:0, profile:{note:'complete', obiettivo:'crescita'}};
   document.getElementById('onboard').classList.add('hidden');
   initDashboard();
-  addAiMsg(`Portafoglio pronto: <strong>${S.portfolio.length} posizioni</strong>, investiti <strong>€${invested.toLocaleString('it-IT')}</strong>, liquidità <strong>€${S.liquidity.toLocaleString('it-IT')}</strong>.<br>Sto caricando le news sui tuoi titoli…`);
+  addAiMsg('Portafoglio vuoto pronto. Usa <strong>+ aggiungi</strong> per inserire i tuoi titoli. Nel frattempo ho gi\u00e0 cercato i consigli di acquisto!');
   saveUserData();
 }
-function modifyPortfolio(){
-  document.getElementById('obActionsWrap').style.display='none';
-  document.getElementById('obFoot').style.display='flex';
-  obAdd('ai','Dimmi cosa vuoi cambiare.');
-  obHist.push({role:'assistant',content:'Dimmi cosa vuoi cambiare.'});
+
+function obAdd(role, html) {
+  const c = document.getElementById('obMsgs');
+  const d = document.createElement('div');
+  d.className = 'omsg ' + role;
+  d.innerHTML = html;
+  c.appendChild(d);
+  c.scrollTop = 9999;
+  return d;
+}
+
+async function obSend() {
+  const inp = document.getElementById('obInp');
+  const txt = inp.value.trim();
+  if (!txt) return;
+  inp.value = '';
+  document.getElementById('obBtn').disabled = true;
+  obAdd('user', txt);
+  obHist.push({role:'user', content: txt});
+
+  const collectSys = 'Sei Ettorino, consulente AI in onboarding con ' + currentUser + '.\n' +
+    'Raccogli UNA domanda alla volta in ordine:\n' +
+    '1) Capitale disponibile (numero in euro)\n' +
+    '2) Obiettivo: crescita, rendita o protezione\n' +
+    '3) Settori preferiti tra: ' + ALL_SECTORS.join(', ') + '\n\n' +
+    'Quando hai tutte e 3 le info, rispondi SOLO con questo JSON su una riga:\n' +
+    'PROFILE_JSON:{"capital":N,"goal":"crescita|rendita|protezione","sectors":["S1","S2"]}\n\n' +
+    'Se non hai ancora tutte le info, fai la prossima domanda. Sii diretto e cordiale.';
+
+  const th = obAdd('think', 'Ettorino sta elaborando\u2026');
+  try {
+    const res = await callAPI(obHist, collectSys, 400);
+    th.remove();
+    obHist.push({role:'assistant', content: res});
+    const pm = res.match(/PROFILE_JSON:(\{.+\})/);
+    if (pm) {
+      try {
+        const profile = JSON.parse(pm[1]);
+        obProfile = profile;
+        S.profile = Object.assign({}, S.profile, profile);
+        obAdd('ai', 'Perfetto! Ho tutto quello che mi serve:<br>' +
+          '<strong>Capitale:</strong> \u20ac' + (profile.capital || 0).toLocaleString('it-IT') +
+          ' \u00b7 <strong>Obiettivo:</strong> ' + profile.goal +
+          ' \u00b7 <strong>Settori:</strong> ' + (profile.sectors || []).join(', ') +
+          '<br><br>Ora costruisco il tuo portafoglio \u2014 ci vogliono 30-60 secondi perch\u00e9 verifico le condizioni di mercato attuali.');
+        document.getElementById('obFoot').style.display = 'none';
+        buildPortfolioWithAlgorithm(profile);
+        document.getElementById('obBtn').disabled = false;
+        return;
+      } catch(e) { /* fallthrough */ }
+    }
+    const clean = res.replace(/PROFILE_JSON:\{.+\}/, '').trim();
+    obAdd('ai', clean.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>'));
+  } catch(e) {
+    th.remove();
+    obAdd('ai', 'Errore. Riprova o clicca Salta.');
+  }
+  document.getElementById('obBtn').disabled = false;
+}
+
+async function buildPortfolioWithAlgorithm(profile) {
+  const steps = [
+    '🔍 Filtro i titoli per i tuoi settori\u2026',
+    '📰 Verifico news e catalizzatori recenti\u2026',
+    '📊 Valuto i migliori candidati\u2026',
+    '\u2696\ufe0f Calcolo le allocazioni per il tuo obiettivo\u2026',
+    '\u2705 Portafoglio pronto!'
+  ];
+  const loaderEl = obAdd('think', steps[0]);
+  let si = 0;
+  const stepTimer = setInterval(function() {
+    si = Math.min(si + 1, steps.length - 2);
+    loaderEl.textContent = steps[si];
+  }, 8000);
+
+  let candidates = [];
+  const sectors = profile.sectors || [];
+  sectors.forEach(function(sec) {
+    if (STOCK_UNIVERSE[sec]) candidates = candidates.concat(STOCK_UNIVERSE[sec]);
+  });
+  if (!candidates.length) {
+    Object.values(STOCK_UNIVERSE).forEach(function(arr) { candidates = candidates.concat(arr); });
+  }
+
+  const goalNote = profile.goal === 'rendita'
+    ? 'Favorisci titoli con dividendi solidi e business stabile. Max 10% su singola posizione volatile.'
+    : profile.goal === 'protezione'
+    ? 'Preferisci large cap difensive. Massima diversificazione, max 15% per posizione.'
+    : 'Bilancia growth e quality. Puoi pesare di piu chi ha forte momentum. Max 25% su singola posizione.';
+
+  const riskNote = getRiskPrompt();
+  const geoNote = getGeoFilter().note;
+  const geoP = getGeoFilter().prefer;
+  if (geoP === 'USA') candidates = candidates.filter(function(c){return c.m==='USA';});
+  else if (geoP === 'EU') candidates = candidates.filter(function(c){return c.m==='EU';});
+
+  const candidateList = candidates.map(function(c){return c.t+' ('+c.n+', '+c.m+')';}).join(', ');
+
+  const sys = 'Sei Ettorino, analista finanziario AI. Costruisci un portafoglio per ' + currentUser +
+    ' seguendo RIGOROSAMENTE questi 4 step:\n\n' +
+    'PROFILO RISCHIO: ' + riskNote + '\nPREFERENZA GEOGRAFICA: ' + geoNote + '\n\n' +
+    'STEP 1 - SCREENING: Scarta chi ha news negative negli ultimi 14 giorni.\n' +
+    'STEP 2 - CATALIZZATORI: Tieni solo chi ha un catalizzatore positivo verificabile.\n' +
+    'STEP 3 - SELEZIONE E ALLOCAZIONE:\n' +
+    '- Seleziona 6-8 titoli finali\n' +
+    '- Obiettivo: ' + profile.goal + ' - ' + goalNote + '\n' +
+    '- Capitale: \u20ac' + profile.capital + '\n' +
+    '- Allocazioni devono sommare a 100%\n' +
+    '- avgPrice = prezzo attuale approssimativo, qty = (capitale x alloc%) / avgPrice\n' +
+    'STEP 4 - OUTPUT: Solo JSON su una riga alla fine:\n' +
+    'PORTFOLIO_JSON:{"capital":' + profile.capital + ',"holdings":[{"ticker":"X","name":"Nome","sector":"S","alloc":N,"avgPrice":P,"qty":Q,"catalyst":"catalizzatore 8 parole"}]}';
+
+  const userMsg = 'Candidati: ' + candidateList + '.\nObiettivo: ' + profile.goal +
+    '. Capitale: \u20ac' + profile.capital + '. Settori: ' + sectors.join(', ') +
+    '.\nEsegui i 4 step con web search e costruisci il portafoglio ottimale.';
+
+  try {
+    const textBlock = await callAPIWithSearch(userMsg, sys, 1500);
+    clearInterval(stepTimer);
+    loaderEl.remove();
+    const m = textBlock && textBlock.match(/PORTFOLIO_JSON:(\{[\s\S]+?\}(?=\s*$|\s*\n))/m);
+    if (m) {
+      try {
+        const port = JSON.parse(m[1]);
+        proposedPortfolio = port;
+        S.liquidity = 0;
+        const clean = textBlock.replace(/PORTFOLIO_JSON:[\s\S]+$/, '').trim();
+        if (clean) obAdd('ai', clean.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>'));
+        showPortfolioProposal(port.holdings, port.capital);
+      } catch(e) {
+        obAdd('ai', 'Ho costruito il portafoglio. Clicca "Ottimo, partiamo cos\u00ec" per continuare.');
+        document.getElementById('obActionsWrap').style.display = 'flex';
+        document.getElementById('obFoot').style.display = 'none';
+      }
+    } else {
+      const clean = (textBlock || '').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+      obAdd('ai', clean || 'Analisi completata. Vuoi procedere?');
+      document.getElementById('obFoot').style.display = 'flex';
+      document.getElementById('obBtn').disabled = false;
+    }
+  } catch(e) {
+    clearInterval(stepTimer);
+    loaderEl.remove();
+    obAdd('ai', 'Errore durante la costruzione. Riprova o clicca Salta.');
+    document.getElementById('obFoot').style.display = 'flex';
+    document.getElementById('obBtn').disabled = false;
+  }
+}
+
+function showPortfolioProposal(holdings, capital) {
+  const cap = capital || S.liquidity || 0;
+  const c = document.getElementById('obMsgs');
+  const d = document.createElement('div');
+  d.className = 'omsg port';
+  const total = holdings.reduce(function(s,h) {
+    return s + (h.qty ? Math.round(h.qty*h.avgPrice) : Math.round(cap*h.alloc/100));
+  }, 0);
+  let rowsHtml = '<div class="pt-row ph">' +
+    '<div class="pc">Ticker</div><div class="pc">Titolo</div>' +
+    '<div class="pc">Alloc</div><div class="pc">Importo</div></div>';
+  holdings.forEach(function(h) {
+    const imp = h.qty ? Math.round(h.qty*h.avgPrice) : Math.round(cap*h.alloc/100);
+    rowsHtml += '<div class="pt-row">' +
+      '<div class="pc">' + h.ticker + '</div>' +
+      '<div class="pc">' + h.name + '</div>' +
+      '<div class="pc">' + h.alloc + '%</div>' +
+      '<div class="pc">\u20ac' + imp.toLocaleString('it-IT') + '</div></div>';
+  });
+  d.innerHTML = '<div class="pt-hdr">📊 Portafoglio proposto \u2014 \u20ac' +
+    total.toLocaleString('it-IT') + ' investiti \u00b7 ' + holdings.length + ' posizioni</div>' + rowsHtml;
+  c.appendChild(d);
+  document.getElementById('obActionsWrap').style.display = 'flex';
+  document.getElementById('obFoot').style.display = 'none';
+  c.scrollTop = 9999;
+}
+
+function acceptPortfolio() {
+  if (!proposedPortfolio || !proposedPortfolio.holdings || !proposedPortfolio.holdings.length) {
+    S.profile = Object.assign({}, S.profile, {note:'complete'});
+    document.getElementById('onboard').classList.add('hidden');
+    initDashboard();
+    addAiMsg('Dashboard aperta. Usa <strong>+ aggiungi</strong> per inserire i tuoi titoli.');
+    saveUserData();
+    return;
+  }
+  const cap = proposedPortfolio.capital || S.liquidity || 10000;
+  S.portfolio = proposedPortfolio.holdings.map(function(h) {
+    return {
+      ticker: h.ticker, name: h.name, sector: h.sector || '\u2014',
+      qty: h.qty || parseFloat(((cap*(h.alloc/100))/(h.avgPrice||100)).toFixed(4)),
+      avgPrice: h.avgPrice || 100,
+      currentPrice: h.avgPrice || 100,
+      change: parseFloat((Math.random()*3-0.5).toFixed(2)),
+      alloc: h.alloc
+    };
+  });
+  const invested = Math.round(S.portfolio.reduce(function(s,p){return s+p.qty*p.avgPrice;},0));
+  S.liquidity = Math.max(0, cap - invested);
+  S.profile = Object.assign({}, S.profile, {note:'complete'});
+  document.getElementById('onboard').classList.add('hidden');
+  initDashboard();
+  addAiMsg('Portafoglio creato: <strong>' + S.portfolio.length + ' posizioni</strong>, ' +
+    'investiti <strong>\u20ac' + invested.toLocaleString('it-IT') + '</strong>, ' +
+    'liquidit\u00e0 <strong>\u20ac' + S.liquidity.toLocaleString('it-IT') + '</strong>.');
+  saveUserData();
+}
+
+function modifyPortfolio() {
+  document.getElementById('obActionsWrap').style.display = 'none';
+  document.getElementById('obFoot').style.display = 'flex';
+  obAdd('ai', 'Dimmi cosa vuoi cambiare.');
+  obHist.push({role:'assistant', content:'Dimmi cosa vuoi cambiare.'});
   document.getElementById('obInp').focus();
 }
 
-// Manual
-function addManualPos(){
-  const tk=document.getElementById('mf-tk').value.toUpperCase().trim();
-  const nm=document.getElementById('mf-nm').value.trim()||tk;
-  const qty=parseFloat(document.getElementById('mf-qty').value)||1;
-  const avg=parseFloat(document.getElementById('mf-avg').value)||0;
-  if(!tk)return;
-  manualPositions.push({ticker:tk,name:nm,qty,avgPrice:avg});
+function addManualPos() {
+  const tk = document.getElementById('mf-tk').value.toUpperCase().trim();
+  const nm = document.getElementById('mf-nm').value.trim() || tk;
+  const qty = parseFloat(document.getElementById('mf-qty').value) || 1;
+  const avg = parseFloat(document.getElementById('mf-avg').value) || 0;
+  if (!tk) return;
+  manualPositions.push({ticker:tk, name:nm, qty:qty, avgPrice:avg});
   renderManualList();
-  ['mf-tk','mf-nm','mf-qty','mf-avg'].forEach(id=>document.getElementById(id).value='');
+  ['mf-tk','mf-nm','mf-qty','mf-avg'].forEach(function(id){document.getElementById(id).value='';});
   document.getElementById('mf-tk').focus();
 }
-function renderManualList(){
-  document.getElementById('mfList').innerHTML=manualPositions.map((p,i)=>`
-    <div class="mf-item">
-      <div><span class="mf-tk">${p.ticker}</span> <span class="mf-nm">${p.name} · ${p.qty} pz${p.avgPrice?` · €${p.avgPrice}`:''}</span></div>
-      <button class="mf-rm" onclick="removeManualPos(${i})">×</button>
-    </div>`).join('');
+
+function renderManualList() {
+  document.getElementById('mfList').innerHTML = manualPositions.map(function(p,i) {
+    return '<div class="mf-item">' +
+      '<div><span class="mf-tk">' + p.ticker + '</span> ' +
+      '<span class="mf-nm">' + p.name + ' \u00b7 ' + p.qty + ' pz' + (p.avgPrice ? ' \u00b7 \u20ac'+p.avgPrice : '') + '</span></div>' +
+      '<button class="mf-rm" data-idx="' + i + '">\u00d7</button></div>';
+  }).join('');
+  document.getElementById('mfList').querySelectorAll('.mf-rm').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      manualPositions.splice(parseInt(btn.dataset.idx), 1);
+      renderManualList();
+    });
+  });
 }
-function removeManualPos(i){manualPositions.splice(i,1);renderManualList();}
-function finishManual(){
-  if(!manualPositions.length){alert('Aggiungi almeno un titolo.');return;}
-  const alloc=Math.round(100/manualPositions.length);
-  S.portfolio=manualPositions.map((p,i)=>({
-    ticker:p.ticker,name:p.name,sector:'—',
-    qty:p.qty,avgPrice:p.avgPrice||0,currentPrice:p.avgPrice||0,
-    change:+(Math.random()*3-0.5).toFixed(2),
-    alloc:i===0?alloc+(100-alloc*manualPositions.length):alloc
-  }));
-  S.liquidity=0;S.profile={note:'complete'};
+
+function finishManual() {
+  if (!manualPositions.length) { alert('Aggiungi almeno un titolo.'); return; }
+  const n = manualPositions.length;
+  const alloc = Math.round(100/n);
+  S.portfolio = manualPositions.map(function(p,i) {
+    return {
+      ticker:p.ticker, name:p.name, sector:'\u2014',
+      qty:p.qty, avgPrice:p.avgPrice||0, currentPrice:p.avgPrice||0,
+      change: parseFloat((Math.random()*3-0.5).toFixed(2)),
+      alloc: i===0 ? alloc+(100-alloc*n) : alloc
+    };
+  });
+  S.liquidity = 0; S.profile = {note:'complete'};
   document.getElementById('onboard').classList.add('hidden');
   initDashboard();
-  addAiMsg(`Ho caricato ${S.portfolio.length} titoli. Sto cercando le ultime news e genero i segnali AI…`);
+  addAiMsg('Ho caricato ' + S.portfolio.length + ' titoli. Sto cercando le ultime news e genero i segnali AI\u2026');
   saveUserData();
 }
-function finishManualEmpty(){S.profile={note:'complete'};document.getElementById('onboard').classList.add('hidden');initDashboard();saveUserData();}
-function startEmpty(){
-  S={portfolio:[],liquidity:0,profile:{note:'complete',obiettivo:'crescita'}};
-  document.getElementById('onboard').classList.add('hidden');
-  initDashboard();
-  addAiMsg('Portafoglio vuoto pronto. Usa <strong>+ aggiungi</strong> per inserire i tuoi titoli. Nel frattempo ho già cercato i consigli di acquisto per te!');
-  saveUserData();
-}
-function skipOnboard(){
-  S={portfolio:[
+
+function skipOnboard() {
+  S = {portfolio:[
     {ticker:'NVDA',name:'NVIDIA Corp.',sector:'Tech & AI',qty:2,avgPrice:650,currentPrice:875,change:2.14,alloc:25},
     {ticker:'MSFT',name:'Microsoft',sector:'Tech & AI',qty:3,avgPrice:380,currentPrice:415,change:0.57,alloc:20},
     {ticker:'NOVO',name:'Novo Nordisk',sector:'Healthcare',qty:5,avgPrice:98,currentPrice:112.8,change:0.33,alloc:18},
     {ticker:'JPM',name:'JPMorgan Chase',sector:'Finanza',qty:5,avgPrice:185,currentPrice:198.4,change:-0.18,alloc:15},
     {ticker:'BTC',name:'Bitcoin',sector:'Crypto',qty:0.05,avgPrice:52000,currentPrice:67240,change:3.21,alloc:22},
-  ],liquidity:2000,profile:{note:'complete'}};
+  ], liquidity:2000, profile:{note:'complete'}};
   document.getElementById('onboard').classList.add('hidden');
-  initDashboard();saveUserData();
+  initDashboard();
+  saveUserData();
 }
 
-// ── DASHBOARD ─────────────────────────────────────────────────────
-function initDashboard(){
-  chatHistory=[];signals={};
-  initAutoSave();initRefresh();
-  document.getElementById('chatMsgs').innerHTML=`<div class="cm sys">${currentUser} · Ettorino4Finance</div><div class="cm ai">Ciao <strong>${currentUser}</strong>! Ho caricato <strong>${S.portfolio.length} posizioni</strong>. Sto recuperando le news e i segnali AI sui tuoi titoli.</div>`;
-  renderPortfolioBar();renderTiles();
-  // Avvia news e segnali in parallelo
-  fetchNews();
-  setTimeout(refreshSignals, 1500);
-  setTimeout(fetchSuggestions, 3000);
-  startSuggestionsTimer();
+// ── DASHBOARD INIT ───────────────────────────────────────────────
+function initDashboard() {
+  chatHistory = []; signals = {};
+  initAutoSave(); initRefresh(); initControls(); initInterests();
+  const priceMode = finnhubKey
+    ? '<strong>prezzi reali</strong> via Finnhub'
+    : 'prezzi <em>simulati</em> (aggiungi chiave Finnhub per quelli reali)';
+  document.getElementById('chatMsgs').innerHTML =
+    '<div class="cm sys">' + currentUser + ' \u00b7 Ettorino4Finance</div>' +
+    '<div class="cm ai">Ciao <strong>' + currentUser + '</strong>! Ho caricato <strong>' +
+    S.portfolio.length + ' posizioni</strong> con ' + priceMode + '. Sto recuperando news e segnali AI.</div>';
+  if (!finnhubKey) {
+    document.getElementById('livePill').textContent = '\u25cf simulato';
+    document.getElementById('livePill').title = 'Aggiungi chiave Finnhub per prezzi reali';
+  }
+  renderPortfolioBar();
+  renderTiles();
+  // API calls are manual only — no auto-start to avoid rate limits and costs
+  // User triggers news/signals/picks/crypto manually via refresh buttons
+  if (finnhubKey) setTimeout(fetchAllRealPrices, 1000); // Finnhub is free, OK to auto-start
 }
 
-// ── PORTFOLIO BAR ─────────────────────────────────────────────────
-function calcPL(p){const cost=p.qty*p.avgPrice,val=p.qty*p.currentPrice;return{cost,val,pl:val-cost,plPct:cost>0?((val-cost)/cost)*100:0}}
-function fmtPrice(p){return p.currentPrice>=1000?'$'+Math.round(p.currentPrice).toLocaleString('it-IT'):'$'+p.currentPrice.toFixed(2)}
-
-function renderPortfolioBar(){
-  let totVal=0,totCost=0,wChg=0;
-  S.portfolio.forEach(p=>{const{val,cost}=calcPL(p);totVal+=val;totCost+=cost;wChg+=p.change*(p.alloc/100);});
-  const plAbs=totVal-totCost,plPct=totCost>0?(plAbs/totCost)*100:0;
-  document.getElementById('pbVal').textContent='€'+Math.round(totVal).toLocaleString('it-IT');
-  document.getElementById('pbInv').textContent='€'+Math.round(totCost).toLocaleString('it-IT');
-  const plEl=document.getElementById('pbPL');
-  plEl.textContent=(plAbs>=0?'+':'')+Math.round(plAbs).toLocaleString('it-IT')+'€ ('+(plPct>=0?'+':'')+plPct.toFixed(1)+'%)';
-  plEl.className='pb-val '+(plAbs>=0?'pos':'neg');
-  const ogEl=document.getElementById('pbOggi');
-  ogEl.textContent=(wChg>=0?'+':'')+wChg.toFixed(2)+'%';
-  ogEl.className='pb-val '+(wChg>=0?'pos':'neg');
-  document.getElementById('liqInp').value='€'+(S.liquidity||0).toLocaleString('it-IT');
+// ── CONTROLS ─────────────────────────────────────────────────────
+function onRiskChange(v) {
+  riskLevel = parseInt(v);
+  const r = RISK_CONFIG[riskLevel];
+  document.getElementById('riskFill').style.cssText = 'background:' + r.color + ';width:' + r.pct;
+  document.getElementById('riskThumb').style.cssText = 'left:' + r.pct + ';background:' + r.color;
+  document.getElementById('riskLabel').textContent = r.label;
+  document.getElementById('riskLabel').style.cssText = 'background:' + r.bg + ';border:1px solid ' + r.br + ';color:' + r.color;
+  document.getElementById('ctrlHint').textContent = r.note;
+  _set('ettorino_risk', String(riskLevel));
 }
 
-// ── TILES ─────────────────────────────────────────────────────────
-function renderTiles(){
-  const grid=document.getElementById('tileGrid');
-  if(!S.portfolio?.length){
-    grid.innerHTML='<div class="empty-port">📂 <span>Portafoglio vuoto — usa <strong>+ aggiungi</strong> per inserire i tuoi titoli.</span></div>';
-    document.getElementById('tilesTitle').textContent='Il mio portafoglio';
+function onGeoChange(v) {
+  geoSplit = parseInt(v);
+  const usaPct = 100 - geoSplit;
+  document.getElementById('geoThumb').style.left = geoSplit + '%';
+  document.getElementById('geoVal').textContent = usaPct + '/' + geoSplit;
+  _set('ettorino_geo', String(geoSplit));
+}
+
+function getRiskPrompt() { return RISK_CONFIG[riskLevel].note; }
+
+function getGeoFilter() {
+  const usaPct = 100 - geoSplit;
+  if (usaPct >= 80) return {prefer:'USA', note:'Preferisci fortemente titoli USA.'};
+  if (geoSplit >= 80) return {prefer:'EU', note:'Preferisci fortemente titoli EU e italiani.'};
+  if (usaPct >= 65) return {prefer:'USA', note:'Preferisci USA (~'+usaPct+'%) con qualche posizione EU (~'+geoSplit+'%).'};
+  if (geoSplit >= 65) return {prefer:'EU', note:'Preferisci EU (~'+geoSplit+'%) con qualche posizione USA (~'+usaPct+'%).'};
+  return {prefer:null, note:'Bilancia equamente USA e EU (~'+usaPct+'%/~'+geoSplit+'%).'};
+}
+
+function initControls() {
+  const savedRisk = _get('ettorino_risk');
+  const savedGeo = _get('ettorino_geo');
+  if (savedRisk !== null) {
+    document.getElementById('riskSlider').value = savedRisk;
+    onRiskChange(savedRisk);
+  }
+  if (savedGeo !== null) {
+    document.getElementById('geoSlider').value = savedGeo;
+    onGeoChange(savedGeo);
+  }
+}
+
+function applyControlsNow() {
+  document.getElementById('ctrlHint').textContent = 'Aggiornamento in corso\u2026';
+  fetchSuggestions();
+  fetchCryptoGems();
+}
+
+// ── PORTFOLIO BAR ────────────────────────────────────────────────
+function calcPL(p) {
+  const cost = p.qty*p.avgPrice, val = p.qty*p.currentPrice;
+  return {cost:cost, val:val, pl:val-cost, plPct:cost>0?((val-cost)/cost)*100:0};
+}
+
+function fmtPrice(p) {
+  return p.currentPrice >= 1000
+    ? '$' + Math.round(p.currentPrice).toLocaleString('it-IT')
+    : '$' + p.currentPrice.toFixed(2);
+}
+
+function renderPortfolioBar() {
+  document.getElementById('liqInp').value = '\u20ac' + (S.liquidity||0).toLocaleString('it-IT');
+  let totVal=0, totCost=0, wChg=0;
+  (S.portfolio||[]).forEach(function(p) {
+    const pl = calcPL(p);
+    totVal += pl.val; totCost += pl.cost; wChg += p.change*(p.alloc/100);
+  });
+  const plAbs = totVal-totCost;
+  const plPct = totCost>0 ? (plAbs/totCost)*100 : 0;
+  document.getElementById('pbVal').textContent = '\u20ac' + Math.round(totVal).toLocaleString('it-IT');
+  document.getElementById('pbInv').textContent = '\u20ac' + Math.round(totCost).toLocaleString('it-IT');
+  const plEl = document.getElementById('pbPL');
+  plEl.textContent = (plAbs>=0?'+':'') + Math.round(plAbs).toLocaleString('it-IT') +
+    '\u20ac (' + (plPct>=0?'+':'') + plPct.toFixed(1) + '%)';
+  plEl.className = 'pb-val ' + (plAbs>=0?'pos':'neg');
+  const ogEl = document.getElementById('pbOggi');
+  ogEl.textContent = (wChg>=0?'+':'') + wChg.toFixed(2) + '%';
+  ogEl.className = 'pb-val ' + (wChg>=0?'pos':'neg');
+}
+
+function saveLiq() {
+  const r = document.getElementById('liqInp').value.replace(/[^\d.]/g,'');
+  S.liquidity = parseFloat(r) || 0;
+  saveUserData();
+}
+
+// ── TILES ────────────────────────────────────────────────────────
+function renderTiles() {
+  const grid = document.getElementById('tileGrid');
+  const port = S.portfolio || [];
+  if (!port.length) {
+    grid.innerHTML = '<div class="empty-port">📂 <span>Portafoglio vuoto \u2014 usa <strong>+ aggiungi</strong> per inserire i tuoi titoli.</span></div>';
+    document.getElementById('portTitle').textContent = 'Il mio portafoglio';
     return;
   }
-  document.getElementById('tilesTitle').textContent=`${currentUser} · ${S.portfolio.length} posizioni`;
-  grid.innerHTML=S.portfolio.map((p,i)=>{
-    const{pl,plPct}=calcPL(p);
-    const pos=p.change>=0,plP=pl>=0;
-    const sig=signals[p.ticker];
-    const sigClass=sig?.signal==='buy'?'buy':sig?.signal==='sell'?'sell':sig?'hold':'loading';
-    const sigLabel=sig?.signal==='buy'?'▲ COMPRA':sig?.signal==='sell'?'▼ EVITA':sig?'◆ TIENI':'…';
-    return`<div class="tile ${pos?'pos':'neg'}" ondblclick="openEdit(${i})" title="Doppio click per modificare">
-      <div class="tile-ticker">${p.ticker}</div>
-      <div class="tile-name">${p.name}</div>
-      <div class="tile-price">${fmtPrice(p)}</div>
-      <div class="tile-row">
-        <span class="tile-chg ${pos?'pos':'neg'}">${pos?'+':''}${p.change.toFixed(2)}%</span>
-        <span class="tile-pl ${plP?'pos':'neg'}">${plP?'+':''}${plPct.toFixed(1)}% P&L</span>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span class="tile-sig ${sigClass}">${sigLabel}</span>
-        <span class="tile-qty">${p.qty} pz</span>
-      </div>
-      ${sig?.alert?`<div class="tile-alert" title="${sig.alert}"></div>`:''}
-    </div>`;
-  }).join('');
-}
-
-// ── AI SIGNALS ────────────────────────────────────────────────────
-async function refreshSignals(){
-  if(!S.portfolio?.length)return;
-  document.getElementById('livePill').textContent='● analisi…';
-  try{
-    const ctx=buildCtx();
-    const res=await callAPI([{role:'user',content:`Analizza questo portafoglio e per ogni posizione dai un segnale:\n${ctx}\n\nRispondi SOLO con JSON:\n[{"ticker":"X","signal":"buy|hold|sell","reason":"max 10 parole","alert":null_o_"motivo urgente se c'è"}]`}],SYS,800);
-    const sigs=JSON.parse(res.replace(/```json|```/g,'').trim());
-    sigs.forEach(s=>{signals[s.ticker]={signal:s.signal,reason:s.reason,alert:s.alert};});
-    renderTiles();
-  }catch(e){console.error('signals error',e);}
-  document.getElementById('livePill').textContent='● live';
-}
-
-// ── AI SUGGESTIONS ───────────────────────────────────────────────
-let suggestionsTimer=null;
-
-async function fetchSuggestions(){
-  const grid=document.getElementById('sugGrid');
-  grid.innerHTML='<div style="color:var(--ht);font-size:13px;font-style:italic">Ettorino sta cercando opportunità…</div>';
-  // Build context: user profile + already owned tickers to avoid
-  const owned=S.portfolio?.map(p=>p.ticker).join(', ')||'nessuno';
-  const profileNote=S.profile?.obiettivo||S.profile?.note||'moderato';
-  const profileSectors=S.profile?.settori?.join(', ')||'diversificato';
-  const prompt=`Sei Ettorino, consulente finanziario AI. L'utente ha profilo: ${profileNote}, settori preferiti: ${profileSectors}.
-Titoli già in portafoglio (da non ripetere): ${owned}.
-Suggerisci 6 azioni da comprare ORA, basandoti sulle condizioni di mercato attuali. Cerca le ultime news e dati per giustificare ogni suggerimento.
-Rispondi SOLO con JSON (nessun testo prima o dopo):
-[{"ticker":"X","name":"Nome Società","sector":"Settore","why":"motivo in max 15 parole in italiano","urgency":"alta|media|bassa"}]`;
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',max_tokens:1000,
-        system:'Sei Ettorino, consulente finanziario AI. Rispondi sempre in italiano. Usa web search per verificare le condizioni attuali di mercato prima di consigliare.',
-        messages:[{role:'user',content:prompt}],
-        tools:[{type:'web_search_20250305',name:'web_search'}]
-      })
+  document.getElementById('portTitle').textContent = currentUser + ' \u00b7 ' + port.length + ' posizioni';
+  grid.innerHTML = '';
+  port.forEach(function(p, i) {
+    const pl = calcPL(p);
+    const pos = p.change >= 0, plP = pl.pl >= 0;
+    const sig = signals[p.ticker];
+    const sigClass = sig ? (sig.signal==='buy'?'buy':sig.signal==='sell'?'sell':'hold') : 'loading';
+    const sigLabel = sig ? (sig.signal==='buy'?'\u25b2 COMPRA':sig.signal==='sell'?'\u25bc EVITA':'\u25c6 TIENI') : '\u2026';
+    const tile = document.createElement('div');
+    tile.className = 'tile ' + (pos?'pos':'neg');
+    tile.dataset.idx = i;
+    tile.innerHTML =
+      '<div class="tile-ticker">' + p.ticker + '</div>' +
+      '<div class="tile-name">' + p.name + '</div>' +
+      '<div class="tile-price">' + fmtPrice(p) + '</div>' +
+      '<div class="tile-row">' +
+        '<span class="tile-chg ' + (pos?'pos':'neg') + '">' + (pos?'+':'') + p.change.toFixed(2) + '%</span>' +
+        '<span class="tile-pl ' + (plP?'pos':'neg') + '">' + (plP?'+':'') + pl.plPct.toFixed(1) + '% P&L</span>' +
+      '</div>' +
+      '<div style="display:flex;align-items:center;justify-content:space-between">' +
+        '<span class="tile-sig ' + sigClass + '">' + sigLabel + '</span>' +
+        '<span class="tile-qty">' + p.qty + ' pz</span>' +
+      '</div>' +
+      (sig && sig.alert ? '<div class="tile-alert" title="' + sig.alert + '"></div>' : '');
+    tile.addEventListener('click', function(e) {
+      if (e.detail === 2) return; // handled by dblclick
+      tileClick(i);
     });
-    const data=await res.json();
-    const textBlock=data.content?.filter(b=>b.type==='text').map(b=>b.text).join('');
-    const jsonMatch=textBlock?.match(/\[[\s\S]*?\]/);
-    if(jsonMatch){
-      const sugs=JSON.parse(jsonMatch[0]);
-      renderSuggestions(sugs);
-      document.getElementById('sugLastUpdate').textContent='Aggiornato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-    }else{throw new Error('no JSON');}
-  }catch(e){
-    grid.innerHTML='<div style="color:var(--ht);font-size:13px">Errore. <button class="nrefbtn" onclick="fetchSuggestions()">Riprova</button></div>';
+    tile.addEventListener('dblclick', function() { openEdit(i); });
+    grid.appendChild(tile);
+  });
+}
+
+function tileClick(idx) {
+  const p = S.portfolio && S.portfolio[idx];
+  if (!p) return;
+  const sig = signals[p.ticker];
+  const why = (sig && sig.reason) || 'Clicca per analisi completa';
+  const tags = [p.sector, 'alloc ' + p.alloc + '%', calcPL(p).plPct.toFixed(1) + '% P&L'].filter(Boolean);
+  openTilePopup(p.ticker, p.name, why, tags, false);
+}
+
+// ── ADD/EDIT POS ─────────────────────────────────────────────────
+function toggleAdd() {
+  addOpen = !addOpen;
+  document.getElementById('addFormInline').style.display = addOpen ? 'block' : 'none';
+  if (addOpen) document.getElementById('f-tk').focus();
+}
+
+function rebal() {
+  const n = S.portfolio.length;
+  if (!n) return;
+  S.portfolio.forEach(function(p) { p.alloc = Math.round(100/n); });
+  S.portfolio[0].alloc += 100 - S.portfolio.reduce(function(s,p){return s+p.alloc;}, 0);
+}
+
+function addPos() {
+  const tk = document.getElementById('f-tk').value.toUpperCase().trim();
+  if (!tk) return;
+  const name = document.getElementById('f-name').value.trim() || tk;
+  const qty = parseFloat(document.getElementById('f-qty').value) || 1;
+  const avg = parseFloat(document.getElementById('f-avg').value) || 0;
+  const sec = document.getElementById('f-sec').value.trim() || 'Custom';
+  const ex = (S.portfolio||[]).findIndex(function(p){return p.ticker===tk;});
+  if (ex >= 0) { S.portfolio[ex].qty += qty; }
+  else {
+    if (!S.portfolio) S.portfolio = [];
+    S.portfolio.push({ticker:tk,name:name,sector:sec,qty:qty,avgPrice:avg,currentPrice:avg||0,change:0,alloc:5});
+    rebal();
   }
+  ['f-tk','f-name','f-qty','f-avg','f-sec'].forEach(function(id){document.getElementById(id).value='';});
+  toggleAdd();
+  renderPortfolioBar();
+  renderTiles();
+  saveUserData();
+  // don't auto-fetch on position change — user clicks refresh manually
 }
 
-function renderSuggestions(sugs){
-  const grid=document.getElementById('sugGrid');
-  if(!sugs?.length){grid.innerHTML='<div style="color:var(--ht);font-size:13px">Nessun consiglio disponibile.</div>';return;}
-  grid.innerHTML=sugs.map(s=>{
-    const urgColor=s.urgency==='alta'?'var(--gn)':s.urgency==='media'?'var(--am)':'var(--ht)';
-    return`<div class="stile" onclick="qp('Dimmi di più su ${s.ticker} (${s.name}): perché consigli di comprare? Analisi completa.')">
-      <div class="stile-ticker">${s.ticker}</div>
-      <div class="stile-name">${s.name}</div>
-      <div class="stile-why">${s.why}</div>
-      <div class="stile-meta">
-        <span class="stile-sector">${s.sector}</span>
-        <span class="stile-signal">▲ COMPRA</span>
-        <span style="font-size:10px;color:${urgColor};font-weight:600;margin-left:auto">urgenza ${s.urgency}</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function startSuggestionsTimer(){
-  if(suggestionsTimer)clearInterval(suggestionsTimer);
-  // Refresh ogni 30 minuti
-  suggestionsTimer=setInterval(fetchSuggestions,30*60*1000);
-}
-
-// ── NEWS (Claude web search) ───────────────────────────────────────
-async function fetchNews(){
-  if(!S.portfolio?.length)return;
-  const tickers=S.portfolio.map(p=>p.ticker).join(', ');
-  document.getElementById('newsList').innerHTML='<div class="nloading">Cerco news aggiornate per '+tickers+'…</div>';
-  document.getElementById('newsTickerList').textContent=tickers;
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',max_tokens:2000,
-        system:`Sei Ettorino, assistente finanziario AI italiano. Cerca le notizie più recenti sulle società/asset indicati e restituisci SOLO un JSON array valido, senza nessun testo prima o dopo.\nFormato richiesto:\n[{"ticker":"X","source":"Nome fonte","headline":"TITOLO IN ITALIANO","sentiment":"bullish|bearish|neutral","alert":true_o_false,"time":"es. 2 ore fa"}]\nRegole:\n- Traduci SEMPRE i titoli in italiano, anche se la fonte è in inglese\n- Solo notizie rilevanti per gli investitori (earnings, guidance, M&A, regolatori, macro)\n- Max 8 notizie, ordinate per rilevanza\n- alert:true solo se la notizia richiede attenzione immediata\n- Sii preciso sui tempi (oggi, ieri, x ore fa)`,
-        messages:[{role:'user',content:`Trova le ultime news per questi titoli nel mio portafoglio: ${tickers}.\nCerca: risultati trimestrali, guidance, approvazioni FDA, acquisizioni, problemi regolatori, cambi management, dati macro rilevanti.\nTradUCI i titoli in italiano.`}],
-        tools:[{type:'web_search_20250305',name:'web_search'}]
-      })
-    });
-    const data=await res.json();
-    const textBlock=data.content?.filter(b=>b.type==='text').map(b=>b.text).join('');
-    if(textBlock){
-      const jsonMatch=textBlock.match(/\[[\s\S]*?\]/);
-      if(jsonMatch){
-        try{
-          newsItems=JSON.parse(jsonMatch[0]);
-          renderNews();
-          document.getElementById('newsLastUpdate').textContent='Aggiornato '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-          return;
-        }catch(parseErr){console.error('news JSON parse error',parseErr,jsonMatch[0]);}
-      }
-    }
-    throw new Error('Nessun JSON trovato nella risposta');
-  }catch(e){
-    console.error('fetchNews error',e);
-    document.getElementById('newsList').innerHTML=`<div class="nloading">Errore nel caricamento news (${e.message}). <button class="nrefbtn" onclick="fetchNews()" style="margin-left:8px">Riprova</button></div>`;
-  }
-}
-
-function renderNews(){
-  if(!newsItems.length){document.getElementById('newsList').innerHTML='<div class="nloading">Nessuna news trovata.</div>';return;}
-  document.getElementById('newsList').innerHTML=newsItems.map(n=>`
-    <div class="ni ${n.alert?'alert':''}" onclick="qp('Analizza questa news per il mio portafoglio: &quot;${n.headline.replace(/"/g,'')}&quot; (${n.ticker}). Come mi impatta?')">
-      <div class="nsrc">
-        <span>${n.source||'—'}</span><span>·</span><span>${n.time||'—'}</span>
-        ${n.alert?'<span class="nalert-badge">⚠ Attenzione</span>':''}
-      </div>
-      <div class="nhead">${n.headline}</div>
-      <div class="ntags">
-        <span class="ntag ${n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':''}">${n.ticker}</span>
-        <span class="ntag ${n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':''}">${n.sentiment}</span>
-      </div>
-    </div>`).join('');
-}
-
-function analyzeAllNews(){
-  if(!newsItems.length){qp('Cerca e analizza le ultime news sui miei titoli e dimmi cosa devo sapere.');return;}
-  const headlines=newsItems.map(n=>`${n.ticker}: ${n.headline}`).join('\n');
-  qp(`Analizza queste news per il mio portafoglio:\n${headlines}\n\nCosa cambia? Devo agire su qualcosa?`);
-}
-
-// News auto-refresh ogni 30 min
-function startNewsTimer(){
-  if(newsTimer)clearInterval(newsTimer);
-  newsTimer=setInterval(fetchNews,30*60*1000);
-}
-
-// ── PORTFOLIO CRUD ────────────────────────────────────────────────
-function toggleAdd(){addOpen=!addOpen;document.getElementById('addFormInline').style.display=addOpen?'block':'none';if(addOpen)document.getElementById('f-tk').focus();}
-function rebal(){const n=S.portfolio.length;S.portfolio.forEach(p=>{p.alloc=Math.round(100/n);});if(n)S.portfolio[0].alloc+=100-S.portfolio.reduce((s,p)=>s+p.alloc,0);}
-function addPos(){
-  const tk=document.getElementById('f-tk').value.toUpperCase().trim();if(!tk)return;
-  const name=document.getElementById('f-name').value.trim()||tk;
-  const qty=parseFloat(document.getElementById('f-qty').value)||1;
-  const avg=parseFloat(document.getElementById('f-avg').value)||0;
-  const sec=document.getElementById('f-sec').value.trim()||'—';
-  const ex=S.portfolio.findIndex(p=>p.ticker===tk);
-  if(ex>=0){S.portfolio[ex].qty+=qty;}
-  else{S.portfolio.push({ticker:tk,name,sector:sec,qty,avgPrice:avg,currentPrice:avg||0,change:0,alloc:5});rebal();}
-  ['f-tk','f-name','f-qty','f-avg','f-sec'].forEach(id=>document.getElementById(id).value='');
-  toggleAdd();renderPortfolioBar();renderTiles();saveUserData();
-  fetchNews();setTimeout(refreshSignals,500);
-}
-function openEdit(i){
-  editIdx=i;const p=S.portfolio[i];
-  document.getElementById('edt-tk').value=p.ticker;
-  document.getElementById('edt-name').value=p.name;
-  document.getElementById('edt-qty').value=p.qty;
-  document.getElementById('edt-avg').value=p.avgPrice;
-  document.getElementById('edt-sec').value=p.sector||'';
+function openEdit(idx) {
+  editIdx = idx;
+  const p = S.portfolio[idx];
+  document.getElementById('edt-tk').value = p.ticker;
+  document.getElementById('edt-name').value = p.name;
+  document.getElementById('edt-qty').value = p.qty;
+  document.getElementById('edt-avg').value = p.avgPrice;
+  document.getElementById('edt-sec').value = p.sector || '';
   document.getElementById('editModal').classList.remove('hidden');
 }
-function saveEdit(){
-  if(editIdx<0)return;const p=S.portfolio[editIdx];
-  p.name=document.getElementById('edt-name').value||p.name;
-  p.qty=parseFloat(document.getElementById('edt-qty').value)||p.qty;
-  p.avgPrice=parseFloat(document.getElementById('edt-avg').value)||p.avgPrice;
-  p.sector=document.getElementById('edt-sec').value||p.sector;
-  closeModal();renderPortfolioBar();renderTiles();saveUserData();
-}
-function delPos(){
-  if(editIdx<0)return;S.portfolio.splice(editIdx,1);
-  rebal();closeModal();renderPortfolioBar();renderTiles();saveUserData();
-  fetchNews();setTimeout(refreshSignals,500);
-}
-function closeModal(){document.getElementById('editModal').classList.add('hidden');editIdx=-1;}
-function saveLiq(){const r=document.getElementById('liqInp').value.replace(/[^\d.]/g,'');S.liquidity=parseFloat(r)||0;saveUserData();}
 
-// ── CHAT ─────────────────────────────────────────────────────────
-function buildCtx(){
-  if(!S.portfolio?.length)return'Portafoglio vuoto';
-  return S.portfolio.map(p=>{const{pl,plPct}=calcPL(p);return`${p.ticker} (${p.name}): ${p.qty} pz, acquistati a €${p.avgPrice}, ora ${fmtPrice(p)}, P&L ${pl>=0?'+':''}${plPct.toFixed(1)}%, alloc ${p.alloc}%`;}).join('\n')
-    +`\nLiquidità: €${(S.liquidity||0).toLocaleString('it-IT')}`;
-}
-function addAiMsg(html){
-  const msgs=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='cm ai';
-  d.innerHTML=html.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/COMPRA/g,'<strong style="color:var(--gn)">▲ COMPRA</strong>').replace(/TIENI/g,'<strong style="color:var(--am)">◆ TIENI</strong>').replace(/EVITA/g,'<strong style="color:var(--rd)">▼ EVITA</strong>').replace(/\n/g,'<br>');
-  msgs.appendChild(d);msgs.scrollTop=9999;return d;
-}
-function clearChat(){document.getElementById('chatMsgs').innerHTML='<div class="cm sys">Chat resettata</div>';chatHistory=[];}
-function qp(text){document.getElementById('chatInp').value=text;sendMsg();}
-async function sendMsg(){
-  const inp=document.getElementById('chatInp');
-  const txt=inp.value.trim();if(!txt)return;
-  inp.value='';document.getElementById('sendBtn').disabled=true;
-  const msgs=document.getElementById('chatMsgs');
-  const ud=document.createElement('div');ud.className='cm user';ud.textContent=txt;msgs.appendChild(ud);msgs.scrollTop=9999;
-  chatHistory.push({role:'user',content:`${txt}\n\n[PORTAFOGLIO:\n${buildCtx()}]`});
-  const th=document.createElement('div');th.className='cm think';th.textContent='Ettorino sta analizzando…';msgs.appendChild(th);msgs.scrollTop=9999;
-  try{
-    const res=await callAPI(chatHistory);th.remove();addAiMsg(res);
-    chatHistory.push({role:'assistant',content:res});
-    if(chatHistory.length>20)chatHistory=chatHistory.slice(-20);
-  }catch(e){th.remove();addAiMsg(`Errore: ${e.message}`);}
-  document.getElementById('sendBtn').disabled=false;saveUserData();
+function saveEdit() {
+  if (editIdx < 0) return;
+  const p = S.portfolio[editIdx];
+  p.name = document.getElementById('edt-name').value || p.name;
+  p.qty = parseFloat(document.getElementById('edt-qty').value) || p.qty;
+  p.avgPrice = parseFloat(document.getElementById('edt-avg').value) || p.avgPrice;
+  p.sector = document.getElementById('edt-sec').value || p.sector;
+  closeModal();
+  renderPortfolioBar();
+  renderTiles();
+  saveUserData();
 }
 
-// ── API ───────────────────────────────────────────────────────────
-async function callAPI(messages,system,maxTokens=1000){
-  const res=await fetch('https://api.anthropic.com/v1/messages',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:maxTokens,system:system||SYS,messages})
-  });
-  if(!res.ok){const e=await res.json();throw new Error(e.error?.message||'API error '+res.status)}
-  const d=await res.json();return d.content?.find(b=>b.type==='text')?.text||'';
+function delPos() {
+  if (editIdx < 0) return;
+  S.portfolio.splice(editIdx, 1);
+  rebal();
+  closeModal();
+  renderPortfolioBar();
+  renderTiles();
+  saveUserData();
+  // don't auto-fetch on position change — user clicks refresh manually
 }
 
-// ── REFRESH ───────────────────────────────────────────────────────
-function priceTick(){
-  if(!S.portfolio?.length)return;
-  S.portfolio.forEach(p=>{const t=(Math.random()-.49)*.15;p.currentPrice=Math.max(0.01,parseFloat((p.currentPrice*(1+t/100)).toFixed(2)));p.change=parseFloat((p.change+t*.1).toFixed(2));});
-  renderPortfolioBar();renderTiles();
-  const pill=document.getElementById('livePill');pill.textContent='● aggiornato';setTimeout(()=>{pill.textContent='● live';},600);
-}
-function setRefreshInterval(val){
-  if(refreshTimer){clearInterval(refreshTimer);refreshTimer=null;}
-  const ms=parseInt(val)*1000;_set('ettorino_refresh',val);
-  if(ms>0)refreshTimer=setInterval(priceTick,ms);
-}
-function initRefresh(){
-  const saved=_get('ettorino_refresh')||'30';
-  document.getElementById('refreshSel').value=saved;
-  setRefreshInterval(saved);
-  startNewsTimer();
+function closeModal() {
+  document.getElementById('editModal').classList.add('hidden');
+  editIdx = -1;
 }
 
-// ── AUTO-SAVE ─────────────────────────────────────────────────────
-function onAutoSaveToggle(){
-  autoSaveEnabled=document.getElementById('autoSaveToggle').checked;
-  const th=document.getElementById('tthumb'),tr=document.getElementById('ttrack');
-  if(autoSaveEnabled){th.classList.add('on');tr.classList.add('on');scheduleAutoSave();}
-  else{th.classList.remove('on');tr.classList.remove('on');if(autoSaveTimer){clearTimeout(autoSaveTimer);autoSaveTimer=null;}}
-  _set('ettorino_autosave',autoSaveEnabled?'1':'0');
+// ── AI SIGNALS ───────────────────────────────────────────────────
+async function refreshSignals() {
+  if (!S.portfolio || !S.portfolio.length) return;
+  document.getElementById('livePill').textContent = '\u25cf analisi\u2026';
+  try {
+    const ctx = buildCtx();
+    const res = await callAPI([{role:'user', content:
+      'Analizza questo portafoglio e per ogni posizione dai un segnale:\n' + ctx +
+      '\n\nRispondi SOLO con JSON:\n[{"ticker":"X","signal":"buy|hold|sell","reason":"max 10 parole","alert":null}]'
+    }], SYS, 800);
+    const sigs = JSON.parse(res.replace(/```json|```/g,'').trim());
+    sigs.forEach(function(s) { signals[s.ticker] = {signal:s.signal,reason:s.reason,alert:s.alert}; });
+    renderTiles();
+  } catch(e) { console.error('signals error', e); }
+  document.getElementById('livePill').textContent = '\u25cf live';
 }
-async function pickFolder(){
-  if(!window.showSaveFilePicker){addAiMsg('Il tuo browser non supporta il salvataggio automatico. Usa <strong>↓ JSON</strong>.');return;}
-  try{
-    fileHandle=await window.showSaveFilePicker({suggestedName:`ettorino_${currentUser}_autosave.json`,types:[{description:'JSON',accept:{'application/json':['.json']}}]});
-    document.getElementById('folderBtn').textContent='📁 '+fileHandle.name;
-    await writeAutoSave();scheduleAutoSave();
-    addAiMsg(`Auto-save su <strong>${fileHandle.name}</strong>. Aggiornato ogni ora.`);
-  }catch(e){if(e.name!=='AbortError')addAiMsg('Errore: '+e.message);}
-}
-async function writeAutoSave(){
-  if(!fileHandle||!currentUser)return;
-  try{const w=await fileHandle.createWritable();await w.write(JSON.stringify({...S,user:currentUser,autoSavedAt:new Date().toISOString()},null,2));await w.close();_set('ettorino_last_export',String(Date.now()));document.getElementById('bkInfo').textContent='Auto-saved '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});}
-  catch(e){try{await fileHandle.requestPermission({mode:'readwrite'});await writeAutoSave();}catch(e2){}}
-}
-function scheduleAutoSave(){if(autoSaveTimer)clearTimeout(autoSaveTimer);if(!autoSaveEnabled)return;autoSaveTimer=setTimeout(async()=>{await writeAutoSave();scheduleAutoSave();},60*60*1000);}
-function initAutoSave(){
-  autoSaveEnabled=_get('ettorino_autosave')!=='0';
-  const toggle=document.getElementById('autoSaveToggle');toggle.checked=autoSaveEnabled;
-  const th=document.getElementById('tthumb'),tr=document.getElementById('ttrack');
-  if(autoSaveEnabled){th.classList.add('on');tr.classList.add('on');scheduleAutoSave();}
-  else{th.classList.remove('on');tr.classList.remove('on');}
-  // Primo avvio: chiedi cartella dopo 2s
-  const neverChosen=!_get('ettorino_folder_'+currentUser);
-  if(autoSaveEnabled&&neverChosen&&window.showSaveFilePicker){
-    setTimeout(promptFolderFirstTime,2000);
+
+// ── SUGGESTIONS ──────────────────────────────────────────────────
+let recentSugTickers = [];
+
+async function fetchSuggestions() {
+  const grid = document.getElementById('sugGrid');
+  grid.innerHTML = '<div style="color:var(--ht);font-size:13px;font-style:italic">Ettorino sta analizzando l\'universo di titoli\u2026</div>';
+  const owned = (S.portfolio||[]).map(function(p){return p.ticker;});
+  const recent = recentSugTickers.slice(-12);
+  const exclude = Array.from(new Set(owned.concat(recent)));
+  const active = getActiveInterests();
+
+  let candidates = [];
+  if (exploreAll) {
+    Object.values(STOCK_UNIVERSE).forEach(function(arr){candidates=candidates.concat(arr);});
+  } else if (active.length) {
+    active.forEach(function(sec){if(STOCK_UNIVERSE[sec])candidates=candidates.concat(STOCK_UNIVERSE[sec]);});
+  } else {
+    Object.values(STOCK_UNIVERSE).forEach(function(arr){candidates=candidates.concat(arr);});
+  }
+  candidates = candidates.filter(function(c){return !exclude.includes(c.t);});
+
+  const geoP = getGeoFilter().prefer;
+  if (geoP === 'USA') candidates = candidates.filter(function(c){return c.m==='USA';});
+  else if (geoP === 'EU') candidates = candidates.filter(function(c){return c.m==='EU';});
+
+  const sample = candidates.sort(function(){return Math.random()-.5;}).slice(0,20);
+  const listStr = sample.map(function(c){return c.t+' ('+c.n+')';}).join(', ');
+  const scopeLabel = exploreAll ? 'tutto il mercato' : active.length ? active.join(', ') : 'tutti i settori';
+
+  const sys = 'Analista finanziario AI. Rischio: ' + RISK_CONFIG[riskLevel].label +
+    '. Geo: ' + getGeoFilter().note +
+    '. Cerca news recenti sui candidati, scegli i 5 migliori con catalizzatore attuale verificato. ' +
+    'Escludi chi ha news negative. JSON SOLO: [{"ticker":"X","name":"N","sector":"S","why":"max 12 parole","conviction":"alta|media|bassa","market":"EU|USA"}]';
+
+  const userMsg = 'Candidati (' + scopeLabel + '): ' + listStr +
+    '. Escludi: ' + (owned.concat(recent).join(',')||'nessuno') + '.';
+
+  try {
+    const textBlock = await callAPIWithSearch(userMsg, sys, 1200);
+    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
+    if (jsonMatch) {
+      const sugs = JSON.parse(jsonMatch[0]);
+      recentSugTickers = recentSugTickers.concat(sugs.map(function(s){return s.ticker;})).slice(-20);
+      _sugsData = sugs;
+      renderSuggestions(sugs);
+      document.getElementById('sugLastUpdate').textContent =
+        (exploreAll?'Tutto il mercato \u00b7 ':'')+sugs.length+' titoli \u00b7 '+
+        new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    } else { throw new Error('no JSON'); }
+  } catch(e) {
+    console.error(e);
+    const is429 = e.message && e.message.includes('429');
+    grid.innerHTML = '<div style="color:var(--ht);font-size:13px">' +
+      (is429 ? '⏳ Limite API raggiunto. Riprova tra un minuto. ' : 'Errore. ') +
+      '<button class="nrefbtn" id="retrySugBtn">Riprova</button></div>';
+    const btn = document.getElementById('retrySugBtn');
+    if (btn) btn.addEventListener('click', fetchSuggestions);
   }
 }
-function promptFolderFirstTime(){
-  const msgs=document.getElementById('chatMsgs');
-  const d=document.createElement('div');d.className='cm ai';
-  d.innerHTML=`<strong>📁 Autosave</strong><br><br>Per salvare il tuo portafoglio ogni ora, scegli la cartella dove vuoi il file di backup. Ti consiglio di selezionare <strong>la stessa cartella dove hai messo l'HTML</strong>.<br><br><button onclick="pickFolderFirstTime()" style="background:var(--gn);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">📁 Scegli cartella →</button><button onclick="skipFolderChoice()" style="background:none;border:1px solid var(--bd);border-radius:7px;padding:7px 12px;font-size:13px;color:var(--mt);cursor:pointer;font-family:Inter,sans-serif;margin-left:8px">Salta</button>`;
-  msgs.appendChild(d);msgs.scrollTop=9999;
-}
-async function pickFolderFirstTime(){
-  await pickFolder();
-  if(fileHandle)_set('ettorino_folder_'+currentUser,'1');
-}
-function skipFolderChoice(){
-  _set('ettorino_folder_'+currentUser,'1');
-  addAiMsg('Ok, nessun problema. Usa il bottone <strong>📁 cartella</strong> in alto quando vuoi attivare l\'autosave, o <strong>↓ JSON</strong> per backup manuali.');
+
+function renderSuggestions(sugs) {
+  const grid = document.getElementById('sugGrid');
+  if (!sugs || !sugs.length) {
+    grid.innerHTML = '<div style="color:var(--ht);font-size:13px">Nessun titolo con catalizzatore verificato al momento.</div>';
+    return;
+  }
+  grid.innerHTML = '';
+  sugs.forEach(function(s, idx) {
+    const cvColor = s.conviction==='alta'?'var(--gn)':s.conviction==='media'?'var(--am)':'var(--ht)';
+    const mkBadge = s.market==='EU'?'🇪🇺':'🇺🇸';
+    const div = document.createElement('div');
+    div.className = 'stile';
+    div.innerHTML =
+      '<div class="stile-ticker">' + mkBadge + ' ' + s.ticker + '</div>' +
+      '<div class="stile-name">' + s.name + '</div>' +
+      '<div class="stile-why">' + s.why + '</div>' +
+      '<div class="stile-meta">' +
+        '<span class="stile-sector">' + s.sector + '</span>' +
+        '<span class="stile-signal">\u25b2 COMPRA</span>' +
+        '<span style="font-size:10px;color:' + cvColor + ';font-weight:600;margin-left:auto">conviction ' + s.conviction + '</span>' +
+      '</div>';
+    div.addEventListener('click', function() { sugClick(idx); });
+    grid.appendChild(div);
+  });
 }
 
-// ── EXPORT / IMPORT ───────────────────────────────────────────────
-function exportJSON(){
-  _set('ettorino_last_export',String(Date.now()));
-  const b=new Blob([JSON.stringify({...S,user:currentUser,exportedAt:new Date().toISOString()},null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`ettorino_${currentUser}_${new Date().toISOString().slice(0,10)}.json`;a.click();
+function sugClick(idx) {
+  const s = _sugsData[idx];
+  if (!s) return;
+  openTilePopup(s.ticker, s.name||'', s.why||'', [s.sector, s.market||''], false);
 }
-function exportMD(){
-  const lines=[`# Ettorino4Finance — ${currentUser}`,`> ${new Date().toLocaleString('it-IT')}`,'',`## Liquidità`,`€${(S.liquidity||0).toLocaleString('it-IT')}`,'',`## Portafoglio`,'| Ticker | Nome | Qty | Medio | Attuale | P&L% | Alloc% |','|---|---|---|---|---|---|---|',...(S.portfolio||[]).map(p=>{const{plPct}=calcPL(p);return`| ${p.ticker} | ${p.name} | ${p.qty} | €${p.avgPrice} | ${fmtPrice(p)} | ${plPct.toFixed(2)}% | ${p.alloc}% |`;})];
-  const b=new Blob([lines.join('\n')],{type:'text/markdown'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`ettorino_${currentUser}_${new Date().toISOString().slice(0,10)}.md`;a.click();
+
+// ── CRYPTO GEMS ──────────────────────────────────────────────────
+let recentCryptoSymbols = [];
+
+async function fetchCryptoGems() {
+  const grid = document.getElementById('cryptoGrid');
+  grid.innerHTML = '<div style="color:var(--ht);font-size:13px;font-style:italic">Ettorino sta cercando gemme nascoste\u2026</div>';
+  const recentEx = recentCryptoSymbols.slice(-12);
+  const ownedCrypto = (S.portfolio||[]).filter(function(p){return p.sector==='Crypto';}).map(function(p){return p.ticker;});
+  const exclude = Array.from(new Set(recentEx.concat(ownedCrypto)));
+  const baseCandidates = CRYPTO_UNIVERSE.filter(function(c){return !exclude.includes(c.s);});
+  const baseList = baseCandidates.map(function(c){return c.s+' ('+c.n+', '+c.cat+')';}).join(', ');
+
+  const sys = 'Analista crypto AI. Dalla lista candidati, cerca quelli con momentum positivo nelle ultime 2 settimane ' +
+    '(partnership, listing, TVL in crescita). Scarta chi ha avuto problemi. ' +
+    'Puoi aggiungere 1-2 extra non in lista se eccezionali (mcap $50M-$2B, non top 20). ' +
+    'JSON SOLO: [{"symbol":"X","name":"N","category":"DeFi|AI|Layer2|RWA|GameFi","why":"max 12 parole","risk":"alta|media|bassa","mcap":"$XM"}]';
+
+  const userMsg = 'Candidati: ' + baseList.split(', ').slice(0,20).join(', ') +
+    '. Esclusi: ' + (exclude.join(',')||'nessuno') + '. Scegli i 5 migliori.';
+
+  try {
+    const textBlock = await callAPIWithSearch(userMsg, sys, 1400);
+    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
+    if (jsonMatch) {
+      const gems = JSON.parse(jsonMatch[0]);
+      recentCryptoSymbols = recentCryptoSymbols.concat(gems.map(function(g){return g.symbol;})).slice(-20);
+      _cryptoData = gems;
+      renderCryptoGems(gems);
+      document.getElementById('cryptoLastUpdate').textContent =
+        gems.length + ' progetti \u00b7 ' + new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    } else { throw new Error('no JSON'); }
+  } catch(e) {
+    console.error(e);
+    const is429 = e.message && e.message.includes('429');
+    grid.innerHTML = '<div style="color:var(--ht);font-size:13px">' +
+      (is429 ? '⏳ Limite API raggiunto. Riprova tra un minuto. ' : 'Errore. ') +
+      '<button class="nrefbtn" id="retryCryptoBtn">Riprova</button></div>';
+    const btn = document.getElementById('retryCryptoBtn');
+    if (btn) btn.addEventListener('click', fetchCryptoGems);
+  }
 }
-function importJSON(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{try{const imp=JSON.parse(ev.target.result);if(imp.portfolio){S=imp;renderPortfolioBar();renderTiles();saveUserData();addAiMsg('Portafoglio importato.');fetchNews();setTimeout(refreshSignals,800);}}catch{addAiMsg('Errore nel file.');}};
+
+function renderCryptoGems(gems) {
+  const grid = document.getElementById('cryptoGrid');
+  if (!gems || !gems.length) {
+    grid.innerHTML = '<div style="color:var(--ht);font-size:13px">Nessuna gemma trovata.</div>';
+    return;
+  }
+  grid.innerHTML = '';
+  gems.forEach(function(g, idx) {
+    const div = document.createElement('div');
+    div.className = 'ctile';
+    div.innerHTML =
+      '<div class="ctile-sym">' + g.symbol + '</div>' +
+      '<div class="ctile-name">' + g.name + '</div>' +
+      '<div class="ctile-why">' + g.why + '</div>' +
+      '<div class="ctile-meta">' +
+        '<span class="ctile-cat">' + g.category + '</span>' +
+        '<span class="ctile-risk ' + g.risk + '">rischio ' + g.risk + '</span>' +
+        (g.mcap ? '<span class="ctile-mc">mcap ' + g.mcap + '</span>' : '') +
+      '</div>';
+    div.addEventListener('click', function() { cryptoClick(idx); });
+    grid.appendChild(div);
+  });
+}
+
+function cryptoClick(idx) {
+  const g = _cryptoData[idx];
+  if (!g) return;
+  const tags = [g.category, 'rischio '+g.risk, g.mcap||''].filter(Boolean);
+  openTilePopup(g.symbol, g.name||'', g.why||'', tags, true);
+}
+
+// ── INTEREST TAGS ────────────────────────────────────────────────
+function getActiveInterests() {
+  return (S.interests||[]).filter(function(i){return i.on;}).map(function(i){return i.label;});
+}
+
+function initInterests() {
+  if (!S.interests) {
+    const profileSectors = (S.profile && S.profile.sectors) || [];
+    const defaults = ['Tech & AI','Finanza','Healthcare'];
+    const initial = profileSectors.length ? profileSectors : defaults;
+    S.interests = ALL_SECTORS.map(function(s){return {label:s, on:initial.includes(s)};});
+  }
+  exploreAll = S.exploreAll || false;
+  renderInterestBar();
+}
+
+function renderInterestBar() {
+  const bar = document.getElementById('interestBar');
+  if (!bar) return;
+  bar.innerHTML = '';
+  (S.interests||[]).forEach(function(it, i) {
+    const span = document.createElement('span');
+    span.className = 'itag' + (it.on?' on':'');
+    span.textContent = (it.on?'\u25cf':'\u25cb') + ' ' + it.label;
+    span.addEventListener('click', function() { toggleInterest(i); });
+    bar.appendChild(span);
+  });
+  const exploreSpan = document.createElement('span');
+  exploreSpan.className = 'itag explore' + (exploreAll?' on':'');
+  exploreSpan.textContent = (exploreAll?'\u2726':'\u2727') + ' Esplora tutto';
+  exploreSpan.title = 'Mostra consigli su tutti i settori';
+  exploreSpan.addEventListener('click', toggleExplore);
+  bar.appendChild(exploreSpan);
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'itag-add';
+  addBtn.textContent = '+ settore';
+  addBtn.addEventListener('click', showAddInterest);
+  bar.appendChild(addBtn);
+
+  const inp = document.createElement('input');
+  inp.className = 'itag-input';
+  inp.id = 'interestInput';
+  inp.placeholder = 'es. Biotech';
+  inp.style.display = 'none';
+  inp.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') addInterest();
+    if (e.key === 'Escape') hideAddInterest();
+  });
+  inp.addEventListener('blur', function() { setTimeout(hideAddInterest, 150); });
+  bar.appendChild(inp);
+}
+
+function toggleInterest(i) {
+  if (exploreAll) { exploreAll=false; S.exploreAll=false; }
+  S.interests[i].on = !S.interests[i].on;
+  saveUserData();
+  renderInterestBar();
+  fetchSuggestions();
+}
+
+function toggleExplore() {
+  exploreAll = !exploreAll;
+  S.exploreAll = exploreAll;
+  if (exploreAll) S.interests.forEach(function(it){it.on=false;});
+  saveUserData();
+  renderInterestBar();
+  fetchSuggestions();
+}
+
+function showAddInterest() {
+  const inp = document.getElementById('interestInput');
+  if (inp) { inp.style.display='inline-block'; inp.value=''; inp.focus(); }
+}
+
+function hideAddInterest() {
+  const inp = document.getElementById('interestInput');
+  if (inp) inp.style.display = 'none';
+}
+
+function addInterest() {
+  const inp = document.getElementById('interestInput');
+  const label = inp ? inp.value.trim() : '';
+  if (!label) return;
+  if (!S.interests) S.interests = [];
+  if (!S.interests.find(function(it){return it.label.toLowerCase()===label.toLowerCase();})) {
+    S.interests.push({label:label, on:true});
+    saveUserData();
+    renderInterestBar();
+    fetchSuggestions();
+  }
+  hideAddInterest();
+}
+
+// ── NEWS ─────────────────────────────────────────────────────────
+async function fetchNews() {
+  if (!S.portfolio || !S.portfolio.length) return;
+  const tickers = S.portfolio.map(function(p){return p.ticker;}).join(', ');
+  document.getElementById('newsList').innerHTML = '<div class="nloading">Cerco news aggiornate per ' + tickers + '\u2026</div>';
+  document.getElementById('newsTickerList').textContent = tickers;
+
+  const sys = 'News finanziarie AI. Cerca ultime notizie per i titoli indicati. ' +
+    'JSON SOLO: [{"ticker":"X","source":"Fonte","headline":"TITOLO IN ITALIANO","sentiment":"bullish|bearish|neutral","alert":false,"time":"Xh fa"}] ' +
+    'Max 6 notizie, solo rilevanti per investitori, sempre in italiano.';
+
+  const userMsg = 'Ultime news per: ' + tickers + '. Solo notizie degli ultimi 2 giorni.';
+
+  try {
+    const textBlock = await callAPIWithSearch(userMsg, sys, 2000);
+    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
+    if (jsonMatch) {
+      newsItems = JSON.parse(jsonMatch[0]);
+      renderNews();
+      document.getElementById('newsLastUpdate').textContent =
+        'Aggiornato ' + new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+    } else { throw new Error('no JSON'); }
+  } catch(e) {
+    console.error('fetchNews error', e);
+    const is429 = e.message && e.message.includes('429');
+    document.getElementById('newsList').innerHTML =
+      '<div class="nloading">' + (is429
+        ? '⏳ Limite API raggiunto. Le news si caricheranno tra qualche minuto. '
+        : 'Errore nel caricamento news. ') +
+      '<button class="nrefbtn" id="retryNewsBtn">Riprova</button></div>';
+    const btn = document.getElementById('retryNewsBtn');
+    if (btn) btn.addEventListener('click', fetchNews);
+  }
+}
+
+function renderNews() {
+  const list = document.getElementById('newsList');
+  if (!newsItems || !newsItems.length) {
+    list.innerHTML = '<div class="nloading">Nessuna news trovata.</div>';
+    return;
+  }
+  list.innerHTML = '';
+  newsItems.forEach(function(n, idx) {
+    const div = document.createElement('div');
+    div.className = 'ni' + (n.alert?' alert-item':'');
+    div.innerHTML =
+      '<div class="nsrc"><span>' + (n.source||'\u2014') + '</span><span>\u00b7</span><span>' + (n.time||'\u2014') + '</span>' +
+      (n.alert ? '<span class="nalert-badge">\u26a0 Attenzione</span>' : '') + '</div>' +
+      '<div class="nhead">' + (n.headline||'') + '</div>' +
+      '<div class="ntags">' +
+        '<span class="ntag ' + (n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':'') + '">' + (n.ticker||'') + '</span>' +
+        '<span class="ntag ' + (n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':'') + '">' + (n.sentiment||'') + '</span>' +
+      '</div>';
+    div.addEventListener('click', function() { newsClick(idx); });
+    list.appendChild(div);
+  });
+}
+
+function newsClick(idx) {
+  const n = newsItems[idx];
+  if (n) qp('Analizza questa news per il mio portafoglio: "' + (n.headline||'') + '" (' + (n.ticker||'') + '). Come mi impatta?');
+}
+
+function analyzeAllNews() {
+  if (!newsItems || !newsItems.length) {
+    qp('Cerca e analizza le ultime news sui miei titoli e dimmi cosa devo sapere.');
+    return;
+  }
+  const headlines = newsItems.map(function(n){return (n.ticker||'?')+': '+(n.headline||'');}).join('\n');
+  qp('Analizza queste news per il mio portafoglio:\n' + headlines + '\n\nCosa cambia? Devo agire su qualcosa?');
+}
+
+// ── CHAT ─────────────────────────────────────────────────────────
+function buildCtx() {
+  if (!S.portfolio || !S.portfolio.length) return 'Portafoglio vuoto';
+  return S.portfolio.map(function(p) {
+    const pl = calcPL(p);
+    return p.ticker + ' (' + p.name + '): ' + p.qty + ' pz, acquistati a \u20ac' + p.avgPrice +
+      ', ora ' + fmtPrice(p) + ', P&L ' + (pl.pl>=0?'+':'') + pl.plPct.toFixed(1) + '%, alloc ' + p.alloc + '%';
+  }).join('\n') + '\nLiquidit\u00e0: \u20ac' + (S.liquidity||0).toLocaleString('it-IT');
+}
+
+function addAiMsg(html) {
+  const msgs = document.getElementById('chatMsgs');
+  const d = document.createElement('div');
+  d.className = 'cm ai';
+  d.innerHTML = html
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/COMPRA/g, '<strong style="color:var(--gn)">\u25b2 COMPRA</strong>')
+    .replace(/TIENI/g, '<strong style="color:var(--am)">\u25c6 TIENI</strong>')
+    .replace(/EVITA/g, '<strong style="color:var(--rd)">\u25bc EVITA</strong>')
+    .replace(/\n/g, '<br>');
+  msgs.appendChild(d);
+  msgs.scrollTop = 9999;
+  return d;
+}
+
+function clearChat() {
+  document.getElementById('chatMsgs').innerHTML = '<div class="cm sys">Chat resettata</div>';
+  chatHistory = [];
+}
+
+function qp(text) {
+  document.getElementById('chatInp').value = text;
+  sendMsg();
+}
+
+async function sendMsg() {
+  const inp = document.getElementById('chatInp');
+  const txt = inp.value.trim();
+  if (!txt) return;
+  inp.value = '';
+  document.getElementById('sendBtn').disabled = true;
+  const msgs = document.getElementById('chatMsgs');
+  const ud = document.createElement('div');
+  ud.className = 'cm user'; ud.textContent = txt;
+  msgs.appendChild(ud); msgs.scrollTop = 9999;
+  chatHistory.push({role:'user', content: txt + '\n\n[PORTAFOGLIO:\n' + buildCtx() + ']'});
+  const th = document.createElement('div');
+  th.className = 'cm think'; th.textContent = 'Ettorino sta analizzando\u2026';
+  msgs.appendChild(th); msgs.scrollTop = 9999;
+  try {
+    const res = await callAPI(chatHistory);
+    th.remove();
+    addAiMsg(res);
+    chatHistory.push({role:'assistant', content: res});
+    if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+  } catch(e) {
+    th.remove();
+    addAiMsg('Errore: ' + e.message);
+  }
+  document.getElementById('sendBtn').disabled = false;
+  saveUserData();
+}
+
+// ── POPUP ────────────────────────────────────────────────────────
+function openTilePopup(ticker, name, why, tags, isCrypto) {
+  document.getElementById('popupTitle').textContent = ticker + ' \u00b7 ' + name;
+  document.getElementById('popupSub').textContent = isCrypto
+    ? '💎 Crypto \u00b7 analisi in corso...'
+    : '📈 Titolo \u00b7 analisi in corso...';
+  const whyEl = document.getElementById('popupWhy');
+  whyEl.textContent = why;
+  whyEl.className = 'popup-why' + (isCrypto?' crypto':'');
+  document.getElementById('popupTags').innerHTML = (tags||[]).map(function(t) {
+    return '<span class="popup-tag">' + t + '</span>';
+  }).join('');
+  document.getElementById('popupAnalysis').innerHTML = '<div class="popup-loading">Ettorino sta analizzando\u2026</div>';
+  document.getElementById('detailPopup').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  currentPopupQuery = isCrypto
+    ? 'Analisi completa di ' + ticker + ' (' + name + '): tecnologia, team, roadmap, tokenomics, rischi e opportunit\u00e0. Vale la pena investire ora?'
+    : 'Analisi completa di ' + ticker + ' (' + name + '): fondamentali, valutazione, catalizzatori, rischi e opportunit\u00e0. Comprare, tenere o evitare?';
+  fetchPopupAnalysis(ticker, name, why, isCrypto);
+}
+
+async function fetchPopupAnalysis(ticker, name, why, isCrypto) {
+  const el = document.getElementById('popupAnalysis');
+  const prompt = isCrypto
+    ? 'Fai un\'analisi rapida di ' + ticker + ' (' + name + '). Motivo suggerimento: "' + why + '". ' +
+      'Copri in 4-5 punti: 1) Cos\'e e cosa fa 2) Perche e interessante ora 3) Rischi principali 4) A chi si adatta. Max 200 parole, in italiano.'
+    : 'Fai un\'analisi rapida di ' + ticker + ' (' + name + '). Motivo suggerimento: "' + why + '". ' +
+      'Copri in 4-5 punti: 1) Business e posizione competitiva 2) Perche comprare ora 3) Rischi principali 4) Orizzonte temporale. Max 200 parole, in italiano.';
+  try {
+    const res = await callAPI([{role:'user', content: prompt}], null, 400);
+    el.innerHTML = res
+      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/\n/g,'<br>');
+  } catch(e) {
+    el.innerHTML = '<span style="color:var(--ht)">Errore nel caricamento. Usa il bottone chat.</span>';
+  }
+}
+
+function popupToChat() { closePopupDirect(); qp(currentPopupQuery); }
+function closePopupDirect() {
+  document.getElementById('detailPopup').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+// ── FINNHUB REAL PRICES ──────────────────────────────────────────
+function finnhubTicker(ticker) {
+  const cryptoMap = {BTC:'BINANCE:BTCUSDT',ETH:'BINANCE:ETHUSDT',SOL:'BINANCE:SOLUSDT',BNB:'BINANCE:BNBUSDT'};
+  if (cryptoMap[ticker]) return cryptoMap[ticker];
+  return ticker;
+}
+
+async function fetchRealPrice(ticker) {
+  if (!finnhubKey) return null;
+  const sym = finnhubTicker(ticker);
+  try {
+    const res = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + finnhubKey);
+    if (!res.ok) return null;
+    const d = await res.json();
+    if (!d.c || d.c === 0) return null;
+    return {price: d.c, change: d.dp || 0};
+  } catch(e) { return null; }
+}
+
+async function fetchAllRealPrices() {
+  if (!finnhubKey || !S.portfolio || !S.portfolio.length) return;
+  const pill = document.getElementById('livePill');
+  pill.textContent = '\u25cf prezzi reali\u2026';
+  for (let i=0; i<S.portfolio.length; i++) {
+    const p = S.portfolio[i];
+    const q = await fetchRealPrice(p.ticker);
+    if (q) {
+      p.currentPrice = q.price;
+      p.change = parseFloat(q.change.toFixed(2));
+    }
+    await new Promise(function(r){setTimeout(r,150);});
+  }
+  renderPortfolioBar();
+  renderTiles();
+  pill.textContent = '\u25cf live';
+  pill.title = 'Prezzi reali via Finnhub \u00b7 ' +
+    new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+}
+
+// ── PRICE TICK ───────────────────────────────────────────────────
+function priceTick() {
+  if (!S.portfolio || !S.portfolio.length) return;
+  if (finnhubKey) {
+    fetchAllRealPrices();
+  } else {
+    S.portfolio.forEach(function(p) {
+      const t = (Math.random()-.49)*.15;
+      p.currentPrice = Math.max(0.01, parseFloat((p.currentPrice*(1+t/100)).toFixed(2)));
+      p.change = parseFloat((p.change+t*.1).toFixed(2));
+    });
+    renderPortfolioBar();
+    renderTiles();
+    const pill = document.getElementById('livePill');
+    pill.textContent = '\u25cf aggiornato';
+    setTimeout(function(){pill.textContent='\u25cf live';}, 600);
+  }
+}
+
+function setRefreshInterval(val) {
+  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer=null; }
+  const ms = parseInt(val)*1000;
+  _set('ettorino_refresh', val);
+  if (ms > 0) refreshTimer = setInterval(priceTick, ms);
+}
+
+function initRefresh() {
+  const saved = _get('ettorino_refresh') || '30';
+  document.getElementById('refreshSel').value = saved;
+  setRefreshInterval(saved);
+  if (newsTimer) clearInterval(newsTimer);
+  if (sugTimer) clearInterval(sugTimer);
+  if (cryptoTimer) clearInterval(cryptoTimer);
+  // Hourly auto-refresh disabled — too costly with web search calls
+  // User refreshes manually via ↻ buttons on each section
+}
+
+// ── AUTO-SAVE ────────────────────────────────────────────────────
+function onAutoSaveToggle() {
+  autoSaveEnabled = document.getElementById('autoSaveToggle').checked;
+  const th = document.getElementById('tthumb'), tr = document.getElementById('ttrack');
+  if (autoSaveEnabled) {
+    th.classList.add('on'); tr.classList.add('on');
+    scheduleAutoSave();
+    if (!fileHandle) promptFolderFirstTime();
+  } else {
+    th.classList.remove('on'); tr.classList.remove('on');
+    if (autoSaveTimer) { clearTimeout(autoSaveTimer); autoSaveTimer=null; }
+  }
+  _set('ettorino_autosave', autoSaveEnabled?'1':'0');
+}
+
+function promptFolderFirstTime() {
+  const neverChosen = !_get('ettorino_folder_' + currentUser);
+  if (!neverChosen) return;
+  const msgs = document.getElementById('chatMsgs');
+  const d = document.createElement('div'); d.className = 'cm ai';
+  d.innerHTML = '<strong>📁 Autosave</strong><br><br>' +
+    'Per salvare il portafoglio ogni ora, scegli la cartella dove vuoi il file di backup. ' +
+    'Ti consiglio di selezionare <strong>la stessa cartella dove hai messo questo file HTML</strong>.<br><br>';
+  const btn1 = document.createElement('button');
+  btn1.style.cssText = 'background:var(--gn);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif';
+  btn1.textContent = '📁 Scegli cartella \u2192';
+  btn1.addEventListener('click', async function() {
+    await pickFolder();
+    if (fileHandle) _set('ettorino_folder_' + currentUser, '1');
+  });
+  const btn2 = document.createElement('button');
+  btn2.style.cssText = 'background:none;border:1px solid var(--bd);border-radius:7px;padding:7px 12px;font-size:13px;color:var(--mt);cursor:pointer;font-family:Inter,sans-serif;margin-left:8px';
+  btn2.textContent = 'Salta';
+  btn2.addEventListener('click', function() {
+    _set('ettorino_folder_' + currentUser, '1');
+    addAiMsg('Ok. Usa il bottone <strong>📁 cartella</strong> in alto per attivare l\'autosave in futuro, o <strong>\u2193 JSON</strong> per backup manuali.');
+  });
+  d.appendChild(btn1); d.appendChild(btn2);
+  msgs.appendChild(d); msgs.scrollTop = 9999;
+}
+
+async function pickFolder() {
+  if (!window.showSaveFilePicker) {
+    addAiMsg('Il tuo browser non supporta il salvataggio automatico. Usa <strong>\u2193 JSON</strong>.');
+    return;
+  }
+  try {
+    fileHandle = await window.showSaveFilePicker({
+      suggestedName: 'ettorino_' + currentUser + '_autosave.json',
+      types: [{description:'JSON', accept:{'application/json':['.json']}}]
+    });
+    document.getElementById('folderBtn').textContent = '📁 ' + fileHandle.name;
+    await writeAutoSave();
+    scheduleAutoSave();
+    addAiMsg('Auto-save su <strong>' + fileHandle.name + '</strong>. Aggiornato ogni ora.');
+  } catch(e) { if (e.name !== 'AbortError') addAiMsg('Errore: ' + e.message); }
+}
+
+async function writeAutoSave() {
+  if (!fileHandle || !currentUser) return;
+  try {
+    const w = await fileHandle.createWritable();
+    await w.write(JSON.stringify(Object.assign({}, S, {user:currentUser, autoSavedAt:new Date().toISOString()}), null, 2));
+    await w.close();
+    _set('ettorino_last_export', String(Date.now()));
+    document.getElementById('bkInfo').textContent = 'Auto-saved ' +
+      new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+  } catch(e) {
+    try { await fileHandle.requestPermission({mode:'readwrite'}); await writeAutoSave(); } catch(e2) {}
+  }
+}
+
+function scheduleAutoSave() {
+  if (autoSaveTimer) clearTimeout(autoSaveTimer);
+  if (!autoSaveEnabled) return;
+  autoSaveTimer = setTimeout(async function(){ await writeAutoSave(); scheduleAutoSave(); }, 60*60*1000);
+}
+
+function initAutoSave() {
+  autoSaveEnabled = _get('ettorino_autosave') !== '0';
+  const toggle = document.getElementById('autoSaveToggle');
+  toggle.checked = autoSaveEnabled;
+  const th = document.getElementById('tthumb'), tr = document.getElementById('ttrack');
+  if (autoSaveEnabled) { th.classList.add('on'); tr.classList.add('on'); scheduleAutoSave(); }
+  else { th.classList.remove('on'); tr.classList.remove('on'); }
+  const neverChosen = !_get('ettorino_folder_' + currentUser);
+  if (autoSaveEnabled && neverChosen && window.showSaveFilePicker) {
+    setTimeout(promptFolderFirstTime, 2000);
+  }
+}
+
+// ── EXPORT/IMPORT ────────────────────────────────────────────────
+function exportJSON() {
+  _set('ettorino_last_export', String(Date.now()));
+  const b = new Blob([JSON.stringify(Object.assign({}, S, {user:currentUser, exportedAt:new Date().toISOString()}), null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b);
+  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+}
+
+function exportMD() {
+  const lines = ['# Ettorino4Finance \u2014 ' + currentUser,
+    '> ' + new Date().toLocaleString('it-IT'), '',
+    '## Liquidit\u00e0', '\u20ac' + (S.liquidity||0).toLocaleString('it-IT'), '',
+    '## Portafoglio',
+    '| Ticker | Nome | Qty | Medio | Attuale | P&L% | Alloc% |',
+    '|---|---|---|---|---|---|---|'];
+  (S.portfolio||[]).forEach(function(p) {
+    const pl = calcPL(p);
+    lines.push('| '+p.ticker+' | '+p.name+' | '+p.qty+' | \u20ac'+p.avgPrice+' | '+fmtPrice(p)+' | '+pl.plPct.toFixed(2)+'% | '+p.alloc+'% |');
+  });
+  const b = new Blob([lines.join('\n')], {type:'text/markdown'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(b);
+  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.md';
+  a.click();
+}
+
+function importJSON(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const r = new FileReader();
+  r.onload = function(ev) {
+    try {
+      const imp = JSON.parse(ev.target.result);
+      if (imp.portfolio) {
+        S = imp;
+        renderPortfolioBar(); renderTiles(); saveUserData();
+        addAiMsg('Portafoglio importato. Usa ↻ per aggiornare news e segnali.');
+      }
+    } catch(e) { addAiMsg('Errore nel file JSON.'); }
+  };
   r.readAsText(file);
 }
-function importOnLogin(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    try{
-      const imp=JSON.parse(ev.target.result);if(!imp.portfolio)throw new Error();
-      const u=imp.user||'Importato';const users=getUsers();
-      if(!users.includes(u)){users.push(u);saveUsers(users);}
-      _set(storeKey(u),JSON.stringify(imp));renderUserBtns();selectUser(u);
-      const st=document.getElementById('apiStatus');st.className='smsg ok';st.textContent=`✓ Portafoglio di "${u}" caricato`;
-    }catch{const st=document.getElementById('apiStatus');st.className='smsg err';st.textContent='✗ File non riconosciuto.';}
-  };r.readAsText(file);
+
+function importOnLogin(e) {
+  const file = e.target.files[0]; if (!file) return;
+  const r = new FileReader();
+  r.onload = function(ev) {
+    try {
+      const imp = JSON.parse(ev.target.result);
+      if (!imp.portfolio) throw new Error();
+      const u = imp.user || 'Importato';
+      const users = getUsers();
+      if (!users.includes(u)) { users.push(u); saveUsers(users); }
+      _set(storeKey(u), JSON.stringify(imp));
+      renderUserBtns(); selectUser(u);
+      const st = document.getElementById('apiStatus');
+      st.className = 'smsg ok';
+      st.textContent = '\u2713 Portafoglio di "' + u + '" caricato \u2014 inserisci la chiave API ed entra';
+    } catch(e) {
+      const st = document.getElementById('apiStatus');
+      st.className = 'smsg err';
+      st.textContent = '\u2717 File non riconosciuto.';
+    }
+  };
+  r.readAsText(file);
 }
-function resetUser(){
-  if(!confirm(`Azzerare tutti i dati di ${currentUser}?`))return;
-  _del(storeKey(currentUser));S={portfolio:[],liquidity:0,profile:{note:'fresh'}};signals={};newsItems=[];
-  if(refreshTimer){clearInterval(refreshTimer);refreshTimer=null;}
-  if(newsTimer){clearInterval(newsTimer);newsTimer=null;}
-  if(suggestionsTimer){clearInterval(suggestionsTimer);suggestionsTimer=null;}
+
+function resetUser() {
+  if (!confirm('Azzerare tutti i dati di ' + currentUser + '?')) return;
+  _del(storeKey(currentUser));
+  S = {portfolio:[], liquidity:0, profile:{note:'fresh'}};
+  signals = {}; newsItems = []; _sugsData = []; _cryptoData = [];
+  recentSugTickers = []; recentCryptoSymbols = [];
+  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer=null; }
+  if (newsTimer) { clearInterval(newsTimer); newsTimer=null; }
+  if (sugTimer) { clearInterval(sugTimer); sugTimer=null; }
+  if (cryptoTimer) { clearInterval(cryptoTimer); cryptoTimer=null; }
   showOnboard();
 }
 
-// ── INIT ──────────────────────────────────────────────────────────
-renderUserBtns();
 </script>
 </body>
 </html>

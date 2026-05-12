@@ -6,60 +6,145 @@ A personal AI investment advisor dashboard. Single HTML file — no server, no d
 
 Ettorino is your personal AI financial consultant. On first launch you choose how to start:
 
-- **Build my portfolio** — Ettorino asks your budget, goal and preferred sectors, then proposes a real portfolio with quoted tickers and amounts calculated on your exact capital. Accept it or iterate.
+- **Build my portfolio** — Ettorino collects your budget, goal and preferred sectors, then runs a 4-step algorithm (screening → catalysts → ranking → allocation) to propose a real portfolio from a curated universe of 120 EU+USA stocks. Uses Claude web search to verify current market conditions before proposing.
 - **I already have stocks** — enter your holdings manually (ticker, name, quantity, average price) and Ettorino starts monitoring them immediately.
 - **Start with an empty portfolio** — jump straight into the dashboard, see AI suggestions right away, add holdings whenever you want.
 
 Once in the dashboard:
 
-- **My portfolio** (top section) — tile grid with one card per holding: live price, daily change, P&L and AI signal (▲ BUY / ◆ HOLD / ▼ AVOID). Empty state with prompt to add positions.
-- **Ettorino's picks** (bottom section) — AI-generated buy suggestions based on your profile and current market conditions, sourced via real-time web search. Refreshed every 30 minutes. Click any tile to get a full analysis in chat.
-- **News** — real-time news fetched by Claude with web search, scoped to the tickers you own, translated into Italian. Auto-refresh every 30 minutes. Alert badge on urgent items.
-- **Chat** — contextual advisor with your full live portfolio passed on every message. Quick-action buttons for Review, Buy/Sell, Risks, Liquidity.
-- **Portfolio summary bar** — value, invested, total P&L, daily change and residual cash in a single top bar.
+- **Control bar** — two sliders that drive the entire suggestion algorithm:
+  - *Risk*: Conservativo / Moderato / Aggressivo — changes candidate universe, allocation weights and constraints passed to Claude
+  - *Geo*: USA ←→ EU — shifts the geographic bias of suggestions from 100% USA to 100% EU
+- **My portfolio** (top section) — tile grid: live price, daily change, P&L and AI signal (▲ BUY / ◆ HOLD / ▼ AVOID). Click any tile to open a detail popup with inline AI analysis. Double-click to edit.
+- **Ettorino's picks** (middle section) — AI-generated buy suggestions from a fixed universe of 120 real EU+USA stocks. 4-step algorithm: screening → catalyst verification → ranking by conviction → output. Interest tags let you filter by sector. Anti-repetition memory across refreshes.
+- **Crypto gems** (bottom section) — promising non-top-20 crypto from a curated list of 45 assets plus up to 2 Claude-discovered extras per refresh.
+- **News** — real-time news via Claude web search, scoped to your tickers, translated into Italian.
+- **Chat** — contextual advisor with your full portfolio passed on every message.
+- **Detail popup** — click any tile to get a short inline AI analysis and send to chat.
+
+All AI sections refresh **manually only** — click ↻ on each section when you want an update. This keeps costs predictable.
+
+---
 
 ## Setup
 
-1. Download `ettorino4finance_standalone.html`
-2. Open it in **Chrome** or **Edge** (required for file auto-save)
-3. Create a user, paste your API key from [console.anthropic.com](https://console.anthropic.com/settings/keys)
-4. Choose how to start — Ettorino guides you from there
+### Required: Anthropic API key
 
-Your API key is stored only in your browser and never sent anywhere other than Anthropic's API.
+1. Download `ettorino4finance_standalone.html`
+2. Open it in **Chrome** or **Edge**
+3. Go to [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) and create a key
+4. Create a user in Ettorino and paste the key into the **Anthropic API key** field
+
+### Optional but recommended: Finnhub API key (real-time prices)
+
+Without a Finnhub key, prices are simulated. With it, every holding updates with live market data.
+
+1. Go to [finnhub.io](https://finnhub.io) — click **Get free API key**, no credit card required
+2. Find your key at [finnhub.io/dashboard](https://finnhub.io/dashboard)
+3. Paste it into the **Finnhub API key** field at login
+
+See **[FINNHUB_SETUP.md](./FINNHUB_SETUP.md)** for ticker formats, coverage and troubleshooting.
+
+---
+
+## Finnhub integration
+
+| Feature | With key | Without key |
+|---|---|---|
+| Portfolio prices | Real-time market data | Simulated random walk |
+| Live badge | `● live` with timestamp | `● simulato` |
+| Rate limit | 60 calls/min free — handles ~50 holdings on 30s refresh | n/a |
+
+Finnhub is always free — zero cost to add.
+
+---
 
 ## Multi-user
 
-Same file, separate users. Each user has their own API key, portfolio and data — fully isolated in the browser's localStorage.
+Same file, separate users. Each user has their own Anthropic key, Finnhub key, portfolio and data — isolated in localStorage.
+
+---
 
 ## Persistence and backup
 
 | Mechanism | When |
 |---|---|
 | localStorage | On every change |
-| File auto-save | Every hour — on first launch Ettorino prompts you to pick a folder (choose the same folder as the HTML file) |
+| File auto-save | Every hour — on first launch Ettorino prompts you to pick a folder |
 | JSON export | Manual, `↓ JSON` button |
 | Markdown export | Manual, `↓ MD` button |
 | JSON import | At login — to restore on a new machine |
 
-> If the browser blocks localStorage (Edge with Tracking Prevention on local files), data stays in memory for the session. Use Chrome or export to JSON regularly.
+---
 
 ## Price refresh
 
-Configurable from the topbar: 10s / 30s (default) / 1m / 5m / off. Prices are simulated — for live data you would need to wire in a market API such as Yahoo Finance or Alpha Vantage.
+Configurable: 10s / 30s (default) / 1m / 5m / off. With Finnhub enabled each cycle fetches live quotes. Without Finnhub, prices oscillate randomly.
+
+---
 
 ## API cost
 
-Claude Sonnet 4 — roughly $0.002–0.005 per message. With AI suggestions and news refreshing every 30 minutes, expect around $3–6/month per user under normal usage. Signals and suggestions are batched to minimise calls.
+**All AI sections are manual-refresh only** — you pay only when you click ↻.
+
+### Models used
+
+| Call type | Model | Why |
+|---|---|---|
+| News, picks, crypto gems | Claude Haiku 4.5 | ~20× cheaper, sufficient for structured JSON output |
+| Chat, popup analysis, signals | Claude Sonnet 4 | Higher quality for conversational and analytical responses |
+| Portfolio construction (onboarding) | Claude Sonnet 4 + web search | One-time, quality matters |
+
+### Cost per manual refresh (approx.)
+
+| Section | Cost |
+|---|---|
+| News (↻) | ~$0.003 |
+| AI picks (↻) | ~$0.004 |
+| Crypto gems (↻) | ~$0.003 |
+| AI signals (↻) | ~$0.002 |
+| Chat message | ~$0.002 |
+| Popup analysis | ~$0.001 |
+| Onboarding (once) | ~$0.015 |
+
+**Example:** refreshing all three sections once a day + 5 chat messages ≈ **$0.02/day → ~$0.60/month**.
+
+### Anthropic rate limits (Tier 1)
+
+| Model | Input tokens/min | Output tokens/min |
+|---|---|---|
+| Claude Sonnet 4 | 30,000 | 8,000 |
+| Claude Haiku 4.5 | 50,000 | 10,000 |
+
+If you hit a 429 error, wait 60 seconds and retry — the limit resets per minute. To raise limits, add credit at [console.anthropic.com](https://console.anthropic.com) — Tier 2 requires $50 spent lifetime.
+
+---
 
 ## Reset
 
-The **reset** button in the topbar wipes all data for the current user and relaunches the onboarding.
+The **reset** button wipes all data for the current user and relaunches onboarding.
+
+---
 
 ## Tech stack
 
-- Zero server, zero build — open the `.html` file in your browser
-- **Claude Sonnet 4** via direct browser API (`anthropic-dangerous-direct-browser-access`)
-- **Claude web_search tool** for real-time news and market-aware suggestions
+- Zero server, zero build — open the `.html` file in Chrome or Edge
+- **Claude Sonnet 4** (`claude-sonnet-4-20250514`) for chat, signals and onboarding
+- **Claude Haiku 4.5** (`claude-haiku-4-5-20251001`) for news, picks and crypto (cost-optimised)
+- **Claude web_search tool** (`web_search_20250305`) for real-time data
+- **Finnhub API** for live stock and crypto prices (optional, free)
+- **Stock universe**: 120 real EU+USA tickers across 9 sectors (hardcoded, no hallucination)
+- **Crypto universe**: 45 curated non-top-20 projects + up to 2 extras per refresh
 - **Fonts**: Inter · Bricolage Grotesque · IBM Plex Mono
-- **Storage**: localStorage → sessionStorage → in-memory (fallback chain)
-- **Auto-save**: File System Access API (Chrome/Edge only), prompted on first launch
+- **Storage**: localStorage → sessionStorage → in-memory fallback
+- **Auto-save**: File System Access API (Chrome/Edge only)
+
+---
+
+## Files
+
+| File | Description |
+|---|---|
+| `ettorino4finance_standalone.html` | The entire application |
+| `README.md` | This file |
+| `FINNHUB_SETUP.md` | Guide to getting and configuring your Finnhub key |
