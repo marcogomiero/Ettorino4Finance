@@ -196,28 +196,28 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .itag.explore.on{background:var(--gbg);border-color:var(--gbr);color:var(--gn)}
 .itag-add{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;border:1px dashed var(--bd2);background:none;color:var(--ht);cursor:pointer;font-family:'Inter',sans-serif}
 .itag-input{font-size:12px;padding:3px 8px;border-radius:20px;border:1px solid var(--gn);outline:none;font-family:'Inter',sans-serif;color:var(--tx);background:var(--bg);width:100px}
-.side{width:380px;flex-shrink:0;border-left:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;background:var(--card)}
+
 .ph{padding:11px 14px;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
 .ph-t{font-size:11px;font-weight:700;color:var(--ht);letter-spacing:.08em;text-transform:uppercase}
 .ph-a{font-size:12px;font-weight:600;color:var(--gn);background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif}
 .ph-a:hover{opacity:.75}
-.news-sec{flex:1;display:flex;flex-direction:column;overflow:hidden;border-bottom:1px solid var(--bd)}
-.nbar{padding:7px 14px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;font-size:11px;color:var(--ht)}
-.nrefbtn{font-size:11px;font-weight:600;padding:2px 9px;border-radius:5px;border:1px solid var(--bd);background:none;color:var(--mt);cursor:pointer;font-family:'Inter',sans-serif}
-.nrefbtn:hover{color:var(--gn);border-color:var(--gbr)}
-.nlist{flex:1;overflow-y:auto;scrollbar-width:thin}
-.ni{padding:11px 14px;border-bottom:1px solid var(--bd);cursor:pointer;transition:background .1s}
-.ni:hover{background:#f6f8f5}
-.ni.alert-item{border-left:3px solid var(--rd)}
-.nsrc{font-size:10px;font-weight:700;color:var(--ht);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;display:flex;align-items:center;gap:5px}
-.nalert-badge{font-size:10px;font-weight:700;color:var(--rd);background:var(--rbg);border:1px solid var(--rbr);border-radius:3px;padding:1px 5px}
-.nhead{font-size:13px;font-weight:500;line-height:1.4;margin-bottom:5px}
-.ntags{display:flex;gap:3px;flex-wrap:wrap}
-.ntag{font-size:10px;font-weight:600;padding:2px 6px;border-radius:3px;border:1px solid var(--bd);color:var(--ht)}
-.ntag.g{background:var(--gbg);border-color:var(--gbr);color:var(--gn)}
-.ntag.r{background:var(--rbg);border-color:var(--rbr);color:var(--rd)}
-.nloading{padding:16px 14px;font-size:13px;color:var(--ht);font-style:italic}
-.chat-sec{height:320px;display:flex;flex-direction:column;flex-shrink:0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.chat-sec{display:none}
 .qbtns{padding:7px 14px;display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0;border-bottom:1px solid var(--bd)}
 .qbtn{font-size:11px;font-weight:600;padding:3px 9px;border-radius:5px;border:1px solid var(--bd);background:none;color:var(--mt);cursor:pointer;font-family:'Inter',sans-serif}
 .qbtn:hover{color:var(--gn);border-color:var(--gbr)}
@@ -251,6 +251,28 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
 .popup-footer{padding:14px 22px;border-top:1px solid var(--bd);display:flex;gap:8px;flex-shrink:0}
 .popup-btn-main{flex:1;background:var(--gn);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;padding:9px;cursor:pointer;font-family:'Inter',sans-serif}
 .popup-btn-sec{background:var(--bg);border:1px solid var(--bd);color:var(--mt);border-radius:8px;font-size:13px;padding:9px 14px;cursor:pointer;font-family:'Inter',sans-serif}
+
+/* ── CHAT FAB + MODAL ── */
+.chat-fab{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:var(--gn);color:#fff;border:none;border-radius:50%;cursor:pointer;font-size:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(26,158,74,.45);z-index:140;transition:transform .15s,box-shadow .15s}
+.chat-fab:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(26,158,74,.55)}
+.chat-fab-badge{position:absolute;top:-3px;right:-3px;background:var(--rd);color:#fff;border-radius:10px;font-size:10px;font-weight:700;padding:2px 6px;display:none;border:2px solid var(--card)}
+.chat-fab-badge.show{display:block}
+.chat-modal-bg{position:fixed;bottom:96px;right:28px;z-index:150;animation:fadeUp .2s ease}
+.chat-modal-bg.hidden{display:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.chat-modal{background:var(--card);border:1px solid var(--bd);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.18);width:400px;max-width:calc(100vw - 56px);height:520px;max-height:calc(100vh - 140px);display:flex;flex-direction:column;overflow:hidden}
+.chat-modal-hdr{padding:13px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--card)}
+.chat-modal-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700}
+.chat-modal-close{background:none;border:none;font-size:18px;color:var(--ht);cursor:pointer;padding:0;line-height:1;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.chat-modal-close:hover{background:var(--bg);color:var(--tx)}
+.chat-modal-qbtns{padding:7px 12px;display:flex;flex-wrap:wrap;gap:4px;flex-shrink:0;border-bottom:1px solid var(--bd);background:var(--bg)}
+.chat-modal-msgs{flex:1;overflow-y:auto;padding:10px 12px;display:flex;flex-direction:column;gap:7px;scrollbar-width:thin;background:var(--bg)}
+.chat-modal-foot{padding:9px 12px;border-top:1px solid var(--bd);display:flex;gap:5px;flex-shrink:0;background:var(--card)}
+.chat-modal-inp{flex:1;background:var(--bg);border:1px solid var(--bd);border-radius:8px;color:var(--tx);font-family:'Inter',sans-serif;font-size:13px;padding:7px 10px;outline:none;resize:none;min-height:34px;max-height:68px}
+.chat-modal-inp:focus{border-color:var(--gn)}
+.chat-modal-inp::placeholder{color:var(--ht)}
+.chat-modal-send{background:var(--gn);color:#fff;border:none;border-radius:8px;padding:0 14px;cursor:pointer;font-size:16px;font-weight:700;flex-shrink:0;height:34px}
+.chat-modal-send:disabled{opacity:.35;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -515,38 +537,35 @@ html,body{height:100%;background:var(--bg);color:var(--tx);font-family:'Inter',s
       <div class="tile-grid" id="cryptoGrid"><div style="color:var(--ht);font-size:13px">Clicca <strong>↻ aggiorna</strong> per le crypto promettenti.</div></div>
     </div>
   </div>
-  <!-- SIDE -->
-  <div class="side">
-    <div class="news-sec">
-      <div class="ph">
-        <span class="ph-t">News · <span id="newsTickerList" style="font-weight:400;text-transform:none;letter-spacing:0;font-size:11px;color:var(--ht)">caricamento…</span></span>
-        <button class="ph-a" id="refreshNewsBtn">↻ aggiorna</button>
-      </div>
-      <div class="nbar">
-        <span id="newsLastUpdate">—</span>
-        <button class="nrefbtn" id="analyzeAllNewsBtn">→ analizza tutto</button>
-      </div>
-      <div class="nlist" id="newsList"><div class="nloading">Clicca <strong>↻ aggiorna</strong> per le news sui tuoi titoli.</div></div>
+</div>
+
+<!-- CHAT MODAL -->
+<div class="chat-modal-bg hidden" id="chatModal">
+  <div class="chat-modal">
+    <div class="chat-modal-hdr">
+      <span class="chat-modal-title">Ettorino AI</span>
+      <button class="chat-modal-close" id="chatModalCloseBtn">×</button>
     </div>
-    <div class="chat-sec">
-      <div class="ph">
-        <span class="ph-t">Ettorino AI</span>
-        <button class="ph-a" id="clearChatBtn">pulisci</button>
-      </div>
-      <div class="qbtns">
-        <button class="qbtn" data-q="Analizza il mio portafoglio completo">Review</button>
-        <button class="qbtn" data-q="Cosa comprare e cosa vendere adesso?">Buy/Sell</button>
-        <button class="qbtn" data-q="Rischi macro per i miei titoli?">Rischi</button>
-        <button class="qbtn" data-q="Come gestire la mia liquidità?">Liquidità</button>
-      </div>
-      <div class="cmsgs" id="chatMsgs"></div>
-      <div class="cfoot">
-        <textarea class="cinp" id="chatInp" placeholder="Chiedi a Ettorino…"></textarea>
-        <button class="csend" id="sendBtn">→</button>
-      </div>
+    <div class="chat-modal-qbtns">
+      <button class="qbtn" data-q="Analizza il mio portafoglio completo">Review</button>
+      <button class="qbtn" data-q="Cosa comprare e cosa vendere adesso?">Buy/Sell</button>
+      <button class="qbtn" data-q="Rischi macro per i miei titoli?">Rischi</button>
+      <button class="qbtn" data-q="Come gestire la mia liquidità?">Liquidità</button>
+      <button class="qbtn" id="clearChatBtn">pulisci</button>
+    </div>
+    <div class="chat-modal-msgs" id="chatMsgs"></div>
+    <div class="chat-modal-foot">
+      <textarea class="chat-modal-inp" id="chatInp" placeholder="Chiedi a Ettorino…"></textarea>
+      <button class="chat-modal-send" id="sendBtn">→</button>
     </div>
   </div>
 </div>
+
+<!-- CHAT FAB -->
+<button class="chat-fab" id="chatFab" title="Apri chat con Ettorino">
+  💬
+  <span class="chat-fab-badge" id="chatFabBadge">!</span>
+</button>
 
 <script>
 'use strict';
@@ -817,7 +836,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   document.getElementById('popupChatBtn').addEventListener('click', popupToChat);
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePopupDirect();
+    if (e.key === 'Escape') {
+      closePopupDirect();
+      closeChatModal();
+    }
   });
 
   // Topbar
@@ -852,15 +874,26 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('refreshCryptoBtn').addEventListener('click', fetchCryptoGems);
 
   // News + chat
-  document.getElementById('refreshNewsBtn').addEventListener('click', fetchNews);
-  document.getElementById('analyzeAllNewsBtn').addEventListener('click', analyzeAllNews);
   document.getElementById('clearChatBtn').addEventListener('click', clearChat);
   document.getElementById('sendBtn').addEventListener('click', sendMsg);
+  // Chat modal
+  document.getElementById('chatFab').addEventListener('click', openChatModal);
+  document.getElementById('chatModalCloseBtn').addEventListener('click', closeChatModal);
+  document.getElementById('chatModal').addEventListener('click', function(e) {
+    if (e.target === this) closeChatModal();
+  });
   document.getElementById('chatInp').addEventListener('keydown', function(e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); }
   });
+  // clearChatBtn now inside modal
+  document.getElementById('clearChatBtn').addEventListener('click', clearChat);
   document.querySelectorAll('.qbtn').forEach(function(btn) {
-    btn.addEventListener('click', function() { qp(this.dataset.q); });
+    btn.addEventListener('click', function() {
+      if (this.dataset.q) {
+        openChatModal();
+        qp(this.dataset.q);
+      }
+    });
   });
 
   // Interest bar add input (created dynamically, use delegation)
@@ -881,6 +914,18 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(saveUserData, 60*60*1000);
 
   renderUserBtns();
+  // Auto-login: if only one user with a saved valid key, skip the login screen
+  const _autoUsers = getUsers();
+  if (_autoUsers.length >= 1) {
+    // Try the last used user first
+    const _lastUser = _get('ettorino_last_user') || _autoUsers[0];
+    const _savedUser = _autoUsers.includes(_lastUser) ? _lastUser : _autoUsers[0];
+    const _savedKey = _get('ettorino_apikey_' + _savedUser);
+    if (_savedKey && _savedKey.startsWith('sk-ant-')) {
+      selectUser(_savedUser);
+      setTimeout(function() { doLogin(); }, 150);
+    }
+  }
 });
 
 // ── USER MANAGEMENT ──────────────────────────────────────────────
@@ -903,6 +948,7 @@ async function doLogin() {
   const fk = document.getElementById('finnhubKeyInput').value.trim();
   if (fk) { finnhubKey = fk; _set(finnhubKeyKey(currentUser), fk); }
   else { finnhubKey = _get(finnhubKeyKey(currentUser)) || null; }
+  _set('ettorino_last_user', currentUser);
   document.getElementById('loginScreen').classList.add('hidden');
   document.getElementById('userBadge').textContent = '\u25cf ' + currentUser;
   loadUserData();
@@ -1260,6 +1306,10 @@ function skipOnboard() {
 // ── DASHBOARD INIT ───────────────────────────────────────────────
 function initDashboard() {
   chatHistory = []; signals = {};
+  // Always re-read finnhubKey from storage — may not be in memory yet (e.g. auto-login)
+  if (!finnhubKey && currentUser) {
+    finnhubKey = _get('ettorino_finnhub_' + currentUser) || null;
+  }
   initAutoSave(); initRefresh(); initControls(); initInterests();
   const priceMode = finnhubKey
     ? '<strong>prezzi reali</strong> via Finnhub'
@@ -1268,15 +1318,33 @@ function initDashboard() {
     '<div class="cm sys">' + currentUser + ' \u00b7 Ettorino4Finance</div>' +
     '<div class="cm ai">Ciao <strong>' + currentUser + '</strong>! Ho caricato <strong>' +
     S.portfolio.length + ' posizioni</strong> con ' + priceMode + '. Sto recuperando news e segnali AI.</div>';
-  if (!finnhubKey) {
-    document.getElementById('livePill').textContent = '\u25cf simulato';
-    document.getElementById('livePill').title = 'Aggiungi chiave Finnhub per prezzi reali';
-  }
+
   renderPortfolioBar();
   renderTiles();
   // API calls are manual only — no auto-start to avoid rate limits and costs
   // User triggers news/signals/picks/crypto manually via refresh buttons
-  if (finnhubKey) setTimeout(fetchAllRealPrices, 1000); // Finnhub is free, OK to auto-start
+  // Finnhub: re-read from storage in case key wasn't in memory yet
+  if (!finnhubKey && currentUser) {
+    finnhubKey = _get('ettorino_finnhub_' + currentUser) || null;
+  }
+  if (finnhubKey) {
+    document.getElementById('livePill').textContent = '\u25cf Finnhub...';
+    document.getElementById('livePill').title = 'Caricamento prezzi reali via Finnhub';
+    setTimeout(fetchAllRealPrices, 800);
+  } else {
+    document.getElementById('livePill').textContent = '\u25cf simulato';
+    document.getElementById('livePill').title = 'Nessuna chiave Finnhub — prezzi simulati';
+    // Try once more after storage settles (covers auto-login race condition)
+    setTimeout(function() {
+      if (!finnhubKey && currentUser) {
+        finnhubKey = _get('ettorino_finnhub_' + currentUser) || null;
+        if (finnhubKey) {
+          document.getElementById('livePill').textContent = '\u25cf Finnhub...';
+          fetchAllRealPrices();
+        }
+      }
+    }, 1500);
+  }
 }
 
 // ── CONTROLS ─────────────────────────────────────────────────────
@@ -1495,6 +1563,17 @@ function closeModal() {
 }
 
 // ── AI SIGNALS ───────────────────────────────────────────────────
+// Robust JSON array extractor — handles markdown fences, leading text, etc.
+function extractJSON(text) {
+  if (!text) return null;
+  let clean = text.replace(/```json\s*/gi, '').replace(/```\s*/g, '');
+  const trimmed = clean.trim();
+  if (trimmed.startsWith('[')) { try { return JSON.parse(trimmed); } catch(e) {} }
+  const m = clean.match(/\[[\s\S]+\]/);
+  if (m) { try { return JSON.parse(m[0]); } catch(e) {} }
+  return null;
+}
+
 async function refreshSignals() {
   if (!S.portfolio || !S.portfolio.length) return;
   document.getElementById('livePill').textContent = '\u25cf analisi\u2026';
@@ -1504,7 +1583,7 @@ async function refreshSignals() {
       'Analizza questo portafoglio e per ogni posizione dai un segnale:\n' + ctx +
       '\n\nRispondi SOLO con JSON:\n[{"ticker":"X","signal":"buy|hold|sell","reason":"max 10 parole","alert":null}]'
     }], SYS, 800);
-    const sigs = JSON.parse(res.replace(/```json|```/g,'').trim());
+    const sigs = extractJSON(res) || JSON.parse(res.replace(/```json|```/g,'').trim());
     sigs.forEach(function(s) { signals[s.ticker] = {signal:s.signal,reason:s.reason,alert:s.alert}; });
     renderTiles();
   } catch(e) { console.error('signals error', e); }
@@ -1550,9 +1629,8 @@ async function fetchSuggestions() {
 
   try {
     const textBlock = await callAPIWithSearch(userMsg, sys, 1200);
-    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
-    if (jsonMatch) {
-      const sugs = JSON.parse(jsonMatch[0]);
+    const sugs = extractJSON(textBlock);
+    if (sugs && sugs.length) {
       recentSugTickers = recentSugTickers.concat(sugs.map(function(s){return s.ticker;})).slice(-20);
       _sugsData = sugs;
       renderSuggestions(sugs);
@@ -1625,9 +1703,8 @@ async function fetchCryptoGems() {
 
   try {
     const textBlock = await callAPIWithSearch(userMsg, sys, 1400);
-    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
-    if (jsonMatch) {
-      const gems = JSON.parse(jsonMatch[0]);
+    const gems = extractJSON(textBlock);
+    if (gems && gems.length) {
       recentCryptoSymbols = recentCryptoSymbols.concat(gems.map(function(g){return g.symbol;})).slice(-20);
       _cryptoData = gems;
       renderCryptoGems(gems);
@@ -1770,76 +1847,28 @@ function addInterest() {
   hideAddInterest();
 }
 
-// ── NEWS ─────────────────────────────────────────────────────────
-async function fetchNews() {
-  if (!S.portfolio || !S.portfolio.length) return;
-  const tickers = S.portfolio.map(function(p){return p.ticker;}).join(', ');
-  document.getElementById('newsList').innerHTML = '<div class="nloading">Cerco news aggiornate per ' + tickers + '\u2026</div>';
-  document.getElementById('newsTickerList').textContent = tickers;
+// ── NEWS (stub — removed) ────────────────────────────────────────
+async function fetchNews() {}
+function renderNews() {}
+function newsClick(idx) {}
+function analyzeAllNews() {}
 
-  const sys = 'News finanziarie AI. Cerca ultime notizie per i titoli indicati. ' +
-    'JSON SOLO: [{"ticker":"X","source":"Fonte","headline":"TITOLO IN ITALIANO","sentiment":"bullish|bearish|neutral","alert":false,"time":"Xh fa"}] ' +
-    'Max 6 notizie, solo rilevanti per investitori, sempre in italiano.';
-
-  const userMsg = 'Ultime news per: ' + tickers + '. Solo notizie degli ultimi 2 giorni.';
-
-  try {
-    const textBlock = await callAPIWithSearch(userMsg, sys, 2000);
-    const jsonMatch = textBlock && textBlock.match(/\[[\s\S]*?\]/);
-    if (jsonMatch) {
-      newsItems = JSON.parse(jsonMatch[0]);
-      renderNews();
-      document.getElementById('newsLastUpdate').textContent =
-        'Aggiornato ' + new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-    } else { throw new Error('no JSON'); }
-  } catch(e) {
-    console.error('fetchNews error', e);
-    const is429 = e.message && e.message.includes('429');
-    document.getElementById('newsList').innerHTML =
-      '<div class="nloading">' + (is429
-        ? '⏳ Limite API raggiunto. Le news si caricheranno tra qualche minuto. '
-        : 'Errore nel caricamento news. ') +
-      '<button class="nrefbtn" id="retryNewsBtn">Riprova</button></div>';
-    const btn = document.getElementById('retryNewsBtn');
-    if (btn) btn.addEventListener('click', fetchNews);
-  }
+// ── CHAT MODAL ───────────────────────────────────────────────────
+function openChatModal() {
+  document.getElementById('chatModal').classList.remove('hidden');
+  const badge = document.getElementById('chatFabBadge');
+  if (badge) badge.classList.remove('show');
+  setTimeout(function() {
+    const msgs = document.getElementById('chatMsgs');
+    if (msgs) msgs.scrollTop = msgs.scrollHeight;
+    const inp = document.getElementById('chatInp');
+    if (inp) inp.focus();
+  }, 50);
 }
 
-function renderNews() {
-  const list = document.getElementById('newsList');
-  if (!newsItems || !newsItems.length) {
-    list.innerHTML = '<div class="nloading">Nessuna news trovata.</div>';
-    return;
-  }
-  list.innerHTML = '';
-  newsItems.forEach(function(n, idx) {
-    const div = document.createElement('div');
-    div.className = 'ni' + (n.alert?' alert-item':'');
-    div.innerHTML =
-      '<div class="nsrc"><span>' + (n.source||'\u2014') + '</span><span>\u00b7</span><span>' + (n.time||'\u2014') + '</span>' +
-      (n.alert ? '<span class="nalert-badge">\u26a0 Attenzione</span>' : '') + '</div>' +
-      '<div class="nhead">' + (n.headline||'') + '</div>' +
-      '<div class="ntags">' +
-        '<span class="ntag ' + (n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':'') + '">' + (n.ticker||'') + '</span>' +
-        '<span class="ntag ' + (n.sentiment==='bullish'?'g':n.sentiment==='bearish'?'r':'') + '">' + (n.sentiment||'') + '</span>' +
-      '</div>';
-    div.addEventListener('click', function() { newsClick(idx); });
-    list.appendChild(div);
-  });
-}
-
-function newsClick(idx) {
-  const n = newsItems[idx];
-  if (n) qp('Analizza questa news per il mio portafoglio: "' + (n.headline||'') + '" (' + (n.ticker||'') + '). Come mi impatta?');
-}
-
-function analyzeAllNews() {
-  if (!newsItems || !newsItems.length) {
-    qp('Cerca e analizza le ultime news sui miei titoli e dimmi cosa devo sapere.');
-    return;
-  }
-  const headlines = newsItems.map(function(n){return (n.ticker||'?')+': '+(n.headline||'');}).join('\n');
-  qp('Analizza queste news per il mio portafoglio:\n' + headlines + '\n\nCosa cambia? Devo agire su qualcosa?');
+function closeChatModal() {
+  const m = document.getElementById('chatModal');
+  if (m) m.classList.add('hidden');
 }
 
 // ── CHAT ─────────────────────────────────────────────────────────
@@ -1854,6 +1883,7 @@ function buildCtx() {
 
 function addAiMsg(html) {
   const msgs = document.getElementById('chatMsgs');
+  if (!msgs) return;
   const d = document.createElement('div');
   d.className = 'cm ai';
   d.innerHTML = html
@@ -1864,25 +1894,35 @@ function addAiMsg(html) {
     .replace(/\n/g, '<br>');
   msgs.appendChild(d);
   msgs.scrollTop = 9999;
+  // Flash FAB badge if modal is closed
+  const modal = document.getElementById('chatModal');
+  if (modal && modal.classList.contains('hidden')) {
+    const badge = document.getElementById('chatFabBadge');
+    if (badge) badge.classList.add('show');
+  }
   return d;
 }
 
 function clearChat() {
-  document.getElementById('chatMsgs').innerHTML = '<div class="cm sys">Chat resettata</div>';
+  const msgs = document.getElementById('chatMsgs');
+  if (msgs) msgs.innerHTML = '<div class="cm sys">Chat resettata</div>';
   chatHistory = [];
 }
 
 function qp(text) {
-  document.getElementById('chatInp').value = text;
-  sendMsg();
+  openChatModal();
+  const inp = document.getElementById('chatInp');
+  if (inp) { inp.value = text; sendMsg(); }
 }
 
 async function sendMsg() {
   const inp = document.getElementById('chatInp');
+  if (!inp) return;
   const txt = inp.value.trim();
   if (!txt) return;
   inp.value = '';
-  document.getElementById('sendBtn').disabled = true;
+  const sendBtn = document.getElementById('sendBtn');
+  if (sendBtn) sendBtn.disabled = true;
   const msgs = document.getElementById('chatMsgs');
   const ud = document.createElement('div');
   ud.className = 'cm user'; ud.textContent = txt;
@@ -1901,16 +1941,16 @@ async function sendMsg() {
     th.remove();
     addAiMsg('Errore: ' + e.message);
   }
-  document.getElementById('sendBtn').disabled = false;
+  if (sendBtn) sendBtn.disabled = false;
   saveUserData();
 }
 
-// ── POPUP ────────────────────────────────────────────────────────
+// ── POPUP ─────────────────────────────────────────────────────────
 function openTilePopup(ticker, name, why, tags, isCrypto) {
   document.getElementById('popupTitle').textContent = ticker + ' \u00b7 ' + name;
   document.getElementById('popupSub').textContent = isCrypto
-    ? '💎 Crypto \u00b7 analisi in corso...'
-    : '📈 Titolo \u00b7 analisi in corso...';
+    ? '\U0001f48e Crypto \u00b7 analisi in corso...'
+    : '\U0001f4c8 Titolo \u00b7 analisi in corso...';
   const whyEl = document.getElementById('popupWhy');
   whyEl.textContent = why;
   whyEl.className = 'popup-why' + (isCrypto?' crypto':'');
@@ -1921,46 +1961,41 @@ function openTilePopup(ticker, name, why, tags, isCrypto) {
   document.getElementById('detailPopup').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
   currentPopupQuery = isCrypto
-    ? 'Analisi completa di ' + ticker + ' (' + name + '): tecnologia, team, roadmap, tokenomics, rischi e opportunit\u00e0. Vale la pena investire ora?'
-    : 'Analisi completa di ' + ticker + ' (' + name + '): fondamentali, valutazione, catalizzatori, rischi e opportunit\u00e0. Comprare, tenere o evitare?';
+    ? 'Analisi completa di ' + ticker + ' (' + name + '): tecnologia, team, roadmap, tokenomics, rischi. Vale la pena investire ora?'
+    : 'Analisi completa di ' + ticker + ' (' + name + '): fondamentali, valutazione, catalizzatori, rischi. Comprare, tenere o evitare?';
   fetchPopupAnalysis(ticker, name, why, isCrypto);
 }
 
 async function fetchPopupAnalysis(ticker, name, why, isCrypto) {
   const el = document.getElementById('popupAnalysis');
   const prompt = isCrypto
-    ? 'Fai un\'analisi rapida di ' + ticker + ' (' + name + '). Motivo suggerimento: "' + why + '". ' +
-      'Copri in 4-5 punti: 1) Cos\'e e cosa fa 2) Perche e interessante ora 3) Rischi principali 4) A chi si adatta. Max 200 parole, in italiano.'
-    : 'Fai un\'analisi rapida di ' + ticker + ' (' + name + '). Motivo suggerimento: "' + why + '". ' +
-      'Copri in 4-5 punti: 1) Business e posizione competitiva 2) Perche comprare ora 3) Rischi principali 4) Orizzonte temporale. Max 200 parole, in italiano.';
+    ? 'Analisi rapida di ' + ticker + ' (' + name + '). Motivo: "' + why + '". 4 punti: cos\'e, perch\u00e9 ora, rischi, a chi si adatta. Max 150 parole, italiano.'
+    : 'Analisi rapida di ' + ticker + ' (' + name + '). Motivo: "' + why + '". 4 punti: business, perch\u00e9 comprare ora, rischi, orizzonte. Max 150 parole, italiano.';
   try {
     const res = await callAPI([{role:'user', content: prompt}], null, 400);
-    el.innerHTML = res
-      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
-      .replace(/\n/g,'<br>');
+    el.innerHTML = res.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
   } catch(e) {
-    el.innerHTML = '<span style="color:var(--ht)">Errore nel caricamento. Usa il bottone chat.</span>';
+    el.innerHTML = '<span style="color:var(--ht)">Errore. Usa il bottone chat.</span>';
   }
 }
 
 function popupToChat() { closePopupDirect(); qp(currentPopupQuery); }
 function closePopupDirect() {
-  document.getElementById('detailPopup').classList.add('hidden');
+  const p = document.getElementById('detailPopup');
+  if (p) p.classList.add('hidden');
   document.body.style.overflow = '';
 }
 
-// ── FINNHUB REAL PRICES ──────────────────────────────────────────
+// ── FINNHUB ───────────────────────────────────────────────────────
 function finnhubTicker(ticker) {
-  const cryptoMap = {BTC:'BINANCE:BTCUSDT',ETH:'BINANCE:ETHUSDT',SOL:'BINANCE:SOLUSDT',BNB:'BINANCE:BNBUSDT'};
-  if (cryptoMap[ticker]) return cryptoMap[ticker];
-  return ticker;
+  const map = {BTC:'BINANCE:BTCUSDT',ETH:'BINANCE:ETHUSDT',SOL:'BINANCE:SOLUSDT',BNB:'BINANCE:BNBUSDT'};
+  return map[ticker] || ticker;
 }
 
 async function fetchRealPrice(ticker) {
   if (!finnhubKey) return null;
-  const sym = finnhubTicker(ticker);
   try {
-    const res = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(sym) + '&token=' + finnhubKey);
+    const res = await fetch('https://finnhub.io/api/v1/quote?symbol=' + encodeURIComponent(finnhubTicker(ticker)) + '&token=' + finnhubKey);
     if (!res.ok) return null;
     const d = await res.json();
     if (!d.c || d.c === 0) return null;
@@ -1970,25 +2005,20 @@ async function fetchRealPrice(ticker) {
 
 async function fetchAllRealPrices() {
   if (!finnhubKey || !S.portfolio || !S.portfolio.length) return;
-  const pill = document.getElementById('livePill');
-  pill.textContent = '\u25cf prezzi reali\u2026';
-  for (let i=0; i<S.portfolio.length; i++) {
+  document.getElementById('livePill').textContent = '\u25cf Finnhub\u2026';
+  for (let i = 0; i < S.portfolio.length; i++) {
     const p = S.portfolio[i];
     const q = await fetchRealPrice(p.ticker);
-    if (q) {
-      p.currentPrice = q.price;
-      p.change = parseFloat(q.change.toFixed(2));
-    }
-    await new Promise(function(r){setTimeout(r,150);});
+    if (q) { p.currentPrice = q.price; p.change = parseFloat(q.change.toFixed(2)); }
+    await new Promise(function(r){setTimeout(r,200);});
   }
-  renderPortfolioBar();
-  renderTiles();
-  pill.textContent = '\u25cf live';
-  pill.title = 'Prezzi reali via Finnhub \u00b7 ' +
+  renderPortfolioBar(); renderTiles();
+  document.getElementById('livePill').textContent = '\u25cf live';
+  document.getElementById('livePill').title = 'Prezzi reali Finnhub \u00b7 ' +
     new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
 }
 
-// ── PRICE TICK ───────────────────────────────────────────────────
+// ── PRICE TICK ────────────────────────────────────────────────────
 function priceTick() {
   if (!S.portfolio || !S.portfolio.length) return;
   if (finnhubKey) {
@@ -1999,33 +2029,28 @@ function priceTick() {
       p.currentPrice = Math.max(0.01, parseFloat((p.currentPrice*(1+t/100)).toFixed(2)));
       p.change = parseFloat((p.change+t*.1).toFixed(2));
     });
-    renderPortfolioBar();
-    renderTiles();
+    renderPortfolioBar(); renderTiles();
     const pill = document.getElementById('livePill');
     pill.textContent = '\u25cf aggiornato';
-    setTimeout(function(){pill.textContent='\u25cf live';}, 600);
+    setTimeout(function(){pill.textContent='\u25cf simulato';}, 600);
   }
 }
 
 function setRefreshInterval(val) {
-  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer=null; }
+  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
   const ms = parseInt(val)*1000;
   _set('ettorino_refresh', val);
   if (ms > 0) refreshTimer = setInterval(priceTick, ms);
 }
 
 function initRefresh() {
-  const saved = _get('ettorino_refresh') || '30';
-  document.getElementById('refreshSel').value = saved;
+  const saved = _get('ettorino_refresh') || 'off';
+  const sel = document.getElementById('refreshSel');
+  if (sel) sel.value = saved;
   setRefreshInterval(saved);
-  if (newsTimer) clearInterval(newsTimer);
-  if (sugTimer) clearInterval(sugTimer);
-  if (cryptoTimer) clearInterval(cryptoTimer);
-  // Hourly auto-refresh disabled — too costly with web search calls
-  // User refreshes manually via ↻ buttons on each section
 }
 
-// ── AUTO-SAVE ────────────────────────────────────────────────────
+// ── AUTO-SAVE ─────────────────────────────────────────────────────
 function onAutoSaveToggle() {
   autoSaveEnabled = document.getElementById('autoSaveToggle').checked;
   const th = document.getElementById('tthumb'), tr = document.getElementById('ttrack');
@@ -2035,50 +2060,38 @@ function onAutoSaveToggle() {
     if (!fileHandle) promptFolderFirstTime();
   } else {
     th.classList.remove('on'); tr.classList.remove('on');
-    if (autoSaveTimer) { clearTimeout(autoSaveTimer); autoSaveTimer=null; }
+    if (autoSaveTimer) { clearTimeout(autoSaveTimer); autoSaveTimer = null; }
   }
   _set('ettorino_autosave', autoSaveEnabled?'1':'0');
 }
 
 function promptFolderFirstTime() {
-  const neverChosen = !_get('ettorino_folder_' + currentUser);
-  if (!neverChosen) return;
+  if (_get('ettorino_folder_' + currentUser)) return;
   const msgs = document.getElementById('chatMsgs');
+  if (!msgs) return;
   const d = document.createElement('div'); d.className = 'cm ai';
-  d.innerHTML = '<strong>📁 Autosave</strong><br><br>' +
-    'Per salvare il portafoglio ogni ora, scegli la cartella dove vuoi il file di backup. ' +
-    'Ti consiglio di selezionare <strong>la stessa cartella dove hai messo questo file HTML</strong>.<br><br>';
   const btn1 = document.createElement('button');
   btn1.style.cssText = 'background:var(--gn);color:#fff;border:none;border-radius:7px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif';
-  btn1.textContent = '📁 Scegli cartella \u2192';
-  btn1.addEventListener('click', async function() {
-    await pickFolder();
-    if (fileHandle) _set('ettorino_folder_' + currentUser, '1');
-  });
+  btn1.textContent = '\U0001f4c1 Scegli cartella \u2192';
+  btn1.addEventListener('click', async function() { await pickFolder(); if (fileHandle) _set('ettorino_folder_'+currentUser,'1'); });
   const btn2 = document.createElement('button');
   btn2.style.cssText = 'background:none;border:1px solid var(--bd);border-radius:7px;padding:7px 12px;font-size:13px;color:var(--mt);cursor:pointer;font-family:Inter,sans-serif;margin-left:8px';
   btn2.textContent = 'Salta';
-  btn2.addEventListener('click', function() {
-    _set('ettorino_folder_' + currentUser, '1');
-    addAiMsg('Ok. Usa il bottone <strong>📁 cartella</strong> in alto per attivare l\'autosave in futuro, o <strong>\u2193 JSON</strong> per backup manuali.');
-  });
+  btn2.addEventListener('click', function() { _set('ettorino_folder_'+currentUser,'1'); addAiMsg('Ok. Usa il bottone \U0001f4c1 cartella per attivare l\'autosave.'); });
+  d.innerHTML = '<strong>\U0001f4c1 Autosave</strong><br><br>Scegli la cartella dove salvare il backup — ti consiglio la stessa cartella di questo file HTML.<br><br>';
   d.appendChild(btn1); d.appendChild(btn2);
   msgs.appendChild(d); msgs.scrollTop = 9999;
 }
 
 async function pickFolder() {
-  if (!window.showSaveFilePicker) {
-    addAiMsg('Il tuo browser non supporta il salvataggio automatico. Usa <strong>\u2193 JSON</strong>.');
-    return;
-  }
+  if (!window.showSaveFilePicker) { addAiMsg('Usa <strong>\u2193 JSON</strong> per backup manuali.'); return; }
   try {
     fileHandle = await window.showSaveFilePicker({
       suggestedName: 'ettorino_' + currentUser + '_autosave.json',
-      types: [{description:'JSON', accept:{'application/json':['.json']}}]
+      types: [{description:'JSON',accept:{'application/json':['.json']}}]
     });
-    document.getElementById('folderBtn').textContent = '📁 ' + fileHandle.name;
-    await writeAutoSave();
-    scheduleAutoSave();
+    document.getElementById('folderBtn').textContent = '\U0001f4c1 ' + fileHandle.name;
+    await writeAutoSave(); scheduleAutoSave();
     addAiMsg('Auto-save su <strong>' + fileHandle.name + '</strong>. Aggiornato ogni ora.');
   } catch(e) { if (e.name !== 'AbortError') addAiMsg('Errore: ' + e.message); }
 }
@@ -2090,11 +2103,8 @@ async function writeAutoSave() {
     await w.write(JSON.stringify(Object.assign({}, S, {user:currentUser, autoSavedAt:new Date().toISOString()}), null, 2));
     await w.close();
     _set('ettorino_last_export', String(Date.now()));
-    document.getElementById('bkInfo').textContent = 'Auto-saved ' +
-      new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
-  } catch(e) {
-    try { await fileHandle.requestPermission({mode:'readwrite'}); await writeAutoSave(); } catch(e2) {}
-  }
+    document.getElementById('bkInfo').textContent = 'Auto-saved ' + new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+  } catch(e) { try { await fileHandle.requestPermission({mode:'readwrite'}); await writeAutoSave(); } catch(e2) {} }
 }
 
 function scheduleAutoSave() {
@@ -2106,42 +2116,34 @@ function scheduleAutoSave() {
 function initAutoSave() {
   autoSaveEnabled = _get('ettorino_autosave') !== '0';
   const toggle = document.getElementById('autoSaveToggle');
-  toggle.checked = autoSaveEnabled;
+  if (toggle) toggle.checked = autoSaveEnabled;
   const th = document.getElementById('tthumb'), tr = document.getElementById('ttrack');
-  if (autoSaveEnabled) { th.classList.add('on'); tr.classList.add('on'); scheduleAutoSave(); }
-  else { th.classList.remove('on'); tr.classList.remove('on'); }
-  const neverChosen = !_get('ettorino_folder_' + currentUser);
-  if (autoSaveEnabled && neverChosen && window.showSaveFilePicker) {
-    setTimeout(promptFolderFirstTime, 2000);
+  if (autoSaveEnabled) { if(th)th.classList.add('on'); if(tr)tr.classList.add('on'); scheduleAutoSave(); }
+  else { if(th)th.classList.remove('on'); if(tr)tr.classList.remove('on'); }
+  if (autoSaveEnabled && !_get('ettorino_folder_'+currentUser) && window.showSaveFilePicker) {
+    setTimeout(promptFolderFirstTime, 2500);
   }
 }
 
-// ── EXPORT/IMPORT ────────────────────────────────────────────────
+// ── EXPORT / IMPORT ───────────────────────────────────────────────
 function exportJSON() {
   _set('ettorino_last_export', String(Date.now()));
   const b = new Blob([JSON.stringify(Object.assign({}, S, {user:currentUser, exportedAt:new Date().toISOString()}), null, 2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(b);
-  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.json';
-  a.click();
+  const a = document.createElement('a'); a.href = URL.createObjectURL(b);
+  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.json'; a.click();
 }
 
 function exportMD() {
-  const lines = ['# Ettorino4Finance \u2014 ' + currentUser,
-    '> ' + new Date().toLocaleString('it-IT'), '',
-    '## Liquidit\u00e0', '\u20ac' + (S.liquidity||0).toLocaleString('it-IT'), '',
-    '## Portafoglio',
-    '| Ticker | Nome | Qty | Medio | Attuale | P&L% | Alloc% |',
-    '|---|---|---|---|---|---|---|'];
+  const lines = ['# Ettorino4Finance \u2014 ' + currentUser, '> ' + new Date().toLocaleString('it-IT'), '',
+    '## Liquidit\u00e0', '\u20ac' + (S.liquidity||0).toLocaleString('it-IT'), '', '## Portafoglio',
+    '| Ticker | Nome | Qty | Medio | Attuale | P&L% | Alloc% |', '|---|---|---|---|---|---|---|'];
   (S.portfolio||[]).forEach(function(p) {
     const pl = calcPL(p);
     lines.push('| '+p.ticker+' | '+p.name+' | '+p.qty+' | \u20ac'+p.avgPrice+' | '+fmtPrice(p)+' | '+pl.plPct.toFixed(2)+'% | '+p.alloc+'% |');
   });
   const b = new Blob([lines.join('\n')], {type:'text/markdown'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(b);
-  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.md';
-  a.click();
+  const a = document.createElement('a'); a.href = URL.createObjectURL(b);
+  a.download = 'ettorino_' + currentUser + '_' + new Date().toISOString().slice(0,10) + '.md'; a.click();
 }
 
 function importJSON(e) {
@@ -2150,11 +2152,7 @@ function importJSON(e) {
   r.onload = function(ev) {
     try {
       const imp = JSON.parse(ev.target.result);
-      if (imp.portfolio) {
-        S = imp;
-        renderPortfolioBar(); renderTiles(); saveUserData();
-        addAiMsg('Portafoglio importato. Usa ↻ per aggiornare news e segnali.');
-      }
+      if (imp.portfolio) { S = imp; renderPortfolioBar(); renderTiles(); saveUserData(); addAiMsg('Portafoglio importato.'); }
     } catch(e) { addAiMsg('Errore nel file JSON.'); }
   };
   r.readAsText(file);
@@ -2165,20 +2163,15 @@ function importOnLogin(e) {
   const r = new FileReader();
   r.onload = function(ev) {
     try {
-      const imp = JSON.parse(ev.target.result);
-      if (!imp.portfolio) throw new Error();
-      const u = imp.user || 'Importato';
-      const users = getUsers();
+      const imp = JSON.parse(ev.target.result); if (!imp.portfolio) throw new Error();
+      const u = imp.user || 'Importato'; const users = getUsers();
       if (!users.includes(u)) { users.push(u); saveUsers(users); }
-      _set(storeKey(u), JSON.stringify(imp));
-      renderUserBtns(); selectUser(u);
+      _set(storeKey(u), JSON.stringify(imp)); renderUserBtns(); selectUser(u);
       const st = document.getElementById('apiStatus');
-      st.className = 'smsg ok';
-      st.textContent = '\u2713 Portafoglio di "' + u + '" caricato \u2014 inserisci la chiave API ed entra';
+      st.className = 'smsg ok'; st.textContent = '\u2713 Portafoglio di "' + u + '" caricato';
     } catch(e) {
       const st = document.getElementById('apiStatus');
-      st.className = 'smsg err';
-      st.textContent = '\u2717 File non riconosciuto.';
+      st.className = 'smsg err'; st.textContent = '\u2717 File non riconosciuto.';
     }
   };
   r.readAsText(file);
@@ -2188,15 +2181,10 @@ function resetUser() {
   if (!confirm('Azzerare tutti i dati di ' + currentUser + '?')) return;
   _del(storeKey(currentUser));
   S = {portfolio:[], liquidity:0, profile:{note:'fresh'}};
-  signals = {}; newsItems = []; _sugsData = []; _cryptoData = [];
-  recentSugTickers = []; recentCryptoSymbols = [];
-  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer=null; }
-  if (newsTimer) { clearInterval(newsTimer); newsTimer=null; }
-  if (sugTimer) { clearInterval(sugTimer); sugTimer=null; }
-  if (cryptoTimer) { clearInterval(cryptoTimer); cryptoTimer=null; }
+  signals = {}; _sugsData = []; _cryptoData = []; recentSugTickers = []; recentCryptoSymbols = [];
+  if (refreshTimer) { clearInterval(refreshTimer); refreshTimer = null; }
   showOnboard();
 }
-
 </script>
 </body>
 </html>
